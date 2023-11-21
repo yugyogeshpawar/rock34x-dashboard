@@ -1,53 +1,133 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
+import { Provider as ReduxProvider } from 'react-redux';
 import { CacheProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { CssBaseline } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import { AuthConsumer, AuthProvider } from 'src/contexts/auth-context';
-import { useNProgress } from 'src/hooks/use-nprogress';
-import { createTheme } from 'src/theme';
-import { createEmotionCache } from 'src/utils/create-emotion-cache';
-import 'simplebar-react/dist/simplebar.min.css';
+import { RTL } from '../components/rtl';
+import { SplashScreen } from '../components/splash-screen';
+import { Toaster } from '../components/toaster';
+import { SettingsConsumer, SettingsProvider } from '../contexts/settings-context';
+import { AuthConsumer, AuthProvider } from '../contexts/auth/jwt-context';
+import { gtmConfig } from '../config';
+import { gtm } from '../libs/gtm';
+import { store } from '../store';
+import { createTheme } from '../theme';
+import { createEmotionCache } from '../utils/create-emotion-cache';
+// Remove if nprogress is not used
+import '../libs/nprogress';
+// Remove if mapbox is not used
+import '../libs/mapbox';
+// Remove if locales are not used
+import '../locales/i18n';
+import { SettingsButton } from '../components/settings-button';
+import { SettingsDrawer } from '../components/settings-drawer';
 
 const clientSideEmotionCache = createEmotionCache();
 
-const SplashScreen = () => null;
+const useAnalytics = () => {
+  useEffect(() => {
+    gtm.initialize(gtmConfig);
+  }, []);
+};
 
 const App = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-  useNProgress();
+  useAnalytics();
 
   const getLayout = Component.getLayout ?? ((page) => page);
-
-  const theme = createTheme();
-
+console.log('-------------------')
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>
-          Devias Kit
+        {/* <title>
+          Rock34x 
         </title>
         <meta
           name="viewport"
           content="initial-scale=1, width=device-width"
-        />
+        /> */}
       </Head>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <AuthProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
+      <ReduxProvider store={store}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <AuthProvider>
             <AuthConsumer>
-              {
-                (auth) => auth.isLoading
-                  ? <SplashScreen />
-                  : getLayout(<Component {...pageProps} />)
-              }
+              {(auth) => (
+                <SettingsProvider>
+                  <SettingsConsumer>
+                    {(settings) => {
+                      // Prevent theme flicker when restoring custom settings from browser storage
+                      if (!settings.isInitialized) {
+                        // return null;
+                      }
+
+                      const theme = createTheme({
+                        colorPreset: settings.colorPreset,
+                        contrast: settings.contrast,
+                        direction: settings.direction,
+                        paletteMode: settings.paletteMode,
+                        responsiveFontSizes: settings.responsiveFontSizes
+                      });
+
+                      // Prevent guards from redirecting
+                      const showSlashScreen = !auth.isInitialized;
+
+                      return (
+                        <ThemeProvider theme={theme}>
+                          <Head>
+                            <meta
+                              name="color-scheme"
+                              content={settings.paletteMode}
+                            />
+                            <meta
+                              name="theme-color"
+                              content={theme.palette.neutral[900]}
+                            />
+                          </Head>
+                          <RTL direction={settings.direction}>
+                            <CssBaseline />
+                            {showSlashScreen
+                              ? <SplashScreen />
+                              : (
+                                <>
+                                  {getLayout(
+                                    <Component {...pageProps} />
+                                  )}
+                                  <SettingsButton onClick={settings.handleDrawerOpen} />
+                                  <SettingsDrawer
+                                    canReset={settings.isCustom}
+                                    onClose={settings.handleDrawerClose}
+                                    onReset={settings.handleReset}
+                                    onUpdate={settings.handleUpdate}
+                                    open={settings.openDrawer}
+                                    values={{
+                                      colorPreset: settings.colorPreset,
+                                      contrast: settings.contrast,
+                                      direction: settings.direction,
+                                      paletteMode: settings.paletteMode,
+                                      responsiveFontSizes: settings.responsiveFontSizes,
+                                      stretch: settings.stretch,
+                                      layout: settings.layout,
+                                      navColor: settings.navColor
+                                    }}
+                                  />
+                                </>
+                              )}
+                            <Toaster />
+                          </RTL>
+                        </ThemeProvider>
+                      );
+                    }}
+                  </SettingsConsumer>
+                </SettingsProvider>
+              )}
             </AuthConsumer>
-          </ThemeProvider>
-        </AuthProvider>
-      </LocalizationProvider>
+          </AuthProvider>
+        </LocalizationProvider>
+      </ReduxProvider>
     </CacheProvider>
   );
 };

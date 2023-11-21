@@ -1,31 +1,28 @@
-import { createTheme as createMuiTheme } from '@mui/material';
-import { createPalette } from './create-palette';
-import { createComponents } from './create-components';
-import { createShadows } from './create-shadows';
-import { createTypography } from './create-typography';
+import { createTheme as createMuiTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createOptions as createBaseOptions } from './base/create-options';
+import { createOptions as createDarkOptions } from './dark/create-options';
+import { createOptions as createLightOptions } from './light/create-options';
 
-export function createTheme() {
-  const palette = createPalette();
-  const components = createComponents({ palette });
-  const shadows = createShadows();
-  const typography = createTypography();
+export const createTheme = (config) => {
+  let theme = createMuiTheme(
+    // Base options available for both dark and light palette modes
+    createBaseOptions({
+      direction: config.direction
+    }),
+    // Options based on selected palette mode, color preset and contrast
+    config.paletteMode === 'dark'
+      ? createDarkOptions({
+        colorPreset: config.colorPreset,
+        contrast: config.contrast
+      })
+      : createLightOptions({
+        colorPreset: config.colorPreset,
+        contrast: config.contrast
+      }));
 
-  return createMuiTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1200,
-        xl: 1440
-      }
-    },
-    components,
-    palette,
-    shadows,
-    shape: {
-      borderRadius: 8
-    },
-    typography
-  });
-}
+  if (config.responsiveFontSizes) {
+    theme = responsiveFontSizes(theme);
+  }
+
+  return theme;
+};

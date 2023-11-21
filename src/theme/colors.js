@@ -24,12 +24,39 @@ export const neutral = {
   900: '#111927'
 };
 
+export const blue = withAlphas({
+  lightest: '#F5F8FF',
+  light: '#EBEFFF',
+  main: '#2970FF',
+  dark: '#004EEB',
+  darkest: '#00359E',
+  contrastText: '#FFFFFF'
+});
+
+export const green = withAlphas({
+  lightest: '#F6FEF9',
+  light: '#EDFCF2',
+  main: '#16B364',
+  dark: '#087443',
+  darkest: '#084C2E',
+  contrastText: '#FFFFFF'
+});
+
 export const indigo = withAlphas({
   lightest: '#F5F7FF',
   light: '#EBEEFE',
   main: '#6366F1',
   dark: '#4338CA',
   darkest: '#312E81',
+  contrastText: '#FFFFFF'
+});
+
+export const purple = withAlphas({
+  lightest: '#F9F5FF',
+  light: '#F4EBFF',
+  main: '#9E77ED',
+  dark: '#6941C6',
+  darkest: '#42307D',
   contrastText: '#FFFFFF'
 });
 

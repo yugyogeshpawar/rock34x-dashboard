@@ -1,43 +1,46 @@
-import Head from 'next/head';
 import NextLink from 'next/link';
-import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
-import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
+import Head from 'next/head';
+import { Box, Button, Container, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { usePageView } from '../hooks/use-page-view';
+import { paths } from '../paths';
 
-const Page = () => (
-  <>
-    <Head>
-      <title>
-        404 | Devias Kit
-      </title>
-    </Head>
-    <Box
-      component="main"
-      sx={{
-        alignItems: 'center',
-        display: 'flex',
-        flexGrow: 1,
-        minHeight: '100%'
-      }}
-    >
-      <Container maxWidth="md">
-        <Box
-          sx={{
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'column'
-          }}
-        >
+const Page = () => {
+  const theme = useTheme();
+  const mdUp = useMediaQuery(theme.breakpoints.up('md'));
+
+  usePageView();
+
+  return (
+    <>
+      <Head>
+        <title>
+          Error: Not Found | Rock34x 
+        </title>
+      </Head>
+      <Box
+        component="main"
+        sx={{
+          alignItems: 'center',
+          display: 'flex',
+          flexGrow: 1,
+          py: '80px'
+        }}
+      >
+        <Container maxWidth="lg">
           <Box
             sx={{
-              mb: 3,
-              textAlign: 'center'
+              display: 'flex',
+              justifyContent: 'center',
+              mb: 6
             }}
           >
-            <img
-              alt="Under development"
+            <Box
+              alt="Not found"
+              component="img"
               src="/assets/errors/error-404.png"
-              style={{
-                display: 'inline-block',
+              sx={{
+                height: 'auto',
                 maxWidth: '100%',
                 width: 400
               }}
@@ -45,36 +48,35 @@ const Page = () => (
           </Box>
           <Typography
             align="center"
-            sx={{ mb: 3 }}
-            variant="h3"
+            variant={mdUp ? 'h1' : 'h4'}
           >
             404: The page you are looking for isn’t here
           </Typography>
           <Typography
             align="center"
             color="text.secondary"
-            variant="body1"
+            sx={{ mt: 0.5 }}
           >
-            You either tried some shady route or you came here by mistake.
-            Whichever it is, try using the navigation
+            You either tried some shady route or you came here by mistake. Whichever it is, try using the navigation.
           </Typography>
-          <Button
-            component={NextLink}
-            href="/"
-            startIcon={(
-              <SvgIcon fontSize="small">
-                <ArrowLeftIcon />
-              </SvgIcon>
-            )}
-            sx={{ mt: 3 }}
-            variant="contained"
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mt: 6
+            }}
           >
-            Go back to dashboard
-          </Button>
-        </Box>
-      </Container>
-    </Box>
-  </>
-);
+            <Button
+              component={NextLink}
+              href={paths.index}
+            >
+              Back to Home
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+    </>
+  );
+};
 
 export default Page;
