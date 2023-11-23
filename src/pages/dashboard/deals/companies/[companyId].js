@@ -18,21 +18,25 @@ import {
   Typography,
   Unstable_Grid2 as Grid,
 } from "@mui/material";
-import { jobsApi } from "../../api/deals";
-import { useMounted } from "../../hooks/use-mounted";
-import { usePageView } from "../../hooks/use-page-view";
-import { Layout as DashboardLayout } from "../../layouts/dashboard";
-import { paths } from "../../paths";
-import { CompanyActivity } from "../../sections/dashboard/deals/company-activity";
-import { CompanyAssets } from "../../sections/dashboard/deals/company-assets";
-import { ProjectInfo } from "../../sections/dashboard/deals/project-info";
-import { CompanySummary } from "../../sections/dashboard/deals/company-summary";
-import { getInitials } from "../../utils/get-initials";
+import { jobsApi } from "../../../../api/jobs";
+import { useMounted } from "../../../../hooks/use-mounted";
+import { usePageView } from "../../../../hooks/use-page-view";
+import { Layout as DashboardLayout } from "../../../../layouts/dashboard";
+import { paths } from "../../../../paths";
+import { CompanyActivity } from "../../../../sections/dashboard/jobs/company-activity";
+import { CompanyAssets } from "../../../../sections/dashboard/jobs/company-assets";
+import { CompanyOverview } from "../../../../sections/dashboard/jobs/company-overview";
+import { CompanyReviews } from "../../../../sections/dashboard/jobs/company-reviews";
+import { CompanySummary } from "../../../../sections/dashboard/jobs/company-summary";
+import { CompanyTeam } from "../../../../sections/dashboard/jobs/company-team";
+import { getInitials } from "../../../../utils/get-initials";
 
 const tabs = [
-  { label: "Project info", value: "overview" },
+  { label: "Overview", value: "overview" },
+  { label: "Reviews", value: "reviews" },
   { label: "Activity", value: "activity" },
-  { label: "Form info", value: "assets" },
+  { label: "Team", value: "team" },
+  { label: "Assets", value: "assets" },
 ];
 
 const useCompany = () => {
@@ -167,10 +171,19 @@ const Page = () => {
                 <Divider />
                 <CardContent>
                   {currentTab === "overview" && (
-                    <ProjectInfo company={company} />
+                    <CompanyOverview company={company} />
+                  )}
+                  {currentTab === "reviews" && (
+                    <CompanyReviews
+                      reviews={company.reviews || []}
+                      averageRating={company.averageRating}
+                    />
                   )}
                   {currentTab === "activity" && (
                     <CompanyActivity activities={company.activities || []} />
+                  )}
+                  {currentTab === "team" && (
+                    <CompanyTeam members={company.members || []} />
                   )}
                   {currentTab === "assets" && (
                     <CompanyAssets assets={company.assets || []} />
