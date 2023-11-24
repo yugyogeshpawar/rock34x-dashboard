@@ -110,7 +110,7 @@ const Page = () => {
               <Button
                 color="primary"
                 component={NextLink}
-                href={paths.dashboard.jobs.create}
+                href={paths.dashboard.contribute}
                 size="large"
                 sx={{ mt: 3 }}
                 variant="contained"

@@ -1,7 +1,7 @@
-import NextLink from 'next/link';
-import PropTypes from 'prop-types';
-import Markdown from 'react-markdown';
-import ArrowRightIcon from '@untitled-ui/icons-react/build/esm/ArrowRight';
+import NextLink from "next/link";
+import PropTypes from "prop-types";
+import Markdown from "react-markdown";
+import ArrowRightIcon from "@untitled-ui/icons-react/build/esm/ArrowRight";
 import {
   Box,
   Divider,
@@ -11,21 +11,21 @@ import {
   Stack,
   SvgIcon,
   Typography,
-  Unstable_Grid2 as Grid
-} from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { CompanyJobs } from './company-jobs';
-import { CompanyMember } from './company-member';
-import { paths } from '../../../paths';
+  Unstable_Grid2 as Grid,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { CompanyJobs } from "./company-jobs";
+import { CompanyMember } from "./company-member";
+import { paths } from "../../../paths";
 
-const MarkdownWrapper = styled('div')(({ theme }) => ({
+const MarkdownWrapper = styled("div")(({ theme }) => ({
   color: theme.palette.text.secondary,
   fontFamily: theme.typography.fontFamily,
-  '& p': {
+  "& p": {
     fontSize: theme.typography.body2.fontSize,
     lineHeight: theme.typography.body1.lineHeight,
-    marginBottom: theme.spacing(2)
-  }
+    marginBottom: theme.spacing(2),
+  },
 }));
 
 export const ProjectInfo = (props) => {
@@ -38,22 +38,14 @@ export const ProjectInfo = (props) => {
   return (
     <div {...other}>
       <div>
-        <Typography variant="h5">
-          {company.shortDescription}
-        </Typography>
+        <Typography variant="h5">{company.shortDescription}</Typography>
       </div>
       <Box sx={{ mt: 3 }}>
         <MarkdownWrapper>
-          {company.description && (
-            <Markdown children={company.description} />
-          )}
+          {company.description && <Markdown children={company.description} />}
         </MarkdownWrapper>
       </Box>
-      <ImageList
-        cols={3}
-        gap={24}
-        variant="masonry"
-      >
+      <ImageList cols={3} gap={24} variant="masonry">
         {images.map((image, index) => (
           <ImageListItem key={index}>
             <img
@@ -73,23 +65,18 @@ export const ProjectInfo = (props) => {
         spacing={3}
         sx={{ mt: 3 }}
       >
-        <Typography variant="h6">
-          Jobs
-        </Typography>
+        <Typography variant="h6">Jobs</Typography>
         <Link
           color="inherit"
           component={NextLink}
           href={paths.dashboard.jobs.companies.details}
           variant="subtitle2"
           sx={{
-            alignItems: 'center',
-            display: 'flex'
+            alignItems: "center",
+            display: "flex",
           }}
         >
-          <Typography
-            sx={{ mr: 1 }}
-            variant="subtitle2"
-          >
+          <Typography sx={{ mr: 1 }} variant="subtitle2">
             Jobs
           </Typography>
           <SvgIcon>
@@ -108,23 +95,18 @@ export const ProjectInfo = (props) => {
         justifyContent="space-between"
         spacing={3}
       >
-        <Typography variant="h6">
-          Members
-        </Typography>
+        <Typography variant="h6">Members</Typography>
         <Link
           color="inherit"
           component={NextLink}
           href={paths.dashboard.jobs.companies.details}
           variant="subtitle2"
           sx={{
-            alignItems: 'center',
-            display: 'flex'
+            alignItems: "center",
+            display: "flex",
           }}
         >
-          <Typography
-            sx={{ mr: 1 }}
-            variant="subtitle2"
-          >
+          <Typography sx={{ mr: 1 }} variant="subtitle2">
             Members
           </Typography>
           <SvgIcon>
@@ -136,19 +118,12 @@ export const ProjectInfo = (props) => {
         sx={{
           mb: -1.5,
           mt: 1.5,
-          mx: -1.5
+          mx: -1.5,
         }}
       >
-        <Grid
-          container
-          spacing={3}
-        >
+        <Grid container spacing={3}>
           {members.map((member) => (
-            <Grid
-              key={member.id}
-              xs={12}
-              sm={6}
-            >
+            <Grid key={member.id} xs={12} sm={6}>
               <CompanyMember member={member} />
             </Grid>
           ))}
@@ -160,5 +135,5 @@ export const ProjectInfo = (props) => {
 
 ProjectInfo.propTypes = {
   // @ts-ignore
-  company: PropTypes.object.isRequired
+  company: PropTypes.object.isRequired,
 };
