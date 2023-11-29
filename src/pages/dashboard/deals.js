@@ -26,7 +26,7 @@ import { paths } from "../../paths";
 import { CompanyActivity } from "../../sections/dashboard/deals/company-activity";
 import { CompanyAssets } from "../../sections/dashboard/deals/company-assets";
 import { ProjectInfo } from "../../sections/dashboard/deals/project-info";
-import { CompanySummary } from "../../sections/dashboard/deals/company-summary";
+import { CompanySummary } from "../../sections/dashboard/deals/deals-info";
 import { getInitials } from "../../utils/get-initials";
 
 const tabs = [
@@ -85,7 +85,7 @@ const Page = () => {
         component="main"
         sx={{
           flexGrow: 1,
-          py: 4,
+          py: 2,
         }}
       >
         <Container maxWidth="lg">

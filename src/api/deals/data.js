@@ -260,5 +260,6 @@ Our mission emphasizes seeking and hiring diverse voices, including those who ar
     }
   ],
   shortDescription: 'Building technologies and ideas that move us as the leaders in Augmented Reality',
-  website: 'https://augmastic.dev'
+  website: 'https://augmastic.dev',
+  tokenPrice: '$0.01'
 };

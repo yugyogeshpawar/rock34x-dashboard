@@ -40,8 +40,8 @@ export const getSections = (t) => [
         ),
       },
       {
-        title: t(tokens.nav.demo),
-        path: paths.dashboard.demo,
+        title: t(tokens.nav.deals),
+        path: paths.dashboard.deals,
         icon: (
           <SvgIcon fontSize="small">
             <BarChartSquare02Icon />

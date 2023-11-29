@@ -19,7 +19,7 @@ export const es = {
   [tokens.nav.customers]: 'Clientes',
   [tokens.nav.dashboard]: 'Dashboard',
   [tokens.nav.details]: 'Detalles',
-  [tokens.nav.demo]: 'Demo',
+  [tokens.nav.deals]: 'Deals',
   [tokens.nav.ecommerce]: 'E-Commerce',
   [tokens.nav.edit]: 'Editar',
   [tokens.nav.error]: 'Error',

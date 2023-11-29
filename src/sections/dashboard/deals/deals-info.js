@@ -16,17 +16,17 @@ export const CompanySummary = (props) => {
           sx={{ mb: 2 }}
           variant="overline"
         >
-          About
+          Deals Info
         </Typography>
         <PropertyList>
           <PropertyListItem
             align="vertical"
-            label="Website"
+            label="Token Price"
             sx={{
               px: 0,
               py: 1
             }}
-            value={company.website}
+            value={company.tokenPrice}
           />
           <PropertyListItem
             align="vertical"

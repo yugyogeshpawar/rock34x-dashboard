@@ -4,7 +4,7 @@ export const en = {
   [tokens.common.languageChanged]: 'Language changed',
   [tokens.nav.academy]: 'Academy',
   [tokens.nav.account]: 'Account',
-  [tokens.nav.demo]: 'Demo',
+  [tokens.nav.deals]: 'Deals',
   [tokens.nav.portfolio]: 'Portfolio',
   [tokens.nav.analytics]: 'Analytics',
   [tokens.nav.auth]: 'Auth',

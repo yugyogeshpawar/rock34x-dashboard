@@ -7,7 +7,7 @@ export const tokens = {
     account: 'nav.account',
     portfolio: 'nav.portfolio',
     analytics: 'nav.analytics',
-    demo: 'nav.demo',
+    deals: 'nav.deals',
     auth: 'nav.auth',
     blog: 'nav.blog',
     browse: 'nav.browse',

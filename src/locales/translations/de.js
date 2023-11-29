@@ -5,7 +5,7 @@ export const de = {
   [tokens.nav.academy]: 'Akademie',
   [tokens.nav.account]: 'Konto',
   [tokens.nav.analytics]: 'Analytik',
-  [tokens.nav.demo]: 'Demo',
+  [tokens.nav.deals]: 'Deals',
   [tokens.nav.auth]: 'Authentifizierung',
   [tokens.nav.blog]: 'Blog',
   [tokens.nav.browse]: 'Durchsuche',
