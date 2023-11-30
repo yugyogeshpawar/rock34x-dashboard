@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
   },
   verificationDocuments: { type: [String] },
   userRole: { type: String, enum: ["Admin", "User"], default: "User" },
-  referralCode: { type: String, unique: true },
+  referralCode: { type: String },
   socialMediaProfiles: {
     twitter: { type: String },
     linkedin: { type: String },
