@@ -1,3 +1,4 @@
+import { createResourceId } from "../../../utils/create-resource-id";
 import { decode, JWT_EXPIRES_IN, JWT_SECRET, sign } from "../../../utils/jwt";
 import User from "../../../server/models/user.model"; // Assuming you have a User model defined
 import db from "../../../server/db";

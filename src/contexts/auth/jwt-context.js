@@ -1,6 +1,5 @@
 import { createContext, useCallback, useEffect, useReducer } from "react";
 import PropTypes from "prop-types";
-import { authApi } from "../../api/auth";
 import { Issuer } from "../../utils/auth";
 import axios from "axios";
 
@@ -78,7 +77,7 @@ export const AuthProvider = (props) => {
       if (accessToken) {
         const user = await axios.get("/api/auth/me", {
           headers: {
-            Authorization: `Bearer ${data.accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         });
 
