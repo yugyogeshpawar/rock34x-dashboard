@@ -13,6 +13,8 @@ export const de = {
   [tokens.nav.chat]: 'Plaudern',
   [tokens.nav.checkout]: 'Auschecken',
   [tokens.nav.concepts]: 'Konzepte',
+  [tokens.nav.admin]: 'Admin',
+  [tokens.nav.investors]: 'Investors',
   [tokens.nav.contact]: 'Kontakt',
   [tokens.nav.course]: 'Kurs',
   [tokens.nav.create]: 'Schaffen',

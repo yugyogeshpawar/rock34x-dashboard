@@ -141,7 +141,7 @@ export const Layout = (props) => {
                   }
                 }}
               >
-                Rock34x Kit <span>PRO</span>
+                Rock<span>34x</span>
               </Box>
             </Stack>
           </Box>

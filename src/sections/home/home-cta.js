@@ -41,7 +41,7 @@ export const HomeCta = () => (
           target="_blank"
           variant="contained"
         >
-          Purchase Now
+          Purchase Nows
         </Button>
       </Stack>
     </Container>

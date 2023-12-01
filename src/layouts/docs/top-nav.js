@@ -80,11 +80,11 @@ export const TopNav = (props) => {
                 }
               }}
             >
-              Rock34x Kit <span>PRO</span>
+              Rock<span>34x</span>
             </Box>
           </Stack>
           <Chip
-            label="v6.0.0"
+            label="v1.0.0"
             size="small"
           />
         </Stack>

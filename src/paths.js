@@ -71,6 +71,16 @@ export const paths = {
       details: '/dashboard/customers/:customerId',
       edit: '/dashboard/customers/:customerId/edit'
     },
+    startups: {
+      index: '/admin/startups',
+      details: '/admin/startups/:startupsId',
+      edit: '/admin/startups/:startupsId/edit'
+    },
+    investors: {
+      index: '/admin/investors',
+      details: '/admin/investors/:investorsId',
+      edit: '/admin/investors/:investorsId/edit'
+    },
     ecommerce: '/dashboard/ecommerce',
     fileManager: '/dashboard/file-manager',
     invoices: {

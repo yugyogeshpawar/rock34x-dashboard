@@ -12,6 +12,8 @@ export const es = {
   [tokens.nav.chat]: 'Chat',
   [tokens.nav.checkout]: 'Pago',
   [tokens.nav.concepts]: 'Conceptos',
+  [tokens.nav.admin]: 'Admin',
+  [tokens.nav.investors]: 'Investors',
   [tokens.nav.contact]: 'Contacto',
   [tokens.nav.course]: 'Curso',
   [tokens.nav.create]: 'Crear',

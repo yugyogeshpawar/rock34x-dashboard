@@ -24,15 +24,15 @@ export const HomeHero = () => {
             variant="h1"
             sx={{ mb: 2 }}
           >
-            Let us worry about the&nbsp;
+            Empowering Your&nbsp;
             <Typography
               component="span"
               color="primary.main"
               variant="inherit"
             >
-              User Experience
+              Crypto Investments
             </Typography>
-            , you focus on Developing.
+            , Every Step of the Way.
           </Typography>
           <Typography
             color="text.secondary"
@@ -41,8 +41,7 @@ export const HomeHero = () => {
               fontWeight: 500
             }}
           >
-            A professional kit that comes with ready-to-use MUI components developed with one common
-            goal in mind, help you build faster & beautiful applications.
+           Rock34x empowers your crypto investments by offering secure trading, staking rewards, and intuitive portfolio management. Navigate the world of cryptocurrency confidently with us, every step of the way.
           </Typography>
           <Stack
             alignItems="center"
@@ -71,51 +70,7 @@ export const HomeHero = () => {
               based on (70+ reviews)
             </Typography>
           </Stack>
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={2}
-          >
-            <Button
-              component={NextLink}
-              href={paths.dashboard.index}
-              startIcon={(
-                <SvgIcon fontSize="small">
-                  <EyeIcon />
-                </SvgIcon>
-              )}
-              sx={(theme) => theme.palette.mode === 'dark'
-                ? {
-                  backgroundColor: 'neutral.50',
-                  color: 'neutral.900',
-                  '&:hover': {
-                    backgroundColor: 'neutral.200'
-                  }
-                }
-                : {
-                  backgroundColor: 'neutral.900',
-                  color: 'neutral.50',
-                  '&:hover': {
-                    backgroundColor: 'neutral.700'
-                  }
-                }}
-              variant="contained"
-            >
-              Live Demo
-            </Button>
-            <Button
-              color="inherit"
-              component={NextLink}
-              href={paths.components.index}
-              startIcon={(
-                <SvgIcon fontSize="small">
-                  <LayoutBottomIcon />
-                </SvgIcon>
-              )}
-            >
-              Components
-            </Button>
-          </Stack>
+
         </Box>
         <Box
           sx={{
