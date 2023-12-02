@@ -1,5 +1,5 @@
 import { decode, JWT_SECRET } from "../../../utils/jwt";
-import User from "../../../server/models/user.model"; // Assuming you have a User model defined
+import Startups from "../../../server/models/startups.model"; // Assuming you have a User model defined
 
 const me = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ const me = async (req, res) => {
     const { userId } = decode(accessToken);
 
     // Find the user in the database
-    const user = await User.findById(userId);
+    const user = await Startups.findById(userId);
 
     // Check if the user doesn't exist
     if (!user) {

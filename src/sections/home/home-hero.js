@@ -81,7 +81,7 @@ export const HomeHero = () => {
           <Box
             sx={{
               overflow: 'hidden',
-              width: '90%',
+              width: '100%',
               fontSize: 0,
               mt: -2,
               mx: -2,
@@ -100,22 +100,6 @@ export const HomeHero = () => {
                 ? '/assets/home-thumbnail-dark.png'
                 : '/assets/home-thumbnail-light.png'}
             />
-          </Box>
-          <Box
-            sx={{
-              maxHeight: '100%',
-              maxWidth: '100%',
-              overflow: 'hidden',
-              position: 'absolute',
-              right: 0,
-              top: 40,
-              '& > div': {
-                height: 460,
-                width: 560
-              }
-            }}
-          >
-            <HomeCodeSamples />
           </Box>
         </Box>
       </Container>

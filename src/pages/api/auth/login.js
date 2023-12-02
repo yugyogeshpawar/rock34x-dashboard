@@ -1,5 +1,5 @@
 import { decode, JWT_EXPIRES_IN, JWT_SECRET, sign } from "../../../utils/jwt";
-import User from "../../../server/models/user.model"; // Assuming you have a User model defined
+import Investors from "../../../server/models/startups.model"; // Assuming you have a User model defined
 import db from "../../../server/db";
 
 const login = async (req, res) => {
@@ -12,7 +12,7 @@ const login = async (req, res) => {
     }
 
     // Find the user in the database
-    const user = await User.findOne({ email });
+    const user = await Investors.findOne({ email });
 
     if (!user || user.password !== password) {
       return res.status(401).json({ error: "Please check your email and password" });

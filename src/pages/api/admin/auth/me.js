@@ -1,5 +1,5 @@
 import { decode, JWT_SECRET } from "../../../utils/jwt";
-import User from "../../../server/models/user.model"; // Assuming you have a User model defined
+import User from "../../../../server/models/investors.model"; // Assuming you have a User model defined
 
 const me = async (req, res) => {
   try {

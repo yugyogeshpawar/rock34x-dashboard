@@ -38,6 +38,8 @@ const tabs = [
   { label: 'Logs', value: 'logs' }
 ];
 
+
+
 const useCustomer = () => {
   const isMounted = useMounted();
   const [customer, setCustomer] = useState(null);

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const startupSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
   name: { type: String, required: true },
   password: { type: String, required: true },
@@ -103,10 +103,10 @@ const userSchema = new mongoose.Schema({
       name: { type: String },
       description: { type: String },
       dateEarned: { type: Date, default: Date.now },
-    },
+    }, 
   ],
 });
 
-const UserModel = mongoose.models.User || mongoose.model("User", userSchema);
+const StartupsModal = mongoose.models.Startups || mongoose.model("Startups", startupSchema);
 
-module.exports = UserModel;
+module.exports = StartupsModal;

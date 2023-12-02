@@ -120,7 +120,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Customers
+                  Startups
                 </Typography>
                 <Stack
                   alignItems="center"
