@@ -36,7 +36,7 @@ const startupSchema = new mongoose.Schema({
     default: "Pending",
   },
   verificationDocuments: { type: [String] },
-  userRole: { type: String, enum: ["Admin", "User"], default: "User" },
+  userRole: { type: String, enum: ["Admin", "Investor"], default: "Investor" },
   referralCode: { type: String },
   socialMediaProfiles: {
     twitter: { type: String },

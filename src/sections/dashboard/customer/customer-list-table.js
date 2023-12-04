@@ -162,7 +162,7 @@ export const CustomerListTable = (props) => {
             {customers.map((customer) => {
               const isSelected = selected.includes(customer.id);
               const location = `${customer.city}, ${customer.state}, ${customer.country}`;
-              const totalSpent = numeral(customer.totalSpent).format(`${customer.currency}0,0.00`);
+              const totalSpent = numeral(customer.walletBalance).format(`${customer.currency}0,0.00`);
 
               return (
                 <TableRow

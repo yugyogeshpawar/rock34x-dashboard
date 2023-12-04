@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     // }
 
     // Fetch all users from the User model, excluding sensitive information
-    const users = await Startups.find({ userRole: 'Investor' }, { _id: 0, password: 0 });
+    const users = await Startups.find({ userRole: 'Investor' }, { password: 0 });
 
     // Respond with the user data
     res.status(200).json({ success: true, data: users });

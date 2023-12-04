@@ -1,7 +1,7 @@
 import { applyPagination } from "../../utils/apply-pagination";
 import { applySort } from "../../utils/apply-sort";
 import { deepCopy } from "../../utils/deep-copy";
-import { customer, emails, invoices, logs } from "./data";
+import { customer,customers, emails, invoices, logs } from "./data";
 import axios from "axios";
 
 const STORAGE_KEY = "accessToken";
@@ -20,9 +20,9 @@ class CustomersApi {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      console.log(startupData);
 
-      let data = deepCopy(startupData);
+
+      let data = deepCopy(startupData.data);
       let count = data.length;
 
       if (typeof filters !== "undefined") {
