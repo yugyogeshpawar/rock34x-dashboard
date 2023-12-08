@@ -142,6 +142,13 @@ const Form = () => {
 
   return (
     <>
+       <style>
+        {`
+          .PhoneInputInput {
+            height: 56px;
+          }
+        `}
+      </style>
       <Navbar />
       <Box sx={{ marginX: { xs: '20px', md: '200px' }, marginBottom: '50px', marginTop:'20px' }}>
         <TabContext value={value}>

@@ -23,18 +23,17 @@ const Navbar = () => {
           paddingX: { xs: "16px", md: "5vw" },
         }}
       >
-        <Box display={{ xs: "flex", md: "flex" }} alignItems="center">
+        <Box display={{ xs: "flex" }} alignItems="center">
           <Box
             display="flex"
             component="a"
             underline="none"
             href="/"
             title="webbee"
-                      height={{ xs: 28, md: 32 }}
+            maxHeight={{ xs: "100%", md: "60px" }}
           >
-            <WebbeeLogo height='60px' width={"100%"} />
+            <WebbeeLogo height={{ xs: "40px", md: "60px" }} width={"100%"} />
           </Box>
-
           {/* Description */}
           {/* <Typography
             variant="body2"
@@ -51,12 +50,24 @@ const Navbar = () => {
 
         <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
           <Box>
-            <Link underline="none" component="a" href="/" color="black" fontWeight="500">
+            <Link
+              underline="none"
+              component="a"
+              href="/"
+              color="black"
+              fontWeight="500"
+            >
               Investor
             </Link>
           </Box>
           <Box marginX={2}>
-            <Link underline="none" component="a" href="/" color="black" fontWeight="500">
+            <Link
+              underline="none"
+              component="a"
+              href="/"
+              color="black"
+              fontWeight="500"
+            >
               Menus
             </Link>
           </Box>
