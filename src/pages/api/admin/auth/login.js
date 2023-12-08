@@ -1,7 +1,7 @@
 import { createResourceId } from "../../../utils/create-resource-id";
 import { decode, JWT_EXPIRES_IN, JWT_SECRET, sign } from "../../../utils/jwt";
 import User from "../../../../server/models/investors.model";
-import db from "../../../../server/db";
+import db from "../../db";
 
 const login = async (req, res) => {
   try {

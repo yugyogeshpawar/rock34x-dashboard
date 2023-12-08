@@ -81,7 +81,7 @@ const Form = () => {
   return (
     <>
       <Navbar />
-      <Box sx={{ marginX: { xs: '20px', md: '200px' }, marginBottom: '50px' }}>
+      <Box sx={{ marginX: { xs: '20px', md: '200px' }, marginBottom: '50px', marginTop:'20px' }}>
         <TabContext value={value}>
           <Box>
             <TabList onChange={handleChange}>
