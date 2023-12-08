@@ -1,6 +1,6 @@
 import { decode, JWT_EXPIRES_IN, JWT_SECRET, sign } from "../../../utils/jwt";
 import Investors from "../../../server/models/startups.model"; // Assuming you have a User model defined
-import db from "../../../server/db";
+import db from "../db";
 
 const login = async (req, res) => {
   try {
