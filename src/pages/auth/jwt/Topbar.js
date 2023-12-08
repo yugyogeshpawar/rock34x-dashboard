@@ -31,8 +31,9 @@ const Navbar = () => {
             href="/"
             title="webbee"
             maxHeight={{ xs: "100%", md: "60px" }}
+            marginY={{ md:"10px"}}
           >
-            <WebbeeLogo height={{ xs: "40px", md: "60px" }} width={"100%"} />
+            <WebbeeLogo height={65} width={"100%"} />
           </Box>
           {/* Description */}
           {/* <Typography
