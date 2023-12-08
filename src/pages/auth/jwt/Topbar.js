@@ -40,6 +40,8 @@ const Navbar = () => {
                     <Box marginX={2}>
                         <Link
                             underline="none"
+                            component="a" 
+                            href="/"
                             color="black"
                         >
                             Menus
