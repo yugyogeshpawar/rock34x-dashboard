@@ -1,11 +1,10 @@
-
 import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Container,
-  Typography,
+ Box,
+ Card,
+ CardContent,
+ CardHeader,
+ Container,
+ Typography,
 } from "@mui/material";
 import BasicModal from "./modal";
 
@@ -13,7 +12,7 @@ import BasicModal from "./modal";
 
 export const JobCreateForm = () => {
 
-  return (
+ return (
     <Box
       sx={{
         backgroundColor: (theme) =>
@@ -59,18 +58,18 @@ export const JobCreateForm = () => {
               <Typography
                 variant="h4"
                 sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
+                 display: "flex",
+                 justifyContent: "space-between",
+                 alignItems: "center",
                 }}
               >
                 Invest
                 <Typography
-                  variant="h6"
-                  sx={{ display: "flex", alignItems: "center" }}
+                 variant="h6"
+                 sx={{ display: "flex", alignItems: "center" }}
                 >
                   0x8855..87a4
-                  <BasicModal />
+                 <BasicModal />
                 </Typography>
               </Typography>
             }
@@ -82,18 +81,18 @@ export const JobCreateForm = () => {
               <Typography variant="h6">
                 Main Investors
                 <Typography sx={{ display: "flex" }}>
-                  <Typography variant="h6" 
-                  sx={{ marginRight: 2 }}>
+                 <Typography variant="h6" 
+                 sx={{ marginRight: 2 }}>
                     Min $100.00
-                  </Typography>
-                  <Typography variant="h6"
+                 </Typography>
+                 <Typography variant="h6"
                    sx={{ marginRight: 2 }}>
                     Max $10,000.00
-                  </Typography>
-                  <Typography variant="h6" 
-                  sx={{ marginRight: 2 }}>
+                 </Typography>
+                 <Typography variant="h6" 
+                 sx={{ marginRight: 2 }}>
                     Fee 10.00%
-                  </Typography>
+                 </Typography>
                 </Typography>
               </Typography>
             </Typography>
@@ -119,9 +118,9 @@ export const JobCreateForm = () => {
             >
               <Typography
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
+                 display: "flex",
+                 flexDirection: "column",
+                 justifyContent: "center",
                 }}
               >
                 <Typography variant="h6">Amount</Typography>
@@ -130,8 +129,8 @@ export const JobCreateForm = () => {
               <Typography>
                 <BasicModal />
                 <Typography sx={{ display: "flex", marginX: 2 }}>
-                  <Typography variant="h6">Max(t22)</Typography>
-                  <Typography variant="h6">Bal 122.60</Typography>
+                 <Typography variant="h6">Max(t22)</Typography>
+                 <Typography variant="h6">Bal 122.60</Typography>
                 </Typography>
               </Typography>
             </Typography>
@@ -139,5 +138,5 @@ export const JobCreateForm = () => {
         </Card>
       </Container>
     </Box>
-  );
+ );
 };
