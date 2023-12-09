@@ -94,7 +94,7 @@ export const JobCreateForm = () => {
                   sx={{ display: "flex", alignItems: "center" }}
                 >
                   0x8855..87a4
-                  <Button onClick={handleOpen}>Open Modal</Button>
+                  <Button onClick={handleOpen}>Open</Button>
                   <Modal
                     open={open}
                     onClose={handleClose}
