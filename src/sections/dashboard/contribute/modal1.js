@@ -16,24 +16,16 @@ const contacts = [
   {
     id: "5e8877da9a65442b11551975",
     avatar: "/assets/avatars/avatar-iulia-albu.png",
-    price: 122.80,
-    name: "B-USDT",
+    name: "Ethereum",
   },
   {
     id: "5e8680e60cba5019c5ca6fda",
     avatar: "/assets/avatars/avatar-nasimiyu-danai.png",
-    price: 0.97,
-    name: "B-USDC",
-  },
-  {
-    id: "5e8680e60cba5019c5ca6fda",
-    avatar: "/assets/avatars/avatar-nasimiyu-danai.png",
-    price: 1.01,
-    name: "BUSD",
-  },
+    name: "Binance Smart Chain",
+  }
 ];
 
-export const Modal2 = () => (
+export const Modal1 = () => (
   <Box
     sx={{
       backgroundColor: (theme) =>
@@ -49,7 +41,7 @@ export const Modal2 = () => (
         p: 2,
       }}
     >
-      <Typography variant="h6">Select Token</Typography>
+      <Typography variant="h6">Select Network</Typography>
       <Box sx={{ mt: 2 }}>
         <List disablePadding>
           {contacts.map((contact) => {
