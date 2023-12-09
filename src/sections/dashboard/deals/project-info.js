@@ -45,17 +45,6 @@ export const ProjectInfo = (props) => {
           {company.description && <Markdown children={company.description} />}
         </MarkdownWrapper>
       </Box>
-      <ImageList cols={3} gap={24} variant="masonry">
-        {images.map((image, index) => (
-          <ImageListItem key={index}>
-            <img
-              alt={`${company.name} gallery`}
-              src={`${image}?w=248&fit=crop&auto=format`}
-              srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
       <Divider />
       <Stack
         alignItems="center"

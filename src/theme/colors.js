@@ -45,7 +45,7 @@ export const green = withAlphas({
 export const indigo = withAlphas({
   lightest: '#F5F7FF',
   light: '#EBEEFE',
-  main: '#6366F1',
+  main: '#ed1d3a',
   dark: '#4338CA',
   darkest: '#312E81',
   contrastText: '#FFFFFF'
