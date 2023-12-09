@@ -58,7 +58,7 @@ export const Modal3 = () => (
     <Paper
       elevation={12}
       sx={{
-        maxWidth: 600,
+        maxWidth: 800,
         mx: "auto",
         p: 2,
       }}
