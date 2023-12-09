@@ -17,7 +17,8 @@ const Page = () => {
       <Box
         component="main"
         sx={{
-          flexGrow: 1
+          flexGrow: 1,
+          background: '#F3F4F6'
         }}
       >
         <Grid
