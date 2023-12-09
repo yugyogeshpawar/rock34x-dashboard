@@ -57,7 +57,6 @@ export const JobCreateForm = () => {
           <CardHeader
             subheader={
               <Typography
-                variant="h4"
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
