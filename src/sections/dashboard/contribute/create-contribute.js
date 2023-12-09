@@ -1,131 +1,143 @@
-import { useCallback, useMemo, useState } from 'react';
-import CheckIcon from '@untitled-ui/icons-react/build/esm/Check';
-import { Avatar, Step, StepContent, StepLabel, Stepper, SvgIcon, Typography } from '@mui/material';
-import { JobCategoryStep } from './job-category-step';
-import { JobDescriptionStep } from './job-description-step';
-import { JobDetailsStep } from './job-details-step';
-import { JobPreview } from './job-preview';
 
-const StepIcon = (props) => {
-  const { active, completed, icon } = props;
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Container,
+  Typography,
+} from "@mui/material";
+import BasicModal from "./modal";
 
-  const highlight = active || completed;
 
-  return (
-    <Avatar
-      sx={{
-        height: 40,
-        width: 40,
-        ...(highlight && {
-          backgroundColor: 'primary.main',  
-          color: 'primary.contrastText'
-        })
-      }}
-      variant="rounded"
-    >
-      {completed
-        ? (
-          <SvgIcon>
-            <CheckIcon />
-          </SvgIcon>
-        )
-        : icon}
-    </Avatar>
-  );
-};
 
 export const JobCreateForm = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [complete, setComplete] = useState(false);
-
-  const handleNext = useCallback(() => {
-    setActiveStep((prevState) => prevState + 1);
-  }, []);
-
-  const handleBack = useCallback(() => {
-    setActiveStep((prevState) => prevState - 1);
-  }, []);
-
-  const handleComplete = useCallback(() => {
-    setComplete(true);
-  }, []);
-
-  const steps = useMemo(() => {
-    return [
-      {
-        label: 'Category',
-        content: (
-          <JobCategoryStep
-            onBack={handleBack}
-            onNext={handleNext}
-          />
-        )
-      },
-      {
-        label: 'Job Details',
-        content: (
-          <JobDetailsStep
-            onBack={handleBack}
-            onNext={handleNext}
-          />
-        )
-      },
-      {
-        label: 'Description',
-        content: (
-          <JobDescriptionStep
-            onBack={handleBack}
-            onNext={handleComplete}
-          />
-        )
-      }
-    ];
-  }, [handleBack, handleNext, handleComplete]);
-
-  if (complete) {
-    return <JobPreview />;
-  }
 
   return (
-    <Stepper
-      activeStep={activeStep}
-      orientation="vertical"
+    <Box
       sx={{
-        '& .MuiStepConnector-line': {
-          borderLeftColor: 'divider',
-          borderLeftWidth: 2,
-          ml: 1
-        }
+        backgroundColor: (theme) =>
+          theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
+        p: 3,
       }}
     >
-      {steps.map((step, index) => {
-        const isCurrentStep = activeStep === index;
-
-        return (
-          <Step key={step.label}>
-            <StepLabel StepIconComponent={StepIcon}>
-              <Typography
-                sx={{ ml: 2 }}
-                variant="overline"
-              >
-                {step.label}
+      <Container maxWidth="lg">
+        <Card>
+          <CardHeader
+            subheader={<Typography variant="h4">Universal Project</Typography>}
+            sx={{ pb: 0 }}
+            title={
+              <Typography color="text.secondary" 
+              variant="overline">
+                Fundraising
               </Typography>
-            </StepLabel>
-            <StepContent
+            }
+          />
+          <CardContent
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div>
+              <Typography variant="h6">$0.01</Typography>
+              <Typography color="text.secondary"
+               variant="overline">
+                Seed Round
+              </Typography>
+            </div>
+            <div>
+              <Typography variant="h6">$33,200/$50,000</Typography>
+              <Typography color="text.secondary" 
+              variant="overline">
+                Raised in pool Main Investors
+              </Typography>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ marginY: 2 }}>
+          <CardHeader
+            subheader={
+              <Typography
+                variant="h4"
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                Invest
+                <Typography
+                  variant="h6"
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  0x8855..87a4
+                  <BasicModal />
+                </Typography>
+              </Typography>
+            }
+          />
+          <CardContent>
+            <Typography
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <Typography variant="h6">
+                Main Investors
+                <Typography sx={{ display: "flex" }}>
+                  <Typography variant="h6" 
+                  sx={{ marginRight: 2 }}>
+                    Min $100.00
+                  </Typography>
+                  <Typography variant="h6"
+                   sx={{ marginRight: 2 }}>
+                    Max $10,000.00
+                  </Typography>
+                  <Typography variant="h6" 
+                  sx={{ marginRight: 2 }}>
+                    Fee 10.00%
+                  </Typography>
+                </Typography>
+              </Typography>
+            </Typography>
+
+            <Typography
               sx={{
-                borderLeftColor: 'divider',
-                borderLeftWidth: 2,
-                ml: '20px',
-                ...(isCurrentStep && {
-                  py: 4
-                })
+                display: "flex",
+                justifyContent: "space-between",
+                marginY: 3,
               }}
             >
-              {step.content}
-            </StepContent>
-          </Step>
-        );
-      })}
-    </Stepper>
+              <Typography variant="h6">Raised in pool</Typography>
+              <Typography
+                variant="h6"
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                $33,200.00/$50,000.00
+              </Typography>
+            </Typography>
+
+            <Typography
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
+              <Typography
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography variant="h6">Amount</Typography>
+                <Typography variant="h4">$ 0</Typography>
+              </Typography>
+              <Typography>
+                <BasicModal />
+                <Typography sx={{ display: "flex", marginX: 2 }}>
+                  <Typography variant="h6">Max(t22)</Typography>
+                  <Typography variant="h6">Bal 122.60</Typography>
+                </Typography>
+              </Typography>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Container>
+    </Box>
   );
 };
