@@ -16,7 +16,7 @@ const contacts = [
   {
     id: "5e8877da9a65442b11551975",
     avatar: "/assets/avatars/avatar-iulia-albu.png",
-    price: 122.80,
+    price: 122.8,
     name: "B-USDT",
   },
   {
@@ -33,7 +33,7 @@ const contacts = [
   },
 ];
 
-export const Modal2 = () => (
+export const Modal2 = ({ ChangeSelected1 }) => (
   <Box
     sx={{
       backgroundColor: (theme) =>
@@ -62,6 +62,7 @@ export const Modal2 = () => (
                     backgroundColor: (theme) => theme.palette.action.hover,
                   },
                 }}
+                onClick={() => ChangeSelected1(contact)}
               >
                 <ListItemAvatar>
                   <Avatar src={contact.avatar} />
@@ -93,13 +94,9 @@ export const Modal2 = () => (
         </List>
         {/* Cancel Button */}
         <Box textAlign="center">
-        <Button
-        color="primary"
-        size="medium"
-        variant="contained"
-      >
-        Cancel
-      </Button>
+          <Button color="primary" size="medium" variant="contained">
+            Cancel
+          </Button>
         </Box>
       </Box>
     </Paper>

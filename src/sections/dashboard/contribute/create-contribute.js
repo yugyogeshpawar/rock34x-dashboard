@@ -8,24 +8,20 @@ import {
   Typography,
 } from "@mui/material";
 
-import * as React from 'react';
-import Modal from '@mui/material/Modal';
-import { Modal3 } from './modal3';
-import { Modal2 } from './modal2';
-import { Modal1 } from './modal1';
-
-
+import * as React from "react";
+import Modal from "@mui/material/Modal";
+import { Modal3 } from "./modal3";
+import { Modal2 } from "./modal2";
+import { Modal1 } from "./modal1";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
 };
 
-
 export const JobCreateForm = () => {
-
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,6 +33,52 @@ export const JobCreateForm = () => {
   const [open3, setOpen3] = React.useState(false);
   const handleOpen3 = () => setOpen3(true);
   const handleClose3 = () => setOpen3(false);
+
+  const contacts = [
+    {
+      id: "5e8877da9a65442b11551975",
+      name: "Total amount",
+      field: "100 B-USDT",
+    },
+    {
+      id: "5e8680e60cba5019c5ca6fda",
+      name: "Receipient",
+      field: "Universal Project",
+    },
+    {
+      id: "5e8680e60cba5019c5ca6fda",
+      name: "Receiving wallet",
+      field: "0x8855..87a4",
+    },
+  ];
+  const contacts2 = [
+    {
+      id: "5e8877da9a65442b11551975",
+      name: "Network",
+      field: "Binance Smart Chain",
+    },
+    {
+      id: "5e8680e60cba5019c5ca6fda",
+      name: "Token",
+      field: "B-USDT",
+    },
+    {
+      id: "5e8680e60cba5019c5ca6fda",
+      name: "From Wallet",
+      field: "0x8855..87a4",
+    },
+  ];
+
+  const [seleced1, setSelected] = React.useState(contacts[0]);
+
+  const [seleced2, setSelected2] = React.useState(contacts2[0]);
+
+  console.log(seleced1.name);
+
+  const ChangeSelected1 = set => {
+    setSelected(set);
+    handleClose2();
+  }
 
   return (
     <Box
@@ -52,8 +94,7 @@ export const JobCreateForm = () => {
             subheader={<Typography variant="h4">Universal Project</Typography>}
             sx={{ pb: 0 }}
             title={
-              <Typography color="text.secondary"
-                variant="overline">
+              <Typography color="text.secondary" variant="overline">
                 Fundraising
               </Typography>
             }
@@ -63,15 +104,13 @@ export const JobCreateForm = () => {
           >
             <div>
               <Typography variant="h6">$0.01</Typography>
-              <Typography color="text.secondary"
-                variant="overline">
+              <Typography color="text.secondary" variant="overline">
                 Seed Round
               </Typography>
             </div>
             <div>
               <Typography variant="h6">$33,200/$50,000</Typography>
-              <Typography color="text.secondary"
-                variant="overline">
+              <Typography color="text.secondary" variant="overline">
                 Raised in pool Main Investors
               </Typography>
             </div>
@@ -95,10 +134,7 @@ export const JobCreateForm = () => {
                 >
                   0x8855..87a4
                   <Button onClick={handleOpen}>Changes</Button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                  >
+                  <Modal open={open} onClose={handleClose}>
                     <Box sx={style}>
                       <Modal1 />
                     </Box>
@@ -114,16 +150,13 @@ export const JobCreateForm = () => {
               <Typography variant="h6">
                 Main Investors
                 <Typography sx={{ display: "flex" }}>
-                  <Typography variant="h6"
-                    sx={{ marginRight: 2 }}>
+                  <Typography variant="h6" sx={{ marginRight: 2 }}>
                     Min $100.00
                   </Typography>
-                  <Typography variant="h6"
-                    sx={{ marginRight: 2 }}>
+                  <Typography variant="h6" sx={{ marginRight: 2 }}>
                     Max $10,000.00
                   </Typography>
-                  <Typography variant="h6"
-                    sx={{ marginRight: 2 }}>
+                  <Typography variant="h6" sx={{ marginRight: 2 }}>
                     Fee 10.00%
                   </Typography>
                 </Typography>
@@ -160,17 +193,14 @@ export const JobCreateForm = () => {
                 <Typography variant="h4">$ 0</Typography>
               </Typography>
               <Typography>
-              <div>
-              <Button onClick={handleOpen2}>Open Modal</Button>
-              <Modal
-                open={open2}
-                onClose={handleClose2}
-              >
-                <Box sx={style}>
-                <Modal2/>
-                </Box>
-              </Modal>
-            </div>
+                <div>
+                  <Button onClick={handleOpen2}>{seleced1.name}</Button>
+                  <Modal open={open2} onClose={handleClose2}>
+                    <Box sx={style}>
+                      <Modal2 ChangeSelected1={ChangeSelected1} />
+                    </Box>
+                  </Modal>
+                </div>
                 <Typography sx={{ display: "flex", marginX: 2 }}>
                   <Typography variant="h6">Max(t22)</Typography>
                   <Typography variant="h6">Bal 122.60</Typography>
@@ -184,18 +214,23 @@ export const JobCreateForm = () => {
                 variant="contained"
                 sx={{ paddingX: 4 }}
                 onClick={handleOpen3}
-              >Invest</Button>
-                <Modal
-                  open={open3}
-                  onClose={handleClose3}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style}>
-                    <Modal3 />
-                  </Box>
-                </Modal>
-              
+              >
+                Invest
+              </Button>
+              <Modal
+                open={open3}
+                onClose={handleClose3}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Modal3
+                    handleClose3={handleClose3}
+                    contacts={contacts}
+                    contacts2={contacts2}
+                  />
+                </Box>
+              </Modal>
             </Box>
           </CardContent>
         </Card>
