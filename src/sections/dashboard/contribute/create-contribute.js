@@ -209,7 +209,7 @@ export const JobCreateForm = () => {
             >
               <Typography variant="h8">
                 Main Investors
-                <Typography sx={{ display: "flex" }}>
+                <Typography sx={{ display: "flex",flexWrap: "wrap", }}>
                   <Typography variant="h8" sx={{ marginRight: 2 }}>
                     Min $100.00
                   </Typography>
@@ -228,6 +228,7 @@ export const JobCreateForm = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 marginY: 3,
+                flexWrap: "wrap",
               }}
             >
               <Typography variant="h8">Raised in pool</Typography>
@@ -240,7 +241,7 @@ export const JobCreateForm = () => {
             </Typography>
 
             <Typography
-              sx={{ display: "flex", justifyContent: "space-between" }}
+              sx={{ display: "flex", justifyContent: "space-between",flexWrap: "wrap" }}
             >
               <Typography
                 sx={{
@@ -253,12 +254,10 @@ export const JobCreateForm = () => {
                 <Typography variant="h4">$ 0</Typography>
               </Typography>
               <Typography>
-                <div>
                   <Button
                     color="primary"
                     size="small"
                     variant="contained"
-                    sx={{ marginX: 2 }}
                     onClick={handleOpen2}
                   >
                     {seleced2.name}
@@ -272,8 +271,7 @@ export const JobCreateForm = () => {
                       />
                     </Box>
                   </Modal>
-                </div>
-                <Typography sx={{ display: "flex", marginX: 2 }}>
+                <Typography sx={{ display: "flex",flexWrap: "wrap" }}>
                   <Typography variant="h8">Max(t22)</Typography>
                   <Typography variant="h8">Bal 122.60</Typography>
                 </Typography>

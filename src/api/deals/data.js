@@ -206,7 +206,7 @@ Our mission emphasizes seeking and hiring diverse voices, including those who ar
       title: 'Senior Golang Backend Engineer'
     }
   ],
-  locations: ['New York City', 'Milano', 'Moscow'],
+  locations: ['20% on TGE', '3 month cliff', '10% monthly thereafter'],
   logo: '/assets/companies/company-logo-1.svg',
   members: [
     {

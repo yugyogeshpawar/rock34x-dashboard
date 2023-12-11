@@ -101,12 +101,26 @@ const Page = () => {
             }}
           >
             <Grid xs={12} sm={7}>
+              <Typography color="text.secondary" >
+                Fundraising
+              </Typography>
               <Typography color="inherit" variant="h3">
                 Universal Project
               </Typography>
-              <Typography color="neutral.500" sx={{ mt: 2 }} variant="body1">
-                Post your job today for free. Promotions start at $99.
+              <Box sx={{ display: 'flex', justifyContent:'space-between', marginY:3}}>
+              <Box>
+              <Typography variant="h6">$0.01</Typography>
+              <Typography color="text.secondary">
+                Seed Round
               </Typography>
+            </Box>
+            <Box>
+              <Typography variant="h6">$33,200/$100,000</Typography>
+              <Typography color="text.secondary">
+                Currently raised
+              </Typography>
+            </Box>
+            </Box>
               <Button
                 color="primary"
                 component={NextLink}

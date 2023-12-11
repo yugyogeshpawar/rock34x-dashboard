@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types';
-import { Avatar, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
+import {Box,Button,Avatar, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
 import { PropertyList } from '../../../components/property-list';
 import { PropertyListItem } from '../../../components/property-list-item';
 import { getInitials } from '../../../utils/get-initials';
+
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ShopIcon from '@mui/icons-material/Shop';
+import LinkIcon from '@mui/icons-material/Link';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 export const CompanySummary = (props) => {
   const { company, ...other } = props;
@@ -14,13 +20,12 @@ export const CompanySummary = (props) => {
           color="text.secondary"
           component="p"
           sx={{ mb: 2 }}
-          variant="overline"
         >
-          Deals Info
+          Deal Info
         </Typography>
         <PropertyList>
           <PropertyListItem
-            align="vertical"
+            align="Horizontal"
             label="Token Price"
             sx={{
               px: 0,
@@ -29,8 +34,8 @@ export const CompanySummary = (props) => {
             value={company.tokenPrice}
           />
           <PropertyListItem
-            align="vertical"
-            label="Locations"
+            align="horizontal"
+            label="Vesting"
             sx={{
               px: 0,
               py: 1
@@ -46,15 +51,50 @@ export const CompanySummary = (props) => {
               </Typography>
             ))}
           </PropertyListItem>
-          <PropertyListItem
-            align="vertical"
-            label="Company size"
-            sx={{
-              px: 0,
-              py: 1
-            }}
-            value={company.employees}
-          />
+          <Box sx={{ marginY:2}}>
+          <Button
+            color="primary"
+            size="small"
+            variant="contained"
+            sx={{ marginX: 1 }}
+          >
+          <ShopIcon/>
+            Medium
+            <OpenInNewIcon/>
+          </Button>
+          <Button
+            color="primary"
+            size="small"
+            variant="contained"
+            sx={{ marginX: 1 }}
+          >
+          <LinkIcon/>
+            Website
+            <OpenInNewIcon/>
+          </Button>
+          </Box>
+          <Box>
+          <Button
+            color="primary"
+            size="small"
+            variant="contained"
+            sx={{ marginX: 1 }}
+          >
+          <TwitterIcon/>
+            Twitter
+            <OpenInNewIcon/>
+          </Button>
+          <Button
+            color="primary"
+            size="small"
+            variant="contained"
+            sx={{ marginX: 1 }}
+          >
+          <TelegramIcon/>
+            Telegram
+            <OpenInNewIcon/>
+          </Button>
+          </Box>
         </PropertyList>
         <Divider sx={{ my: 2 }} />
         <Typography
