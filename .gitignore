@@ -11,7 +11,7 @@
 # production
 /build
 out
-.next
+# .next
 
 # misc
 .DS_Store
@@ -29,4 +29,4 @@ yarn-error.log*
 /yarn.lock
 
 
-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
+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
