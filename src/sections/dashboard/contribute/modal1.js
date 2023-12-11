@@ -25,7 +25,7 @@ const contacts = [
   }
 ];
 
-export const Modal1 = () => (
+export const Modal1 = ({ChangeSelected1, handleClose}) => (
   <Box
     sx={{
       backgroundColor: (theme) =>
@@ -54,6 +54,7 @@ export const Modal1 = () => (
                     backgroundColor: (theme) => theme.palette.action.hover,
                   },
                 }}
+                onClick={() => ChangeSelected1(contact)}
               >
                 <ListItemAvatar>
                   <Avatar src={contact.avatar} />
@@ -89,6 +90,7 @@ export const Modal1 = () => (
         color="primary"
         size="medium"
         variant="contained"
+        onClick={handleClose}
       >
         Cancel
       </Button>
