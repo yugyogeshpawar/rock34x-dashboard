@@ -152,7 +152,7 @@ const Form = () => {
               Your Name *
             </Typography>
             <TextField
-              label="Text Your Name"
+              label="Enter Your Name"
               name={'name'}
               fullWidth
               value={formikStep1.values.name}

@@ -69,7 +69,7 @@ const Form = () => {
     linkedin: yup
       .string('Enter your LinkedIn profile URL')
       .trim()
-      .url('Please enter a valid URL for your LinkedIn profile')
+      .url('Please enter a valid URL it should be start with https://')
       .required('LinkedIn profile URL is required.'),
     kindofreferrer: yup
       .string('Select kind of Referrer')
@@ -197,7 +197,7 @@ const Form = () => {
                       Your Name *
                     </Typography>
                     <TextField
-                      label="Text Your Name"
+                      label="Enter Your Name"
                       name={'name'}
                       fullWidth
                       value={formikStep1.values.name}
@@ -261,7 +261,7 @@ const Form = () => {
                       Linkedin Profile URL*
                     </Typography>
                     <TextField
-                      label="Text Linkedin URL"
+                      label="Enter Linkedin URL"
                       name={'linkedin'}
                       fullWidth
                       value={formikStep1.values.linkedin}
@@ -293,7 +293,7 @@ const Form = () => {
                       Referrer Name*
                     </Typography>
                     <TextField
-                      label="Text Referrer Name"
+                      label="Enter Referrer Name"
                       name={'referrer'}
                       fullWidth
                       value={formikStep1.values.referrer}
@@ -558,3 +558,5 @@ export default Form;
 
 
 
+
+//api/auth/register-startups.js
