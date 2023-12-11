@@ -24,12 +24,12 @@ import { useMounted } from '../../../../hooks/use-mounted';
 import { usePageView } from '../../../../hooks/use-page-view';
 import { Layout as DashboardLayout } from '../../../../layouts/dashboard';
 import { paths } from '../../../../paths';
-import { CustomerBasicDetails } from '../../../../sections/dashboard/customer/customer-basic-details';
-import { CustomerDataManagement } from '../../../../sections/dashboard/customer/customer-data-management';
-import { CustomerEmailsSummary } from '../../../../sections/dashboard/customer/customer-emails-summary';
-import { CustomerInvoices } from '../../../../sections/dashboard/customer/customer-invoices';
-import { CustomerPayment } from '../../../../sections/dashboard/customer/customer-payment';
-import { CustomerLogs } from '../../../../sections/dashboard/customer/customer-logs';
+import { InvestorBasicDetails } from '../../../../sections/dashboard/investor/investor-basic-details';
+import { InvestorDataManagement } from '../../../../sections/dashboard/investor/investor-data-management';
+import { InvestorEmailsSummary } from '../../../../sections/dashboard/investor/investor-emails-summary';
+import { InvestorInvoices } from '../../../../sections/dashboard/investor/investor-invoices';
+import { InvestorPayment } from '../../../../sections/dashboard/investor/investor-payment';
+import { InvestorLogs } from '../../../../sections/dashboard/investor/investor-logs';
 import { getInitials } from '../../../../utils/get-initials';
 
 const tabs = [
@@ -135,7 +135,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Customer Details | Rock34x 
+          Dashboard: Investor Details | Rock34x 
         </title>
       </Head>
       <Box
@@ -163,7 +163,7 @@ const Page = () => {
                     <ArrowLeftIcon />
                   </SvgIcon>
                   <Typography variant="subtitle2">
-                    Customers
+                    Investors
                   </Typography>
                 </Link>
               </div>
@@ -269,7 +269,7 @@ const Page = () => {
                     xs={12}
                     lg={4}
                   >
-                    <CustomerBasicDetails
+                    <InvestorBasicDetails
                       address1={customer.address1}
                       address2={customer.address2}
                       country={customer.country}
@@ -284,16 +284,16 @@ const Page = () => {
                     lg={8}
                   >
                     <Stack spacing={4}>
-                      <CustomerPayment />
-                      <CustomerEmailsSummary />
-                      <CustomerDataManagement />
+                      <InvestorPayment />
+                      <InvestorEmailsSummary />
+                      <InvestorDataManagement />
                     </Stack>
                   </Grid>
                 </Grid>
               </div>
             )}
-            {currentTab === 'invoices' && <CustomerInvoices invoices={invoices} />}
-            {currentTab === 'logs' && <CustomerLogs logs={logs} />}
+            {currentTab === 'invoices' && <InvestorInvoices invoices={invoices} />}
+            {currentTab === 'logs' && <InvestorLogs logs={logs} />}
           </Stack>
         </Container>
       </Box>

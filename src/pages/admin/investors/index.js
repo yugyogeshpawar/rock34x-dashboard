@@ -8,8 +8,8 @@ import { customersApi } from '../../../api/customers';
 import { useMounted } from '../../../hooks/use-mounted';
 import { usePageView } from '../../../hooks/use-page-view';
 import { Layout as DashboardLayout } from '../../../layouts/dashboard';
-import { CustomerListSearch } from '../../../sections/dashboard/customer/customer-list-search';
-import { CustomerListTable } from '../../../sections/dashboard/customer/customer-list-table';
+import { InvestorListSearch } from '../../../sections/dashboard/investor/investor-list-search';
+import { InvestorListTable } from '../../../sections/dashboard/investor/investor-list-table';
 
 const useSearch = () => {
   const [search, setSearch] = useState({
@@ -101,7 +101,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Customer List | Rock34x 
+          Dashboard: Investor List | Rock34x 
         </title>
       </Head>
       <Box
@@ -120,7 +120,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Customers
+                  Investors
                 </Typography>
                 <Stack
                   alignItems="center"
@@ -169,13 +169,13 @@ const Page = () => {
               </Stack>
             </Stack>
             <Card>
-              <CustomerListSearch
+              <InvestorListSearch
                 onFiltersChange={handleFiltersChange}
                 onSortChange={handleSortChange}
                 sortBy={search.sortBy}
                 sortDir={search.sortDir}
               />
-              <CustomerListTable
+              <InvestorListTable
                 customers={customers}
                 customersCount={customersCount}
                 onPageChange={handlePageChange}
