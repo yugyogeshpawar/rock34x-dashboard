@@ -8,6 +8,7 @@ export const tokens = {
     portfolio: 'nav.portfolio',
     analytics: 'nav.analytics',
     deals: 'nav.deals',
+    all: 'nav.all',
     auth: 'nav.auth',
     blog: 'nav.blog',
     browse: 'nav.browse',

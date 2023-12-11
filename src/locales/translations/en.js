@@ -3,6 +3,7 @@ import { tokens } from '../tokens';
 export const en = {
   [tokens.common.languageChanged]: 'Language changed',
   [tokens.nav.academy]: 'Academy',
+  [tokens.nav.all]: 'All',
   [tokens.nav.account]: 'Account',
   [tokens.nav.deals]: 'Deals',
   [tokens.nav.portfolio]: 'Portfolio',
