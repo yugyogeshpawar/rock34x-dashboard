@@ -36,7 +36,6 @@ const Page = () => {
           >
             <Stack
               maxWidth="lg"
-              spacing={3}
             >
               <Typography variant="h4">
                 Contribute

@@ -124,7 +124,6 @@ export const JobCreateForm = () => {
       sx={{
         backgroundColor: (theme) =>
           theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
-        p: 3,
       }}
     >
       <Container maxWidth="lg">
@@ -160,6 +159,7 @@ export const JobCreateForm = () => {
           <CardHeader
             subheader={
               <Typography
+              variant="h4"
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -186,20 +186,20 @@ export const JobCreateForm = () => {
               </Typography>
             }
           />
-          <CardContent>
+          <CardContent sx={{ }}>
             <Typography
               sx={{ display: "flex", justifyContent: "space-between" }}
             >
-              <Typography variant="h6">
+              <Typography variant="h8">
                 Main Investors
                 <Typography sx={{ display: "flex" }}>
-                  <Typography variant="h6" sx={{ marginRight: 2 }}>
+                  <Typography variant="h8" sx={{ marginRight: 2 }}>
                     Min $100.00
                   </Typography>
-                  <Typography variant="h6" sx={{ marginRight: 2 }}>
+                  <Typography variant="h8" sx={{ marginRight: 2 }}>
                     Max $10,000.00
                   </Typography>
-                  <Typography variant="h6" sx={{ marginRight: 2 }}>
+                  <Typography variant="h8" sx={{ marginRight: 2 }}>
                     Fee 10.00%
                   </Typography>
                 </Typography>
@@ -213,9 +213,9 @@ export const JobCreateForm = () => {
                 marginY: 3,
               }}
             >
-              <Typography variant="h6">Raised in pool</Typography>
+              <Typography variant="h8">Raised in pool</Typography>
               <Typography
-                variant="h6"
+                variant="h8"
                 sx={{ display: "flex", alignItems: "center" }}
               >
                 $33,200.00/$50,000.00
@@ -249,8 +249,8 @@ export const JobCreateForm = () => {
                   </Modal>
                 </div>
                 <Typography sx={{ display: "flex", marginX: 2 }}>
-                  <Typography variant="h6">Max(t22)</Typography>
-                  <Typography variant="h6">Bal 122.60</Typography>
+                  <Typography variant="h8">Max(t22)</Typography>
+                  <Typography variant="h8">Bal 122.60</Typography>
                 </Typography>
               </Typography>
             </Typography>
