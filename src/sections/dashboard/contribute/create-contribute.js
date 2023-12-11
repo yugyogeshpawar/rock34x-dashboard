@@ -7,7 +7,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import * as React from "react";
 import Modal from "@mui/material/Modal";
@@ -80,7 +80,7 @@ export const JobCreateForm = () => {
       id: "5e8680e60cba5019c5ca6fda",
       avatar: "/assets/avatars/avatar-nasimiyu-danai.png",
       name: "Binance Smart Chain",
-    }
+    },
   ];
 
   const contacts2 = [
@@ -110,18 +110,19 @@ export const JobCreateForm = () => {
 
   console.log(seleced1.name);
 
-  const ChangeSelected1 = set => {
+  const ChangeSelected1 = (set) => {
     setSelected(set);
     handleClose();
-  }
-  const ChangeSelected2 = set => {
+  };
+  const ChangeSelected2 = (set) => {
     setSelected2(set);
     handleClose2();
-  }
+  };
 
   return (
     <Box
       sx={{
+        marginTop: 3,
         backgroundColor: (theme) =>
           theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
       }}
@@ -138,20 +139,24 @@ export const JobCreateForm = () => {
             }
           />
           <CardContent
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+            }}
           >
-            <div>
+            <Box>
               <Typography variant="h6">$0.01</Typography>
               <Typography color="text.secondary" variant="overline">
                 Seed Round
               </Typography>
-            </div>
-            <div>
+            </Box>
+            <Box>
               <Typography variant="h6">$33,200/$50,000</Typography>
               <Typography color="text.secondary" variant="overline">
                 Raised in pool Main Investors
               </Typography>
-            </div>
+            </Box>
           </CardContent>
         </Card>
 
@@ -159,34 +164,46 @@ export const JobCreateForm = () => {
           <CardHeader
             subheader={
               <Typography
-              variant="h4"
+                variant="h4"
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  flexWrap: "wrap",
                 }}
               >
                 Invest
                 <Typography
                   variant="h6"
-                  sx={{ display: "flex", alignItems: "center" }}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                 >
-                  0x8855..87a4
-                  <Button color="primary"
-                  size="small"
-                  variant="contained"
-                  sx={{ marginX: 2 }}
-                  onClick={handleOpen}>{seleced1.name}<ArrowDropDownIcon/></Button>
-                  <Modal open={open} >
+                  <Box>0x8855..87a4</Box>
+                  <Button
+                    color="primary"
+                    size="small"
+                    variant="contained"
+                    sx={{ marginX: 2 }}
+                    onClick={handleOpen}
+                  >
+                    {seleced1.name}
+                    <ArrowDropDownIcon />
+                  </Button>
+                  <Modal open={open}>
                     <Box sx={style}>
-                      <Modal1 ChangeSelected1={ChangeSelected1} handleClose={handleClose}/>
+                      <Modal1
+                        ChangeSelected1={ChangeSelected1}
+                        handleClose={handleClose}
+                      />
                     </Box>
                   </Modal>
                 </Typography>
               </Typography>
             }
           />
-          <CardContent sx={{ }}>
+          <CardContent sx={{}}>
             <Typography
               sx={{ display: "flex", justifyContent: "space-between" }}
             >
@@ -237,14 +254,22 @@ export const JobCreateForm = () => {
               </Typography>
               <Typography>
                 <div>
-                  <Button color="primary"
-                  size="small"
-                  variant="contained"
-                  sx={{ marginX: 2 }}
-                  onClick={handleOpen2}>{seleced2.name}<ArrowDropDownIcon/></Button>
+                  <Button
+                    color="primary"
+                    size="small"
+                    variant="contained"
+                    sx={{ marginX: 2 }}
+                    onClick={handleOpen2}
+                  >
+                    {seleced2.name}
+                    <ArrowDropDownIcon />
+                  </Button>
                   <Modal open={open2}>
                     <Box sx={style}>
-                      <Modal2 ChangeSelected2={ChangeSelected2} handleClose2={handleClose2}/>
+                      <Modal2
+                        ChangeSelected2={ChangeSelected2}
+                        handleClose2={handleClose2}
+                      />
                     </Box>
                   </Modal>
                 </div>
