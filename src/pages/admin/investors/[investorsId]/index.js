@@ -310,28 +310,17 @@ const Page = () => {
                 >
                   <Grid
                     xs={12}
-                    lg={4}
+                    lg={12}
                   >
                     <InvestorBasicDetails
-                      address1={customer.address1}
-                      address2={customer.address2}
-                      country={customer.country}
-                      email={customer.email}
-                      isVerified={!!customer.isVerified}
-                      phone={customer.phone}
-                      state={customer.state}
                     />
                   </Grid>
-                  <Grid
-                    xs={12}
-                    lg={8}
-                  >
-                    <Stack spacing={4}>
-                      <InvestorPayment />
-                      <InvestorEmailsSummary />
-                      <InvestorDataManagement />
-                    </Stack>
-                  </Grid>
+
+
+
+
+
+
                 </Grid>
               </div>
             )}
@@ -352,3 +341,15 @@ Page.getLayout = (page) => (
 
 export default Page;
 
+
+
+<Grid
+xs={12}
+lg={8}
+>
+<Stack spacing={4}>
+  <InvestorPayment />
+  <InvestorEmailsSummary />
+  <InvestorDataManagement />
+</Stack>
+</Grid>
