@@ -24,6 +24,8 @@ import 'react-phone-number-input/style.css';
 import Footer2 from './Footer';
 import Navbar from './Topbar';
 
+import axios from 'axios';
+
 const Form = () => {
   const [value, setValue] = React.useState('1');
   const [value2, setValue2] = React.useState('male');
@@ -140,16 +142,40 @@ const Form = () => {
     characterstotell: '',
   };
 
-  const onSubmitStep1 = (values) => {
-    console.log(values); // Handle form submission logic for Step 1 here
-    // Move to Step 2
-    setValue('2');
-    setStep1Completed(true);
+  // const onSubmitStep1 = (values) => {
+  //   console.log(values); // Handle form submission logic for Step 1 here
+  //   // Move to Step 2
+  //   setValue('2');
+  //   setStep1Completed(true);
+  // };
+
+  // const onSubmitStep2 = (values) => {
+  //   console.log(values); // Handle form submission logic for Step 2 here
+  // };
+
+  const onSubmitStep1 = async (values) => {
+    try {
+      // Make a POST request using Axios
+      const response = await axios.post('your-api-endpoint-for-step-1', values);
+      console.log(response.data); // Handle the response from the server
+      // Move to Step 2
+      setValue('2');
+      setStep1Completed(true);
+    } catch (error) {
+      console.error('Error submitting Step 1:', error);
+      // Handle error logic here
+    }
   };
 
-  const onSubmitStep2 = (values) => {
-    console.log(values); // Handle form submission logic for Step 2 here
-  };
+  const onSubmitStep2 = async (values) => {
+    try {
+      // Make a POST request using Axios
+      const response = await axios.post('your-api-endpoint-for-step-2', values);
+      console.log(response.data); // Handle the response from the server
+    } catch (error) {
+      console.error('Error submitting Step 2:', error);
+      // Handle error logic here
+
 
   const formikStep1 = useFormik({
     initialValues,
@@ -558,5 +584,3 @@ export default Form;
 
 
 
-
-//api/auth/register-startups.js
