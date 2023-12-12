@@ -25,6 +25,7 @@ import { Scrollbar } from '../../../components/scrollbar';
 import { paths } from '../../../paths';
 import { getInitials } from '../../../utils/get-initials';
 
+
 const useSelectionModel = (customers) => {
   const customerIds = useMemo(() => {
     return customers.map((customer) => customer.id);
@@ -163,7 +164,7 @@ export const InvestorListTable = (props) => {
                 Invested
               </TableCell>
               <TableCell>
-              Average
+                Average
               </TableCell>
               <TableCell>
                 Deals
@@ -184,6 +185,19 @@ export const InvestorListTable = (props) => {
               const isSelected = selected.includes(customer.id);
               const location = `${customer.city}, ${customer.state}, ${customer.country}`;
               const totalSpent = numeral(customer.walletBalance).format(`${customer.currency}0,0.00`);
+
+              const telegram = customer.telegram;
+              const discord = customer.discord;
+              const email = customer.email;
+              const accountEvm = customer.accountEvm;
+              const kyc = customer.kyc;
+              const country = customer.country;
+              const invested = customer.invested;
+              const average = customer.average;
+              const deals = customer.deals;
+              const otcTraders = customer.otcTraders;
+              const lastContribution = customer.lastContribution;
+              const actions = customer.actions;
 
               return (
                 <TableRow
@@ -206,6 +220,8 @@ export const InvestorListTable = (props) => {
                       value={isSelected}
                     />
                   </TableCell>
+
+
                   <TableCell>
                     <Stack
                       alignItems="center"
@@ -216,49 +232,54 @@ export const InvestorListTable = (props) => {
                         src={customer.avatar}
                         sx={{
                           height: 42,
-                          width: 42
+                          width: 42,
+                          marginRight: 1
                         }}
                       >
-                        {getInitials(customer.name)}
                       </Avatar>
-                      <div>
-                        <Link
-                          color="inherit"
-                          component={NextLink}
-                          href={paths.dashboard.customers.details}
-                          variant="subtitle2"
-                        >
-                          {customer.name}
-                        </Link>
-                        <Typography
-                          color="text.secondary"
-                          variant="body2"
-                        >
-                          {customer.email}
-                        </Typography>
-                      </div>
+                      <Link
+                        color="inherit"
+                        component={NextLink}
+                        href={paths.dashboard.investors.details}
+                        variant="subtitle2"
+                      >
+                        {telegram}
+                      </Link>
                     </Stack>
                   </TableCell>
-                  <TableCell>
-                    {location}
-                  </TableCell>
-                  <TableCell>
-                    {customer.totalOrders}
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant="subtitle2">
-                      {totalSpent}
-                    </Typography>
-                  </TableCell>
-                  <TableCell align="right">
-                    <IconButton
-                      component={NextLink}
-                      href={paths.dashboard.customers.edit}
+                  <TableCell><Stack
+                    alignItems="center"
+                    direction="row"
+                    spacing={1}
+                  >
+                    <Avatar
+                      src={customer.avatar}
+                      sx={{
+                        height: 42,
+                        width: 42,
+                        marginRight: 1
+                      }}
                     >
-                      <SvgIcon>
-                        <Edit02Icon />
-                      </SvgIcon>
-                    </IconButton>
+                    </Avatar>
+                    {discord}
+                  </Stack></TableCell>
+                  <TableCell>{email}</TableCell>
+                  <TableCell>{accountEvm}</TableCell>
+                  <TableCell>{kyc}</TableCell>
+                  <TableCell>{country}</TableCell>
+                  <TableCell>{invested}</TableCell>
+                  <TableCell>{average}</TableCell>
+                  <TableCell>{deals}</TableCell>
+                  <TableCell>{otcTraders}</TableCell>
+                  <TableCell>{lastContribution}</TableCell>
+                  <TableCell><IconButton
+                    component={NextLink}
+                    href={paths.dashboard.customers.edit}
+                  >
+                    <SvgIcon>
+                      <Edit02Icon />
+                    </SvgIcon>
+                  </IconButton>
                     <IconButton
                       component={NextLink}
                       href={paths.dashboard.customers.details}
@@ -266,8 +287,7 @@ export const InvestorListTable = (props) => {
                       <SvgIcon>
                         <ArrowRightIcon />
                       </SvgIcon>
-                    </IconButton>
-                  </TableCell>
+                    </IconButton></TableCell>
                 </TableRow>
               );
             })}

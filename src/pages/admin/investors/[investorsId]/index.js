@@ -19,7 +19,8 @@ import {
   Typography,
   Unstable_Grid2 as Grid
 } from '@mui/material';
-import { customersApi } from '../../../../api/customers';
+// import { customersApi } from '../../../../api/customers';
+import { investorApi } from '../../../../api/investors';
 import { useMounted } from '../../../../hooks/use-mounted';
 import { usePageView } from '../../../../hooks/use-page-view';
 import { Layout as DashboardLayout } from '../../../../layouts/dashboard';
@@ -46,7 +47,7 @@ const useCustomer = () => {
 
   const getCustomer = useCallback(async () => {
     try {
-      const response = await customersApi.getCustomer();
+      const response = await investorApi.getCustomer();
 
       if (isMounted()) {
         setCustomer(response);
@@ -57,8 +58,8 @@ const useCustomer = () => {
   }, [isMounted]);
 
   useEffect(() => {
-      getCustomer();
-    },
+    getCustomer();
+  },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []);
 
@@ -71,7 +72,7 @@ const useInvoices = () => {
 
   const getInvoices = useCallback(async () => {
     try {
-      const response = await customersApi.getInvoices();
+      const response = await investorApi.getInvoices();
 
       if (isMounted()) {
         setInvoices(response);
@@ -82,8 +83,8 @@ const useInvoices = () => {
   }, [isMounted]);
 
   useEffect(() => {
-      getInvoices();
-    },
+    getInvoices();
+  },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []);
 
@@ -96,7 +97,7 @@ const useLogs = () => {
 
   const getLogs = useCallback(async () => {
     try {
-      const response = await customersApi.getLogs();
+      const response = await investorApi.getLogs();
 
       if (isMounted()) {
         setLogs(response);
@@ -107,8 +108,8 @@ const useLogs = () => {
   }, [isMounted]);
 
   useEffect(() => {
-      getLogs();
-    },
+    getLogs();
+  },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []);
 
@@ -135,7 +136,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Dashboard: Investor Details | Rock34x 
+          Dashboard: Investor Details | Rock34x
         </title>
       </Head>
       <Box
@@ -152,7 +153,7 @@ const Page = () => {
                 <Link
                   color="text.primary"
                   component={NextLink}
-                  href={paths.dashboard.customers.index}
+                  href={paths.dashboard.investors.index}
                   sx={{
                     alignItems: 'center',
                     display: 'inline-flex'
@@ -184,8 +185,8 @@ const Page = () => {
                   <Avatar
                     src={customer.avatar}
                     sx={{
-                      height: 64,
-                      width: 64
+                      height: 70,
+                      width: 70
                     }}
                   >
                     {getInitials(customer.name)}
@@ -199,13 +200,43 @@ const Page = () => {
                       direction="row"
                       spacing={1}
                     >
+                      <Avatar
+                        src={customer.avatar}
+                        sx={{
+                          height: 20,
+                          width: 20
+                        }}
+                      >
+                      </Avatar>
                       <Typography variant="subtitle2">
-                        user_id:
+                        {customer.telegram}
                       </Typography>
-                      <Chip
-                        label={customer.id}
-                        size="small"
-                      />
+                    </Stack>
+                    <Stack
+                      alignItems="center"
+                      direction="row"
+                      spacing={1}
+                    >
+                      <Avatar
+                        src={customer.avatar}
+                        sx={{
+                          height: 20,
+                          width: 20
+                        }}
+                      >
+                      </Avatar>
+                      <Typography variant="subtitle2">
+                        {customer.discord}
+                      </Typography>
+                    </Stack>
+                    <Stack
+                      alignItems="center"
+                      direction="row"
+                      spacing={1}
+                    >
+                      <Typography variant="subtitle2">
+                        KYC: {customer.kyc}
+                      </Typography>
                     </Stack>
                   </Stack>
                 </Stack>
@@ -214,30 +245,42 @@ const Page = () => {
                   direction="row"
                   spacing={2}
                 >
-                  <Button
-                    color="inherit"
-                    component={NextLink}
-                    endIcon={(
-                      <SvgIcon>
-                        <Edit02Icon />
-                      </SvgIcon>
-                    )}
-                    href={paths.dashboard.customers.edit}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    endIcon={(
-                      <SvgIcon>
-                        <ChevronDownIcon />
-                      </SvgIcon>
-                    )}
-                    variant="contained"
-                  >
-                    Actions
-                  </Button>
+                <Typography variant="subtitle2">
+                Account wallets
+                <Typography variant="subtitle2">
+                Used to sign in
+              </Typography>
+              {customer.accountEvm}
+              </Typography>
+                
                 </Stack>
               </Stack>
+              <Stack>
+              <Stack
+              alignItems="center"
+              direction="row"
+              spacing={1}
+            >
+              <Typography variant="subtitle2">
+                Deals : {customer.deals}
+              </Typography>
+              <Typography variant="subtitle2">
+                OTC trades : {customer.otcTraders}
+              </Typography>
+            </Stack>
+              <Stack
+              alignItems="center"
+              direction="row"
+              spacing={1}
+            >
+              <Typography variant="subtitle2">
+                Invested : {customer.invested}
+              </Typography>
+              <Typography variant="subtitle2">
+                Average investment : {customer.average}
+              </Typography>
+            </Stack>
+            </Stack>
               <div>
                 <Tabs
                   indicatorColor="primary"

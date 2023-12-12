@@ -31,8 +31,8 @@ const Form = () => {
   const [value, setValue] = React.useState('1');
   const [value2, setValue2] = React.useState('male');
   const [value3, setValue3] = React.useState('Yes');
-  const [step1Completed, setStep1Completed] = React.useState(false);  
-  
+  const [step1Completed, setStep1Completed] = React.useState(false);
+
 
   const handleChange = (event, newValue) => {
     if (newValue === '2' && !step1Completed) {
@@ -108,10 +108,10 @@ const Form = () => {
     companytype: yup
       .string('Select Company Type')
       .required('Please choose the type of your Company'),
-      cityofoperation: yup
+    cityofoperation: yup
       .string('Enter City of Operation')
       .trim()
-      .required('City of Operation is required.'),    
+      .required('City of Operation is required.'),
     pleaseshareyourpitchdeck: yup
       .string('Upload Pitch Deck')
       .trim()
@@ -142,25 +142,17 @@ const Form = () => {
     characterstotell: '',
   };
 
-  // const onSubmitStep1 = (values) => {
-  //   console.log(values); // Handle form submission logic for Step 1 here
-  //   // Move to Step 2
-  //   setValue('2');
-  //   setStep1Completed(true);
-  // };
-
-  // const onSubmitStep2 = (values) => {
-  //   console.log(values); // Handle form submission logic for Step 2 here
-  // };
-
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
         // Make a POST request using Axios
         console.log(values);
         alert('Your Data Added Successfully');
+        // resetForm();
+        // setValue('1');
+        // setStep1Completed(false);
         // const response = await axios.post('your-api-endpoint', values);
         // console.log(response.data); // Handle the response from the server
 
@@ -195,17 +187,17 @@ const Form = () => {
       </style>
       <Navbar />
       <Box sx={{ marginX: { xs: '20px', md: '200px' }, marginBottom: '30px' }}>
-      <form onSubmit={formik.handleSubmit}>
-        <TabContext value={value}>
-          <Box sx={{ marginX: { xs: '20px', md: '20px' } }}>
-            <TabList onChange={handleChange}>
-              <Tab label="Step 1. Personal details" value="1" />
-              <Tab label="Step 2. Startup details" value="2" />
-            </TabList>
-          </Box>
+        <form onSubmit={formik.handleSubmit}>
+          <TabContext value={value}>
+            <Box sx={{ marginX: { xs: '20px', md: '20px' } }}>
+              <TabList onChange={handleChange}>
+                <Tab label="Step 1. Personal details" value="1" />
+                <Tab label="Step 2. Startup details" value="2" />
+              </TabList>
+            </Box>
 
-          {value === '1' && (
-            <TabPanel value="1" >
+            {value === '1' && (
+              <TabPanel value="1" >
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6}>
                     <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
@@ -349,11 +341,16 @@ const Form = () => {
                     </Button>
                   </Grid>
                 </Grid>
-            </TabPanel>
-          )}
+              </TabPanel>
+            )}
 
-          {value === '2' && (
-            <TabPanel value="2">
+
+
+
+
+
+            {value === '2' && (
+              <TabPanel value="2">
                 <Grid container spacing={4}>
                   <Grid item xs={12} sm={6}>
                     <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
@@ -472,25 +469,25 @@ const Form = () => {
                     </TextField>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                  <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
-                    City of operation*
-                  </Typography>
-                  <TextField
-                    label="Select City"
-                    name={'cityofoperation'}
-                    fullWidth
-                    value={formik.values.cityofoperation}
-                    onChange={formik.handleChange}
-                    error={formik.touched.cityofoperation && Boolean(formik.errors.cityofoperation)}
-                    helperText={formik.touched.cityofoperation && formik.errors.cityofoperation}
-                    select  // <-- Add this line to make it a dropdown
-                  >
-                    <MenuItem value="City1">City 1</MenuItem>
-                    <MenuItem value="City2">City 2</MenuItem>
-                    {/* Add more cities as needed */}
-                  </TextField>
-                </Grid>
-                
+                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                      City of operation*
+                    </Typography>
+                    <TextField
+                      label="Select City"
+                      name={'cityofoperation'}
+                      fullWidth
+                      value={formik.values.cityofoperation}
+                      onChange={formik.handleChange}
+                      error={formik.touched.cityofoperation && Boolean(formik.errors.cityofoperation)}
+                      helperText={formik.touched.cityofoperation && formik.errors.cityofoperation}
+                      select  // <-- Add this line to make it a dropdown
+                    >
+                      <MenuItem value="City1">City 1</MenuItem>
+                      <MenuItem value="City2">City 2</MenuItem>
+                      {/* Add more cities as needed */}
+                    </TextField>
+                  </Grid>
+
                   <Grid item xs={12} sm={6}>
                     <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
                       Please share your pitch deck*
@@ -553,9 +550,9 @@ const Form = () => {
                     </Button>
                   </Grid>
                 </Grid>
-            </TabPanel>
-          )}
-        </TabContext>
+              </TabPanel>
+            )}
+          </TabContext>
         </form>
       </Box>
       <Footer2 />
