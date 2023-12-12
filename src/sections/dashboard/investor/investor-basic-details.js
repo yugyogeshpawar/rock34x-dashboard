@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 import { Box, Button, Card,Container, Stack, Typography, SvgIcon, CardActions, CardHeader } from '@mui/material';
-// import Upload01Icon from '@untitled-ui/icons-react/build/esm/Upload01';
-// import Download01Icon from '@untitled-ui/icons-react/build/esm/Download01';
-// import PlusIcon from '@untitled-ui/icons-react/build/esm/Plus';
 import { InvestorListSearch } from '../../../sections/dashboard/investor/investor-list-search';
 import { InvestorListTable } from '../../../sections/dashboard/investor/investor-list-table';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -34,44 +31,6 @@ import { investorApi } from '../../../api/investors';
 import { investors } from '../../../api/investors/data';
 
 
-
-
-const useSelectionModel = (customers) => {
-  const customerIds = useMemo(() => {
-    return customers.map((customer) => customer.id);
-  }, [customers]);
-  const [selected, setSelected] = useState([]);
-
-  useEffect(() => {
-    setSelected([]);
-  }, [customerIds]);
-
-  const selectOne = useCallback((customerId) => {
-    setSelected((prevState) => [...prevState, customerId]);
-  }, []);
-
-  const deselectOne = useCallback((customerId) => {
-    setSelected((prevState) => {
-      return prevState.filter((id) => id !== customerId);
-    });
-  }, []);
-
-  const selectAll = useCallback(() => {
-    setSelected([...customerIds]);
-  }, [customerIds]);
-
-  const deselectAll = useCallback(() => {
-    setSelected([]);
-  }, []);
-
-  return {
-    deselectAll,
-    deselectOne,
-    selectAll,
-    selectOne,
-    selected
-  };
-};
 
 
 const useSearch = () => {
@@ -137,26 +96,9 @@ export const InvestorBasicDetails = (props) => {
 
   const { search, updateSearch } = useSearch();
   const { customers, customersCount } = useCustomers(search);
-  const { deselectAll, selectAll, deselectOne, selectOne, selected } = useSelectionModel(customers);
-
-  // const { selected } = useSelectionModel(customers);
-
   usePageView();
 
 
-  const handlePageChange = useCallback((event, page) => {
-    updateSearch((prevState) => ({
-      ...prevState,
-      page
-    }));
-  }, [updateSearch]);
-
-  const handleRowsPerPageChange = useCallback((event) => {
-    updateSearch((prevState) => ({
-      ...prevState,
-      rowsPerPage: parseInt(event.target.value, 10)
-    }));
-  }, [updateSearch]);
 
   return (
   <Box>
@@ -193,7 +135,6 @@ export const InvestorBasicDetails = (props) => {
               </TableHead>
               <TableBody>
                 {investors.map((investor) => {
-                  const isSelected = selected.includes(investor.id);
     
                   const deal = investor.deal;
                   const allocation = investor.allocation;
@@ -208,25 +149,8 @@ export const InvestorBasicDetails = (props) => {
                     <TableRow
                       hover
                       key={investor.id}
-                      selected={isSelected}
                     >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          checked={isSelected}
-                          onChange={(event) => {
-                            const { checked } = event.target;
-    
-                            if (checked) {
-                              selectOne(customer.id);
-                            } else {
-                              deselectOne(customer.id);
-                            }
-                          }}
-                          value={isSelected}
-                        />
-                      </TableCell>
-    
-    
+
                       <TableCell>
                         <Stack
                           alignItems="center"
