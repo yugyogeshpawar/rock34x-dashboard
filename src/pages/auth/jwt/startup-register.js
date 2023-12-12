@@ -175,7 +175,8 @@ const Form = () => {
     } catch (error) {
       console.error('Error submitting Step 2:', error);
       // Handle error logic here
-
+    }
+  };
 
   const formikStep1 = useFormik({
     initialValues,
@@ -577,10 +578,3 @@ const Form = () => {
 };
 
 export default Form;
-
-
-
-
-
-
-
