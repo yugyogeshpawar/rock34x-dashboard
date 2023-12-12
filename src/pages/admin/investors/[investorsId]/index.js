@@ -35,8 +35,7 @@ import { getInitials } from '../../../../utils/get-initials';
 
 const tabs = [
   { label: 'Details', value: 'details' },
-  { label: 'Invoices', value: 'invoices' },
-  { label: 'Logs', value: 'logs' }
+  { label: 'Invoices', value: 'invoices' }
 ];
 
 
@@ -120,7 +119,6 @@ const Page = () => {
   const [currentTab, setCurrentTab] = useState('details');
   const customer = useCustomer();
   const invoices = useInvoices();
-  const logs = useLogs();
 
   usePageView();
 
@@ -325,7 +323,7 @@ const Page = () => {
               </div>
             )}
             {currentTab === 'invoices' && <InvestorInvoices invoices={invoices} />}
-            {currentTab === 'logs' && <InvestorLogs logs={logs} />}
+
           </Stack>
         </Container>
       </Box>

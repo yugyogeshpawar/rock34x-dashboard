@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Box, Button, Card,Container, Stack, Typography, SvgIcon, CardActions, CardHeader } from '@mui/material';
-import Upload01Icon from '@untitled-ui/icons-react/build/esm/Upload01';
-import Download01Icon from '@untitled-ui/icons-react/build/esm/Download01';
-import PlusIcon from '@untitled-ui/icons-react/build/esm/Plus';
+// import Upload01Icon from '@untitled-ui/icons-react/build/esm/Upload01';
+// import Download01Icon from '@untitled-ui/icons-react/build/esm/Download01';
+// import PlusIcon from '@untitled-ui/icons-react/build/esm/Plus';
 import { InvestorListSearch } from '../../../sections/dashboard/investor/investor-list-search';
 import { InvestorListTable } from '../../../sections/dashboard/investor/investor-list-table';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -27,19 +27,19 @@ import {
 } from '@mui/material';
 
 
-import { PropertyList } from '../../../components/property-list';
-import { PropertyListItem } from '../../../components/property-list-item';
-import Head from 'next/head';
+// import { PropertyList } from '../../../components/property-list';
+// import { PropertyListItem } from '../../../components/property-list-item';
+// import Head from 'next/head';
 import { investorApi } from '../../../api/investors';
 import { investors } from '../../../api/investors/data';
 
 
 
 
-const useSelectionModel = (investors) => {
+const useSelectionModel = (customers) => {
   const customerIds = useMemo(() => {
-    return investors.map((customer) => investors.id);
-  }, [investors]);
+    return customers.map((customer) => customer.id);
+  }, [customers]);
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
@@ -134,11 +134,12 @@ export const InvestorBasicDetails = (props) => {
     rowsPerPage
   } = props;
 
-  const { address1, address2, country, email, isVerified, phone, state, ...other } = props;
+
   const { search, updateSearch } = useSearch();
   const { customers, customersCount } = useCustomers(search);
+  const { deselectAll, selectAll, deselectOne, selectOne, selected } = useSelectionModel(customers);
 
-  const { selected } = useSelectionModel(customers);
+  // const { selected } = useSelectionModel(customers);
 
   usePageView();
 
@@ -216,9 +217,9 @@ export const InvestorBasicDetails = (props) => {
                             const { checked } = event.target;
     
                             if (checked) {
-                              selectOne(investor.id);
+                              selectOne(customer.id);
                             } else {
-                              deselectOne(investor.id);
+                              deselectOne(customer.id);
                             }
                           }}
                           value={isSelected}
