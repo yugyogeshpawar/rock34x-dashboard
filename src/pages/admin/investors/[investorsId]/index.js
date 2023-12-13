@@ -9,6 +9,7 @@ import {
   Box,
   Button,
   Chip,
+  Card,
   Container,
   Divider,
   Link,
@@ -166,14 +167,14 @@ const Page = () => {
                   </Typography>
                 </Link>
               </div>
-              <Stack
-                alignItems="flex-start"
-                direction={{
-                  xs: 'column',
-                  md: 'row'
-                }}
-                justifyContent="space-between"
-                spacing={4}
+              <Card
+              sx={{
+                display:'flex',
+                alignItems:'flex-start',
+                justifyContent:'space-between',
+                spacing:4,
+                p:4
+              }}
               >
                 <Stack
                   alignItems="center"
@@ -252,7 +253,7 @@ const Page = () => {
               </Typography>
                 
                 </Stack>
-              </Stack>
+              </Card>
               <Stack>
               <Stack
               alignItems="center"
