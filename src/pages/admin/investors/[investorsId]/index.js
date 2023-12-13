@@ -169,13 +169,15 @@ const Page = () => {
               </div>
               <Card
               sx={{
-                display:'flex',
-                alignItems:'flex-start',
-                justifyContent:'space-between',
                 spacing:4,
                 p:4
               }}
               >
+              <Stack sx={{
+                display:'flex',
+                flexDirection:'row',
+                justifyContent:'space-between',
+                }}>
                 <Stack
                   alignItems="center"
                   direction="row"
@@ -253,12 +255,14 @@ const Page = () => {
               </Typography>
                 
                 </Stack>
-              </Card>
-              <Stack>
+                </Stack>
+                <Stack sx={{
+                py:4
+              }}>
               <Stack
               alignItems="center"
               direction="row"
-              spacing={1}
+              spacing={4}
             >
               <Typography variant="subtitle2">
                 Deals : {customer.deals}
@@ -270,7 +274,7 @@ const Page = () => {
               <Stack
               alignItems="center"
               direction="row"
-              spacing={1}
+              spacing={4}
             >
               <Typography variant="subtitle2">
                 Invested : {customer.invested}
@@ -279,7 +283,9 @@ const Page = () => {
                 Average investment : {customer.average}
               </Typography>
             </Stack>
-            </Stack>
+              </Stack>
+              </Card>
+              
               <div>
                 <Tabs
                   indicatorColor="primary"

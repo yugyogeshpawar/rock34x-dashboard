@@ -5,6 +5,7 @@ const now = new Date();
 export const investors = [
   {
     id: '5e887ac47eed253091be10cb',
+    image: '/assets/avatars/avatar-carson-darrin.png',
     avatar: '/assets/avatars/avatar-carson-darrin.png',
     deal: 'Project Universal',
     allocation: '$497.00',

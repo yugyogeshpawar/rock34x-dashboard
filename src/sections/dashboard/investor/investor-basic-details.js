@@ -99,8 +99,7 @@ export const InvestorBasicDetails = (props) => {
   usePageView();
 
   return (
-    <Box>
-      <Container maxWidth="xl">
+    <Card sx={{marginX:2}}>
         <Scrollbar>
           <Table sx={{ minWidth: 700 }}>
             <TableHead>
@@ -119,6 +118,7 @@ export const InvestorBasicDetails = (props) => {
             </TableHead>
             <TableBody>
               {investors.map((investor) => {
+                const image = investor.image;
                 const deal = investor.deal;
                 const allocation = investor.allocation;
                 const tokensReceived = investor.tokensReceived;
@@ -129,6 +129,18 @@ export const InvestorBasicDetails = (props) => {
 
                 return (
                   <TableRow hover key={investor.id}>
+                    <TableCell>
+                      <Stack alignItems="center" direction="row" spacing={1}>
+                        <Avatar
+                          src={investor.image}
+                          sx={{
+                            height: 42,
+                            width: 42,
+                            marginRight: 1,
+                          }}
+                        ></Avatar>
+                      </Stack>
+                    </TableCell>
                     <TableCell>
                       <Stack alignItems="center" direction="row" spacing={1}>
                         <Avatar
@@ -182,8 +194,7 @@ export const InvestorBasicDetails = (props) => {
           rowsPerPage={rowsPerPage}
           rowsPerPageOptions={[5, 10, 25]}
         />
-      </Container>
-    </Box>
+    </Card>
   );
 };
 
