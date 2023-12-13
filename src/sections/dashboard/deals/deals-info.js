@@ -96,40 +96,6 @@ export const CompanySummary = (props) => {
           </Button>
           </Box>
         </PropertyList>
-        <Divider sx={{ my: 2 }} />
-        <Typography
-          color="text.secondary"
-          component="p"
-          sx={{ mb: 2 }}
-          variant="overline"
-        >
-          Founders
-        </Typography>
-        <Stack spacing={2}>
-          {(company.founders || []).map((founder) => (
-            <Stack
-              alignItems="center"
-              direction="row"
-              key={founder.id}
-              spacing={2}
-            >
-              <Avatar src={founder.avatar}>
-                {getInitials(founder.name)}
-              </Avatar>
-              <div>
-                <Typography variant="subtitle2">
-                  {founder.name}
-                </Typography>
-                <Typography
-                  color="text.secondary"
-                  variant="body2"
-                >
-                  {founder.role}
-                </Typography>
-              </div>
-            </Stack>
-          ))}
-        </Stack>
       </CardContent>
     </Card>
   );
