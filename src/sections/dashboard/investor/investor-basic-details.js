@@ -155,7 +155,7 @@ export const InvestorBasicDetails = (props) => {
   usePageView();
 
   return (
-    // <Card sx={{ marginX: 2 }}>
+    <Card>
     <Box
       sx={{ position: 'relative' }}
       {...other}>
@@ -314,7 +314,7 @@ export const InvestorBasicDetails = (props) => {
         rowsPerPageOptions={[5, 10, 25]}
       />
       </Box>
-    // </Card>
+    </Card>
   );
 };
 

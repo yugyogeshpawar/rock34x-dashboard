@@ -307,8 +307,7 @@ const Page = () => {
                 <Divider />
               </div>
             </Stack>
-            <Card>
-            {currentTab === 'details' &&  <InvestorBasicDetails/>} </Card>
+            {currentTab === 'details' &&  <InvestorBasicDetails/>}
             {currentTab === 'invoices' && <InvestorInvoices invoices={invoices} />}
 
           </Stack>
