@@ -58,7 +58,7 @@ const Navbar = () => {
               color="black"
               fontWeight="500"
             >
-              Investor
+              Startup
             </Link>
           </Box>
           <Box marginX={2}>
