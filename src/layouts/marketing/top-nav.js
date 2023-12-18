@@ -203,7 +203,7 @@ export const TopNav = (props) => {
             <Button
               component="a"
               size={mdUp ? 'medium' : 'small'}
-              href="/auth/jwt/startup-register"
+              href="/auth/jwt/investor-register"
               variant="contained"
             >
               Register
