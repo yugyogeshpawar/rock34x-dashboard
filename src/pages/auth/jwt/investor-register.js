@@ -1,38 +1,37 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormGroup from '@mui/material/FormGroup';
-import Checkbox from '@mui/material/Checkbox';
-import MenuItem from '@mui/material/MenuItem';
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormGroup from "@mui/material/FormGroup";
+import Checkbox from "@mui/material/Checkbox";
+import MenuItem from "@mui/material/MenuItem";
 
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
-import Footer2 from './Footer';
-import Navbar from './Topbar';
+import Footer2 from "./Footer";
+import Navbar from "./Topbar";
 
-import axios from 'axios';
-
+import axios from "axios";
 
 const Form = () => {
-  const [value, setValue] = React.useState('1');
-  const [value2, setValue2] = React.useState('male');
-  const [value3, setValue3] = React.useState('Yes');
+  const [value, setValue] = React.useState("1");
+  const [value2, setValue2] = React.useState("male");
+  const [value3, setValue3] = React.useState("Yes");
   const [step1Completed, setStep1Completed] = React.useState(false);
   const [checkboxValues, setCheckboxValues] = React.useState({
     checkbox1: false,
@@ -42,10 +41,8 @@ const Form = () => {
     checkbox5: false,
   });
 
-
-
   const handleChange = (event, newValue) => {
-    if (newValue === '2' && !step1Completed) {
+    if (newValue === "2" && !step1Completed) {
       // Prevent moving to Step 2 if Step 1 is not completed
       return;
     }
@@ -66,57 +63,54 @@ const Form = () => {
 
   const validationSchema = yup.object({
     firstName: yup
-      .string('Enter your first name')
+      .string("Enter your first name")
       .trim()
-      .min(2, 'Please enter a valid first name')
-      .max(50, 'Please enter a valid first name')
-      .required('Please specify your first name'),
+      .min(2, "Please enter a valid first name")
+      .max(50, "Please enter a valid first name")
+      .required("Please specify your first name"),
     lastName: yup
-      .string('Enter your last name')
+      .string("Enter your last name")
       .trim()
-      .min(2, 'Please enter a valid last name')
-      .max(50, 'Please enter a valid last name')
-      .required('Please specify your last name'),
+      .min(2, "Please enter a valid last name")
+      .max(50, "Please enter a valid last name")
+      .required("Please specify your last name"),
     email: yup
-      .string('Enter your email')
+      .string("Enter your email")
       .trim()
-      .email('Please enter a valid email address')
-      .required('Email is required.'),
+      .email("Please enter a valid email address")
+      .required("Email is required."),
     phone: yup
       .string()
       .trim()
       .matches(
         /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)$/,
-        'Please enter a valid phone number.'
+        "Please enter a valid phone number."
       )
-      .required('Phone number is required.'),
+      .required("Phone number is required."),
     linkedin: yup
-      .string('Enter your LinkedIn profile URL')
+      .string("Enter your LinkedIn profile URL")
       .trim()
-      .url('Please enter a valid URL it should start with https://')
-      .required('LinkedIn profile URL is required.'),
-      country: yup
-      .string('Enter your Country of Citizenship')
+      .url("Please enter a valid URL it should start with https://")
+      .required("LinkedIn profile URL is required."),
+    country: yup
+      .string("Enter your Country of Citizenship")
       .trim()
-      .required('Country of Citizenship is required.'),
-    city: yup
-      .string('Enter your City')
-      .trim()
-      .required('City is required.'),
+      .required("Country of Citizenship is required."),
+    city: yup.string("Enter your City").trim().required("City is required."),
     profile: yup
-      .string('Select your Profile')
-      .required('Please choose your Profile.'),
+      .string("Select your Profile")
+      .required("Please choose your Profile."),
   });
 
   const initialValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    country: '',
-    linkedin: '',
-    city:'',
-    profile: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    country: "",
+    linkedin: "",
+    city: "",
+    profile: "",
   };
 
   const formik = useFormik({
@@ -126,7 +120,7 @@ const Form = () => {
       try {
         // Make a POST request using Axios
         console.log(values);
-        alert('Your Data Added Successfully');
+        alert("Your Data Added Successfully");
         resetForm();
         // setValue('1');
         // setStep1Completed(false);
@@ -134,14 +128,14 @@ const Form = () => {
         // console.log(response.data); // Handle the response from the server
 
         // Move to the next step if the current step is completed
-        if (value === '1') {
-          setValue('2');
+        if (value === "1") {
+          setValue("2");
           setStep1Completed(true);
         } else {
           // Handle submission for the final step (Step 2)
         }
       } catch (error) {
-        console.error('Error submitting data:', error);
+        console.error("Error submitting data:", error);
         // Handle error logic here
       }
     },
@@ -163,66 +157,78 @@ const Form = () => {
         `}
       </style>
       <Navbar />
-      <Box sx={{ marginX: { xs: '20px', md: '200px' }, marginBottom: '30px' }}>
-        <Typography variant={'h4'} sx={{ margin: 2 }}>
+      <Box sx={{ marginX: { xs: "20px", md: "200px" }, marginBottom: "30px" }}>
+        <Typography variant={"h4"} sx={{ margin: 2 }}>
           Sign Up to Investors
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <TabContext value={value}>
-            <Box sx={{ marginX: { xs: '20px', md: '20px' } }}>
+            <Box sx={{ marginX: { xs: "20px", md: "20px" } }}>
               <TabList onChange={handleChange}>
                 <Tab label="Step 1. Personal details" value="1" />
                 <Tab label="Step 2. About Experience" value="2" />
               </TabList>
             </Box>
 
-            {value === '1' && (
-              <TabPanel value="1" >
+            {value === "1" && (
+              <TabPanel value="1">
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       First Name *
                     </Typography>
                     <TextField
                       label="Enter Your First Name"
-                      name={'firstName'}
+                      name={"firstName"}
                       fullWidth
                       value={formik.values.firstName}
                       onChange={formik.handleChange}
-                      error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-                      helperText={formik.touched.firstName && formik.errors.firstName}
+                      error={
+                        formik.touched.firstName &&
+                        Boolean(formik.errors.firstName)
+                      }
+                      helperText={
+                        formik.touched.firstName && formik.errors.firstName
+                      }
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Last Name *
                     </Typography>
                     <TextField
                       label="Enter Your Last Name"
-                      name={'lastName'}
+                      name={"lastName"}
                       fullWidth
                       value={formik.values.lastName}
                       onChange={formik.handleChange}
-                      error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-                      helperText={formik.touched.lastName && formik.errors.lastName}
+                      error={
+                        formik.touched.lastName &&
+                        Boolean(formik.errors.lastName)
+                      }
+                      helperText={
+                        formik.touched.lastName && formik.errors.lastName
+                      }
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Email ID*
                     </Typography>
                     <TextField
                       label="Email ID"
-                      name={'email'}
+                      name={"email"}
                       fullWidth
                       value={formik.values.email}
                       onChange={formik.handleChange}
-                      error={formik.touched.email && Boolean(formik.errors.email)}
+                      error={
+                        formik.touched.email && Boolean(formik.errors.email)
+                      }
                       helperText={formik.touched.email && formik.errors.email}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Gender*
                     </Typography>
                     <FormControl>
@@ -232,49 +238,65 @@ const Form = () => {
                         value={value2}
                         onChange={handleChange2}
                       >
-                        <div className='flex'>
-                          <FormControlLabel value="male"
-                            control={<Radio />} label="Male" />
-                          <FormControlLabel value="female" control={<Radio />} label="Female" />
+                        <div className="flex">
+                          <FormControlLabel
+                            value="male"
+                            control={<Radio />}
+                            label="Male"
+                          />
+                          <FormControlLabel
+                            value="female"
+                            control={<Radio />}
+                            label="Female"
+                          />
                         </div>
                       </RadioGroup>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Country of Citizenship*
                     </Typography>
                     <TextField
                       label="Enter Your Country Name"
-                      name={'country'}
+                      name={"country"}
                       fullWidth
                       value={formik.values.country}
                       onChange={formik.handleChange}
-                      error={formik.touched.country && Boolean(formik.errors.country)}
-                      helperText={formik.touched.country && formik.errors.country}
+                      error={
+                        formik.touched.country && Boolean(formik.errors.country)
+                      }
+                      helperText={
+                        formik.touched.country && formik.errors.country
+                      }
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Linkedin Profile URL*
                     </Typography>
                     <TextField
                       label="Enter Linkedin URL"
-                      name={'linkedin'}
+                      name={"linkedin"}
                       fullWidth
                       value={formik.values.linkedin}
                       onChange={formik.handleChange}
-                      error={formik.touched.linkedin && Boolean(formik.errors.linkedin)}
-                      helperText={formik.touched.linkedin && formik.errors.linkedin}
+                      error={
+                        formik.touched.linkedin &&
+                        Boolean(formik.errors.linkedin)
+                      }
+                      helperText={
+                        formik.touched.linkedin && formik.errors.linkedin
+                      }
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Wich city do you live in?*
                     </Typography>
                     <TextField
                       label="Enter Your City Name"
-                      name={'city'}
+                      name={"city"}
                       fullWidth
                       value={formik.values.city}
                       onChange={formik.handleChange}
@@ -283,15 +305,17 @@ const Form = () => {
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Phone number *
                     </Typography>
                     <PhoneInput
                       international
                       defaultCountry="US"
                       value={formik.values.phone}
-                      onChange={(value) => formik.setFieldValue('phone', value)}
-                      error={formik.touched.phone && Boolean(formik.errors.phone)}
+                      onChange={(value) => formik.setFieldValue("phone", value)}
+                      error={
+                        formik.touched.phone && Boolean(formik.errors.phone)
+                      }
                     />
                     {formik.touched.phone && formik.errors.phone && (
                       <Typography variant="caption" color="error">
@@ -301,14 +325,25 @@ const Form = () => {
                   </Grid>
                 </Grid>
 
-                <Grid container spacing={3} justifyContent="center" alignItems="center" sx={{ marginY: 1 }}>
+                <Grid
+                  container
+                  spacing={3}
+                  justifyContent="center"
+                  alignItems="center"
+                  sx={{ marginY: 1 }}
+                >
                   <Grid item xs={12} sm={6}>
-                    <a size={'large'} href='/'>
+                    <a size={"large"} href="/">
                       Go to back
                     </a>
                   </Grid>
                   <Grid item xs={12} sm={6} textAlign="start">
-                    <Button size={'large'} variant={'contained'} type="button" onClick={() => setValue('2')}>
+                    <Button
+                      size={"large"}
+                      variant={"contained"}
+                      type="button"
+                      onClick={() => setValue("2")}
+                    >
                       Next <ArrowRightAltIcon />
                     </Button>
                   </Grid>
@@ -316,28 +351,26 @@ const Form = () => {
               </TabPanel>
             )}
 
-
-
-
-
-
-            {value === '2' && (
+            {value === "2" && (
               <TabPanel value="2">
                 <Grid container spacing={4}>
-
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
                       Which of these best describes you?*
                     </Typography>
                     <TextField
                       select
                       label="Select Your Profile"
-                      name={'profile'}
+                      name={"profile"}
                       fullWidth
                       value={formik.values.profile}
                       onChange={formik.handleChange}
-                      error={formik.touched.profile && Boolean(formik.errors.profile)}
-                      helperText={formik.touched.profile && formik.errors.profile}
+                      error={
+                        formik.touched.profile && Boolean(formik.errors.profile)
+                      }
+                      helperText={
+                        formik.touched.profile && formik.errors.profile
+                      }
                     >
                       <MenuItem value="Technology">Technology</MenuItem>
                       <MenuItem value="Healthcare">Healthcare</MenuItem>
@@ -345,8 +378,9 @@ const Form = () => {
                     </TextField>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
-                      Do you have assets worth over INR 2 cr apart from your primary resedence?*
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
+                      Do you have assets worth over INR 2 cr apart from your
+                      primary resedence?*
                     </Typography>
                     <FormControl>
                       <RadioGroup
@@ -355,15 +389,19 @@ const Form = () => {
                         value={value3}
                         onChange={handleChange3}
                       >
-                        <div className='flex'>
-                          <FormControlLabel value="yes"
-                            control={<Radio />} 
-                            label="Yes" />
-                          <FormControlLabel value="no" 
-                          control={<Radio />} 
-                          label="No" />
+                        <div className="flex">
+                          <FormControlLabel
+                            value="yes"
+                            control={<Radio />}
+                            label="Yes"
+                          />
+                          <FormControlLabel
+                            value="no"
+                            control={<Radio />}
+                            label="No"
+                          />
                         </div>
-                        <Typography variant='h8'>
+                        <Typography variant="h8">
                           This information is required as per SEBI gudelines
                         </Typography>
                       </RadioGroup>
@@ -371,8 +409,9 @@ const Form = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
-                      Help us understand your experience better (multiple options can be selected)*
+                    <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
+                      Help us understand your experience better (multiple
+                      options can be selected)*
                     </Typography>
                     <FormControl component="fieldset">
                       <FormGroup>
@@ -380,7 +419,7 @@ const Form = () => {
                           control={
                             <Checkbox
                               checked={checkboxValues.checkbox1}
-                              onChange={handleCheckboxChange('checkbox1')}
+                              onChange={handleCheckboxChange("checkbox1")}
                               name="checkbox1"
                             />
                           }
@@ -391,7 +430,7 @@ const Form = () => {
                           control={
                             <Checkbox
                               checked={checkboxValues.checkbox2}
-                              onChange={handleCheckboxChange('checkbox2')}
+                              onChange={handleCheckboxChange("checkbox2")}
                               name="checkbox2"
                             />
                           }
@@ -403,7 +442,7 @@ const Form = () => {
                           control={
                             <Checkbox
                               checked={checkboxValues.checkbox3}
-                              onChange={handleCheckboxChange('checkbox3')}
+                              onChange={handleCheckboxChange("checkbox3")}
                               name="checkbox3"
                             />
                           }
@@ -413,7 +452,7 @@ const Form = () => {
                           control={
                             <Checkbox
                               checked={checkboxValues.checkbox4}
-                              onChange={handleCheckboxChange('checkbox4')}
+                              onChange={handleCheckboxChange("checkbox4")}
                               name="checkbox4"
                             />
                           }
@@ -423,7 +462,7 @@ const Form = () => {
                           control={
                             <Checkbox
                               checked={checkboxValues.checkbox5}
-                              onChange={handleCheckboxChange('checkbox5')}
+                              onChange={handleCheckboxChange("checkbox5")}
                               name="checkbox5"
                             />
                           }
@@ -432,18 +471,26 @@ const Form = () => {
                       </FormGroup>
                     </FormControl>
                   </Grid>
-
-
                 </Grid>
 
-                <Grid container spacing={3} justifyContent="center" alignItems="center" sx={{marginY:1}}>
+                <Grid
+                  container
+                  spacing={3}
+                  justifyContent="center"
+                  alignItems="center"
+                  sx={{ marginY: 1 }}
+                >
                   <Grid item xs={12} sm={6}>
-                    <a size={'large'} href='/'>
+                    <a size={"large"} href="/">
                       Go to back
                     </a>
                   </Grid>
                   <Grid item xs={12} sm={6} textAlign="start">
-                    <Button size={'large'} variant={'contained'} type={'submit'}>
+                    <Button
+                      size={"large"}
+                      variant={"contained"}
+                      type={"submit"}
+                    >
                       Submit and Sign Up <ArrowRightAltIcon />
                     </Button>
                   </Grid>
