@@ -16,6 +16,13 @@ import {
   Tab,
   Tabs,
   Typography,
+  IconButton,
+  SvgIcon,
+  List,
+  ListItem,
+  ListItemText,
+  AvatarGroup,
+  Tooltip,
   Unstable_Grid2 as Grid,
 } from "@mui/material";
 import { jobsApi } from "../../api/deals";
@@ -29,53 +36,92 @@ import { ProjectInfo } from "../../sections/dashboard/deals/project-info";
 import { CompanySummary } from "../../sections/dashboard/deals/deals-info";
 import { getInitials } from "../../utils/get-initials";
 
-const tabs = [
-  { label: "Project info", value: "overview" },
-  { label: "Activity", value: "activity" },
-  { label: "Form info", value: "assets" },
+
+
+import { addDays, addHours, differenceInDays, isAfter } from 'date-fns';
+import DotsHorizontalIcon from '@untitled-ui/icons-react/build/esm/DotsHorizontal';
+import { Scrollbar } from '../../components/scrollbar';
+
+const now = new Date();
+
+const tasks = [
+  {
+    id: '5eff24b501ba5281ddb5378c',
+    members: [
+      {
+        avatar: '/assets/avatars/avatar-marcus-finn.png',
+        name: 'Marcus Finn'
+      }
+    ],
+    title: 'Update the API for the project',
+    button: 'Sold Out'
+  },
+  {
+    id: '5eff24bb5bb3bd1beeddde78',
+    members: [
+      {
+        avatar: '/assets/avatars/avatar-penjani-inyene.png',
+        name: 'Penjani Inyene'
+      }
+    ],
+    title: 'Redesign the landing page',
+    button: 'Sold Out'
+  },
+  {
+    id: '5eff24c019175119993fc1ff',
+    members: [
+      {
+        avatar: '/assets/avatars/avatar-miron-vitold.png',
+        name: 'Miron Vitold'
+      }
+    ],
+    title: 'Solve the bug for the showState',
+    button: 'Sold Out'
+  },
 ];
 
-const useCompany = () => {
-  const isMounted = useMounted();
-  const [company, setCompany] = useState(null);
-
-  const getCompany = useCallback(async () => {
-    try {
-      const response = await jobsApi.getCompany();
-
-      if (isMounted()) {
-        setCompany(response);
+const tasks2 = [
+  {
+    id: '5eff24c52ce9fdadffa11959',
+    
+    members: [
+      {
+        avatar: '/assets/avatars/avatar-marcus-finn.png',
+        name: 'Marcus Finn'
       }
-    } catch (err) {
-      console.error(err);
-    }
-  }, [isMounted]);
+    ],
+    title: 'Release v1.0 Beta',
+    button: 'Sold Out'
+  },
+  {
+    id: '5eff24ca3ffab939b667258b',
+    
+    members: [
+      {
+        avatar: '/assets/avatars/avatar-jie-yan-song.png',
+        name: 'Jie Yan Song'
+      }
+    ],
+    title: 'GDPR Compliance',
+    button: 'Sold Out'
+  },
+  {
+    id: '5eff24cf8740fc9faca4e463',
+    
+    members: [
+      {
+        avatar: '/assets/avatars/avatar-penjani-inyene.png',
+        name: 'Penjani Inyene'
+      }
+    ],
+    title: 'Redesign Landing Page',
+    button: 'Sold Out'
+  }
+]
 
-  useEffect(
-    () => {
-      getCompany();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
 
-  return company;
-};
 
 const Page = () => {
-  const company = useCompany();
-  const [currentTab, setCurrentTab] = useState("overview");
-
-  usePageView();
-
-  const handleTabsChange = useCallback((event, value) => {
-    setCurrentTab(value);
-  }, []);
-
-  if (!company) {
-    return null;
-  }
-
   return (
     <>
       <Head>
@@ -89,113 +135,107 @@ const Page = () => {
         }}
       >
         <Container maxWidth="lg">
-          <Grid
-            alignItems="center"
-            container
-            sx={{
-              backgroundColor: "neutral.900",
-              borderRadius: 1,
-              color: "common.white",
-              px: 4,
-              py: 8,
-            }}
-          >
-            <Grid xs={12} sm={7}>
-              <Typography color="text.secondary" >
-                Fundraising
-              </Typography>
-              <Typography color="inherit" variant="h3">
-                Universal Project
-              </Typography>
-              <Box sx={{ display: 'flex', justifyContent:'space-between', marginY:3}}>
-              <Box>
-              <Typography variant="h6">$0.01</Typography>
-              <Typography color="text.secondary">
-                Seed Round
-              </Typography>
-            </Box>
-            <Box>
-              <Typography variant="h6">$33,200/$100,000</Typography>
-              <Typography color="text.secondary">
-                Currently raised
-              </Typography>
-            </Box>
-            </Box>
-              <Button
-                color="primary"
-                component={NextLink}
-                href={paths.dashboard.contribute}
-                size="large"
-                sx={{ mt: 3 }}
-                variant="contained"
-              >
-                Contribute
-              </Button>
-            </Grid>
-            <Grid
-              sm={5}
-              sx={{
-                display: {
-                  xs: "none",
-                  sm: "flex",
-                },
-                justifyContent: "center",
-              }}
-            >
-              <img src="/assets/iconly/iconly-glass-shield.svg" />
-            </Grid>
-          </Grid>
-          <Grid container spacing={4} sx={{ mt: 2 }}>
-            <Grid xs={12} lg={8}>
-              <Card>
-                <CardHeader
-                  disableTypography
-                  title={
-                    <Stack alignItems="flex-start" direction="row" spacing={2}>
-                      <Avatar src={company.logo} variant="rounded">
-                        {getInitials(company.name)}
-                      </Avatar>
-                      <Stack spacing={1}>
-                        <Typography variant="h6">{company.name}</Typography>
-                        <Typography variant="body2">
-                          {company.shortDescription}
-                        </Typography>
-                      </Stack>
-                    </Stack>
-                  }
-                />
-                <Divider />
-                <Tabs
-                  indicatorColor="primary"
-                  onChange={handleTabsChange}
-                  scrollButtons="auto"
-                  sx={{ px: 3 }}
-                  textColor="primary"
-                  value={currentTab}
-                  variant="scrollable"
+ 
+        <Card sx={{marginY:2}}>
+        <CardHeader
+          action={(
+            <IconButton>
+              <SvgIcon>
+                <DotsHorizontalIcon />
+              </SvgIcon>
+            </IconButton>
+          )}
+          title="Active Now"
+        />
+        <Divider />
+        <Scrollbar>
+          <List sx={{ minWidth: 400 }}>
+            {tasks.map((task, index) => {
+              const showDivider = index < tasks.length - 1;
+
+              return (
+                <ListItem
+                  divider={showDivider}
+                  key={task.id}
                 >
-                  {tabs.map((tab) => (
-                    <Tab key={tab.value} label={tab.label} value={tab.value} />
-                  ))}
-                </Tabs>
-                <Divider />
-                <CardContent>
-                  {currentTab === "overview" && (
-                    <ProjectInfo company={company} />
-                  )}
-                  {currentTab === "activity" && (
-                    <CompanyActivity activities={company.activities || []} />
-                  )}
-                  {currentTab === "assets" && (
-                    <CompanyAssets assets={company.assets || []} />
-                  )}
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid xs={12} lg={4}>
-              <CompanySummary company={company} />
-            </Grid>
-          </Grid>
+                  <AvatarGroup max={3} sx={{margin:2}}>
+                    {task.members.map((member) => (
+                        <Avatar src={member.avatar} />
+                    ))}
+                  </AvatarGroup>
+                  <ListItemText
+                    primary={(
+                      <Link
+                        color="text.primary"
+                        noWrap
+                        sx={{ cursor: 'pointer' }}
+                        variant="subtitle2"
+                      >
+                        {task.title}
+                      </Link>
+                    )}
+                  />
+                    <Button variant="contained" color="primary">
+                      {task.button}
+                    </Button>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Scrollbar>
+      </Card>
+        <Card>
+        <CardHeader
+          action={(
+            <IconButton>
+              <SvgIcon>
+                <DotsHorizontalIcon />
+              </SvgIcon>
+            </IconButton>
+          )}
+          title="Past Sales"
+        />
+        <Divider />
+        <Scrollbar>
+          <List sx={{ minWidth: 400 }}>
+            {tasks2.map((task, index) => {
+              const showDivider = index < tasks.length - 1;
+
+              return (
+                <ListItem
+                  divider={showDivider}
+                  key={task.id}
+                >
+                  <AvatarGroup max={3} sx={{margin:2}}>
+                    {task.members.map((member) => (
+                        <Avatar src={member.avatar} />
+                    ))}
+                  </AvatarGroup>
+                  <ListItemText
+                    primary={(
+                      <Link
+                        color="text.primary"
+                        noWrap
+                        sx={{ cursor: 'pointer' }}
+                        variant="subtitle2"
+                      >
+                        {task.title}
+                      </Link>
+                    )}
+                  />
+                    <Button variant="contained" color="primary">
+                      {task.button}
+                    </Button>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Scrollbar>
+      </Card>
+
+
+
+
         </Container>
       </Box>
     </>
