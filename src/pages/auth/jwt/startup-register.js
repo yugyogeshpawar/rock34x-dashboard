@@ -187,6 +187,9 @@ const Form = () => {
       </style>
       <Navbar />
       <Box sx={{ marginX: { xs: '20px', md: '200px' }, marginBottom: '30px' }}>
+      <Typography variant='h4' sx={{ margin: 2 }}>
+      Sign Up to Startups
+                    </Typography>
         <form onSubmit={formik.handleSubmit}>
           <TabContext value={value}>
             <Box sx={{ marginX: { xs: '20px', md: '20px' } }}>

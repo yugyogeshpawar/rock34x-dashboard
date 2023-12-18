@@ -59,103 +59,103 @@ export const getSections = (t) => [
       },
     ],
   },
-  {
-    subheader: t(tokens.nav.admin),
-    items: [
-      {
-        title: t(tokens.nav.adminDashboard),
-        path: paths.dashboard.crypto,
-        icon: (
-          <SvgIcon fontSize="small">
-            <CurrencyBitcoinCircleIcon />
-          </SvgIcon>
-        ),
-        label: <Chip color="primary" label="New" size="small" />,
-      },
-      {
-        title: t(tokens.nav.startups),
-        path: paths.dashboard.startups.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <Users03Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.startups.index,
-          },
-          {
-            title: t(tokens.nav.details),
-            path: paths.dashboard.startups.details,
-          },
-          {
-            title: t(tokens.nav.edit),
-            path: paths.dashboard.startups.edit,
-          },
-        ],
-      },
-      {
-        title: t(tokens.nav.investors),
-        path: paths.dashboard.investors.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <Users03Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.investors.index,
-          },
-          {
-            title: t(tokens.nav.details),
-            path: paths.dashboard.investors.details,
-          },
-          {
-            title: t(tokens.nav.edit),
-            path: paths.dashboard.investors.edit,
-          },
-        ],
-      },
+  // {
+  //   subheader: t(tokens.nav.admin),
+  //   items: [
+  //     {
+  //       title: t(tokens.nav.adminDashboard),
+  //       path: paths.dashboard.crypto,
+  //       icon: (
+  //         <SvgIcon fontSize="small">
+  //           <CurrencyBitcoinCircleIcon />
+  //         </SvgIcon>
+  //       ),
+  //       label: <Chip color="primary" label="New" size="small" />,
+  //     },
+  //     {
+  //       title: t(tokens.nav.startups),
+  //       path: paths.dashboard.startups.index,
+  //       icon: (
+  //         <SvgIcon fontSize="small">
+  //           <Users03Icon />
+  //         </SvgIcon>
+  //       ),
+  //       items: [
+  //         {
+  //           title: t(tokens.nav.list),
+  //           path: paths.dashboard.startups.index,
+  //         },
+  //         {
+  //           title: t(tokens.nav.details),
+  //           path: paths.dashboard.startups.details,
+  //         },
+  //         {
+  //           title: t(tokens.nav.edit),
+  //           path: paths.dashboard.startups.edit,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: t(tokens.nav.investors),
+  //       path: paths.dashboard.investors.index,
+  //       icon: (
+  //         <SvgIcon fontSize="small">
+  //           <Users03Icon />
+  //         </SvgIcon>
+  //       ),
+  //       items: [
+  //         {
+  //           title: t(tokens.nav.list),
+  //           path: paths.dashboard.investors.index,
+  //         },
+  //         {
+  //           title: t(tokens.nav.details),
+  //           path: paths.dashboard.investors.details,
+  //         },
+  //         {
+  //           title: t(tokens.nav.edit),
+  //           path: paths.dashboard.investors.edit,
+  //         },
+  //       ],
+  //     },
 
-      {
-        title: t(tokens.nav.deals),
-        path: paths.deals.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <Users03Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.all),
-            path: paths.deals.index,
-          }
-        ],
-      },
+  //     {
+  //       title: t(tokens.nav.deals),
+  //       path: paths.deals.index,
+  //       icon: (
+  //         <SvgIcon fontSize="small">
+  //           <Users03Icon />
+  //         </SvgIcon>
+  //       ),
+  //       items: [
+  //         {
+  //           title: t(tokens.nav.all),
+  //           path: paths.deals.index,
+  //         }
+  //       ],
+  //     },
 
-      {
-        title: t(tokens.nav.productList),
-        path: paths.dashboard.products.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <ShoppingBag03Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.products.index,
-          },
-          {
-            title: t(tokens.nav.create),
-            path: paths.dashboard.products.create,
-          },
-        ],
-      },
-    ],
-  },
+  //     {
+  //       title: t(tokens.nav.productList),
+  //       path: paths.dashboard.products.index,
+  //       icon: (
+  //         <SvgIcon fontSize="small">
+  //           <ShoppingBag03Icon />
+  //         </SvgIcon>
+  //       ),
+  //       items: [
+  //         {
+  //           title: t(tokens.nav.list),
+  //           path: paths.dashboard.products.index,
+  //         },
+  //         {
+  //           title: t(tokens.nav.create),
+  //           path: paths.dashboard.products.create,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     subheader: t(tokens.nav.pages),
     items: [
