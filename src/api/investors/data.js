@@ -15,6 +15,30 @@ export const investors = [
     refunded: '-$2.00(2)',
     otc: '-$1,004.00(9)',
   },
+  {
+    id: '5e887ac47eed253091be10cb',
+    image: '/assets/avatars/avatar-carson-darrin.png',
+    avatar: '/assets/avatars/avatar-carson-darrin.png',
+    deal: 'Project Universal',
+    allocation: '$497.00',
+    tokensReceived: '0 UNI',
+    receivingEVM: '0x8855...87a4',
+    contributed: '+$3.00(3)',
+    refunded: '-$2.00(2)',
+    otc: '-$1,004.00(9)',
+  },
+  {
+    id: '5e887ac47eed253091be10cb',
+    image: '/assets/avatars/avatar-carson-darrin.png',
+    avatar: '/assets/avatars/avatar-carson-darrin.png',
+    deal: 'Project Universal',
+    allocation: '$497.00',
+    tokensReceived: '0 UNI',
+    receivingEVM: '0x8855...87a4',
+    contributed: '+$3.00(3)',
+    refunded: '-$2.00(2)',
+    otc: '-$1,004.00(9)',
+  },
     
 ];
 
