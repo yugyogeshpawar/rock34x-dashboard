@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 import {
   Avatar,
@@ -32,7 +31,7 @@ const tasks = [
     id: '5eff24b501ba5281ddb5378c',
     members: [
       {
-        avatar: '/assets/avatars/avatar-marcus-finn.png',
+        avatar: '/assets/deal-icon/icon.png',
         name: 'Marcus Finn'
       }
     ],
@@ -48,7 +47,7 @@ const tasks2 = [
     
     members: [
       {
-        avatar: '/assets/avatars/avatar-marcus-finn.png',
+        avatar: '/assets/deal-icon/icon2.png',
         name: 'Marcus Finn'
       }
     ],
@@ -61,7 +60,7 @@ const tasks2 = [
     
     members: [
       {
-        avatar: '/assets/avatars/avatar-jie-yan-song.png',
+        avatar: '/assets/deal-icon/icon3.png',
         name: 'Jie Yan Song'
       }
     ],
@@ -74,7 +73,7 @@ const tasks2 = [
     
     members: [
       {
-        avatar: '/assets/avatars/avatar-penjani-inyene.png',
+        avatar: '/assets/deal-icon/icon4.png',
         name: 'Penjani Inyene'
       }
     ],
@@ -87,7 +86,7 @@ const tasks2 = [
     
     members: [
       {
-        avatar: '/assets/avatars/avatar-penjani-inyene.png',
+        avatar: '/assets/deal-icon/icon5.png',
         name: 'Penjani Inyene'
       }
     ],
