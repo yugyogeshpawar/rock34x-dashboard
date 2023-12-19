@@ -24,6 +24,8 @@ import { OverviewHelp } from '../../sections/dashboard/overview/overview-help';
 import { OverviewJobs } from '../../sections/dashboard/overview/overview-jobs';
 import { OverviewOpenTickets } from '../../sections/dashboard/overview/overview-open-tickets';
 import { OverviewTips } from '../../sections/dashboard/overview/overview-tips';
+import { OverviewNews } from '../../sections/dashboard/overview/overview-news';
+import { OverviewBest } from '../../sections/dashboard/overview/overview-best-buy';
 
 const now = new Date();
 
@@ -70,49 +72,34 @@ const Page = () => {
             </Grid>
             <Grid
               xs={12}
-              md={4}
+              md={6}
             >
               <OverviewDoneTasks amount={31} />
             </Grid>
             <Grid
               xs={12}
-              md={4}
+              md={6}
             >
               <OverviewPendingIssues amount={12} />
             </Grid>
+
+           
+
+
+
+
+
             <Grid
               xs={12}
-              md={4}
+              md={6}
             >
-              <OverviewOpenTickets amount={5} />
+            <OverviewNews/>
             </Grid>
             <Grid
               xs={12}
-              md={7}
+              md={6}
             >
-              <OverviewBanner />
-            </Grid>
-            <Grid
-              xs={12}
-              md={5}
-            >
-              <OverviewTips
-                sx={{ height: '100%' }}
-                tips={[
-                  {
-                    title: 'New fresh design.',
-                    content: 'Your favorite template has a new trendy look, more customization options, screens & more.'
-                  },
-                  {
-                    title: 'Tip 2.',
-                    content: 'Tip content'
-                  },
-                  {
-                    title: 'Tip 3.',
-                    content: 'Tip content'
-                  }
-                ]}
-              />
+              <OverviewBest/>
             </Grid>
             <Grid
               xs={12}
@@ -258,10 +245,16 @@ const Page = () => {
                 ]}
               />
             </Grid>
-            <Grid xs={6}>
-              <OverviewJobs />
-            </Grid>
-            <Grid xs={6}>
+
+
+
+
+
+
+
+
+
+            <Grid xs={12}>
               <OverviewHelp />
             </Grid>
           </Grid>
