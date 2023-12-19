@@ -286,16 +286,17 @@ const Page = () => {
             </Box>
               <Button
                 fullWidth
-                size="large"
+                size="medium"
                 variant="contained"
-                sx={{my:2}}
+                sx={{my:2,borderRadius:2}}
               >
                 <CheckIcon sx={{mr:1}}/> I agree to the above terms
               </Button>
               <Button
                 fullWidth
-                size="large"
+                size="medium"
                 variant="contained"
+                sx={{borderRadius:2}}
               >
                 <CloseIcon sx={{mr:1}}/>Decline
               </Button>
