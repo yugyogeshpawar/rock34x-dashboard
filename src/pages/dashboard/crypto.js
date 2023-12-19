@@ -68,7 +68,7 @@ const Page = () => {
                   direction="row"
                   spacing={2}
                 >
-                  <Button
+               {/*   <Button
                     startIcon={(
                       <SvgIcon>
                         <PlusIcon />
@@ -77,7 +77,7 @@ const Page = () => {
                     variant="contained"
                   >
                     Add Wallet
-                  </Button>
+                    </Button>*/}
                 </Stack>
               </Stack>
             </Grid>
@@ -137,15 +137,18 @@ const Page = () => {
                     cardNumber: '5823 4492 2385 1102',
                     expiryDate: '05/28',
                     holderName: 'John Carter'
-                  },
-                  {
-                    id: '99f231b1c079b810ba66bef1',
-                    brand: 'VISA',
-                    cardNumber: '3455 4562 7710 3507',
-                    expiryDate: '02/30',
-                    holderName: 'John Carter'
                   }
+                  // ,
+                  // {
+                  //   id: '99f231b1c079b810ba66bef1',
+                  //   brand: 'VISA',
+                  //   cardNumber: '3455 4562 7710 3507',
+                  //   expiryDate: '02/30',
+                  //   holderName: 'John Carter'
+                  // }
                 ]}
+                chartSeries={[16213.20, 9626.80, 10076.81]}
+                labels={['Bitcoin', 'Ethereum', 'US Dollars']}
               />
             </Grid>
             <Grid
