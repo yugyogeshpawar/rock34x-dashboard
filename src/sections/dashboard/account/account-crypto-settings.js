@@ -92,9 +92,9 @@ export const AccountCryptoSettings = () => {
       <Card sx={{ marginY: 2 }}>
         <CardHeader
           action={(
-            <IconButton>
+            <IconButton >
               <Button variant="contained" color="primary" sx={{ textWrap: 'nowrap' }} onClick={handleClickContinue2}>
-                <AccountBalanceWalletIcon />Link non-custodial wallet
+                <AccountBalanceWalletIcon sx={{marginRight:1}} />Link non-custodial wallet
               </Button>
             </IconButton>
           )}
@@ -194,7 +194,7 @@ export const AccountCryptoSettings = () => {
           <CloseIcon sx={{cursor:'pointer'}}onClick={handleCloseDialog2}/>
           </Typography>
           </Box>
-          <Card sx={{px:2}}>
+          <Card sx={{px:1}}>
           <Typography sx={{my:1}} variant='subtitle2'>
           <Checkbox sx={{m:0,p:0}}></Checkbox>
             I consent to connecting my wallet. By connecting my wallet, I acknowledge I have read and accept the Privacy Policy and Terms of Service. I understand that CoinList will receive the following
