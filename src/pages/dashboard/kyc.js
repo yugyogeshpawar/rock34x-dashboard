@@ -297,6 +297,7 @@ const Page = () => {
                 size="medium"
                 variant="contained"
                 sx={{borderRadius:2}}
+                onClick={handleCloseDialog}
               >
                 <CloseIcon sx={{mr:1}}/>Decline
               </Button>
