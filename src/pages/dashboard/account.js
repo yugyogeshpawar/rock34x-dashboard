@@ -10,6 +10,7 @@ import { AccountGeneralSettings } from '../../sections/dashboard/account/account
 import { AccountNotificationsSettings } from '../../sections/dashboard/account/account-notifications-settings';
 import { AccountTeamSettings } from '../../sections/dashboard/account/account-team-settings';
 import { AccountSecuritySettings } from '../../sections/dashboard/account/account-security-settings';
+import { AccountCryptoSettings } from '../../sections/dashboard/account/account-crypto-settings';
 
 const now = new Date();
 
@@ -18,7 +19,8 @@ const tabs = [
   { label: 'Billing', value: 'billing' },
   { label: 'Team', value: 'team' },
   { label: 'Notifications', value: 'notifications' },
-  { label: 'Security', value: 'security' }
+  { label: 'Security', value: 'security' },
+  { label: 'Crypto addresses', value: 'crypto addresses' },
 ];
 
 const Page = () => {
@@ -141,6 +143,7 @@ const Page = () => {
               ]}
             />
           )}
+          {currentTab === 'crypto addresses' && <AccountCryptoSettings />}
         </Container>
       </Box>
     </>
