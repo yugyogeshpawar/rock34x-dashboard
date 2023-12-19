@@ -160,6 +160,15 @@ export const getSections = (t) => [
     subheader: t(tokens.nav.pages),
     items: [
       {
+        title: t(tokens.nav.account),
+        path:  paths.dashboard.account,
+        icon: (
+          <SvgIcon fontSize="small">
+            <Users03Icon />
+          </SvgIcon>
+        )
+      },
+      {
         title: t(tokens.nav.auth),
         icon: (
           <SvgIcon fontSize="small">
