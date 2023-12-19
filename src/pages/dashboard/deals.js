@@ -32,7 +32,8 @@ const data = [
     id: '3321324edendeh33421',
     avatar: '/assets/deal-icon/icon6.png',
     title: 'To participate in Auctions, you first need enable wallets for your account.',
-    button: 'Apply For Wallets'
+    button: 'Apply For Wallets',
+    button2: 'View my participations and purchases'
   }
 ]
 
