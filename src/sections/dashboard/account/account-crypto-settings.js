@@ -195,14 +195,16 @@ export const AccountCryptoSettings = () => {
           </Typography>
           </Box>
           <Card sx={{px:2}}>
-          <Typography sx={{my:2}}>
+          <Typography sx={{my:1}} variant='subtitle2'>
           <Checkbox sx={{m:0,p:0}}></Checkbox>
             I consent to connecting my wallet. By connecting my wallet, I acknowledge I have read and accept the Privacy Policy and Terms of Service. I understand that CoinList will receive the following
             </Typography>
-          <Typography>
+          <Typography variant='subtitle2'>
           Wallet Address
           </Typography>
+          <Typography variant='subtitle2'>
           Signed signature request
+          </Typography>
             </Card>
           <Grid
             xs={12}
