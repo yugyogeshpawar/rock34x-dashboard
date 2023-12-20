@@ -92,7 +92,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Blog: Post Details | Rock34x
+          News Details | Rock34x
         </title>
       </Head>
       <Box
