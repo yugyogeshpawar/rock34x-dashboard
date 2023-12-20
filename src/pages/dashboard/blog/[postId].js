@@ -68,8 +68,8 @@ const usePost = () => {
   }, [isMounted]);
 
   useEffect(() => {
-      getPost();
-    },
+    getPost();
+  },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []);
 
@@ -92,7 +92,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Blog: Post Details | Rock34x 
+          Blog: Post Details | Rock34x
         </title>
       </Head>
       <Box
@@ -108,30 +108,14 @@ const Page = () => {
               News
             </Typography>
           </Stack>
-          <Card
-            elevation={16}
+
+          <Box
+            component="section"
             sx={{
-              alignItems: 'center',
-              borderRadius: 1,
-              display: 'flex',
-              justifyContent: 'space-between',
-              mb: 8,
-              mt: 6,
-              px: 3,
-              py: 2
+              flexGrow: 1,
+              py: 4
             }}
           >
-            <Typography variant="subtitle1">
-              Hello, Admin
-            </Typography>
-            <Button
-              component={NextLink}
-              href={paths.dashboard.blog.postCreate}
-              variant="contained"
-            >
-              Edit Post
-            </Button>
-          </Card>
           <Stack spacing={3}>
             <div>
               <Chip label={post.category} />
@@ -198,6 +182,7 @@ const Page = () => {
           <PostCommentAdd />
           <Box sx={{ mt: 8 }}>
             <PostNewsletter />
+          </Box>
           </Box>
         </Container>
       </Box>
