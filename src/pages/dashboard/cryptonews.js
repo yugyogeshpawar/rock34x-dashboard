@@ -104,7 +104,8 @@ const Page = () => {
                                     xs={12}
                                     md={6}
                                 >
-                                    <PostCard
+                                    <PostCard 
+                                        href={`/dashboard/blog/${post.id}`}
                                         authorAvatar={post.author.avatar}
                                         authorName={post.author.name}
                                         category={post.category}

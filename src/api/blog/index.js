@@ -6,8 +6,14 @@ class BlogApi {
     return Promise.resolve(deepCopy(posts));
   }
 
-  getPost(request) {
-    return Promise.resolve(deepCopy(post));
+  getPost(id) {
+    const foundPost = id ? post.find(p => p.id === id) : deepCopy(post[0]);
+    
+    if (!foundPost) {
+      return Promise.reject(new Error('Post not found'));
+    }
+
+    return Promise.resolve(deepCopy(foundPost));
   }
 }
 

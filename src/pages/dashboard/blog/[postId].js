@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { format, subHours } from 'date-fns';
 import {
   Avatar,
@@ -53,11 +54,18 @@ const useComments = () => {
 
 const usePost = () => {
   const isMounted = useMounted();
+  const router = useRouter();
+  const { postId } = router.query; 
+  // console.log(postId);
   const [post, setPost] = useState(null);
 
   const getPost = useCallback(async () => {
+    // console.log(postId);
     try {
-      const response = await blogApi.getPost();
+      if(postId == undefined) {
+        throw new Error('No post ID provided');
+      }
+      const response = await blogApi.getPost(postId);
 
       if (isMounted()) {
         setPost(response);

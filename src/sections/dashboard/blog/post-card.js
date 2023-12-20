@@ -25,6 +25,7 @@ export const PostCard = (props) => {
     readTime,
     shortDescription,
     title,
+    href,
     ...other
   } = props;
 
@@ -34,7 +35,7 @@ export const PostCard = (props) => {
     <Card {...other}>
       <CardMedia
         component={NextLink}
-        href={paths.dashboard.blog.postDetails}
+        href={href}
         image={cover}
         sx={{ height: 280 }}
       />
@@ -45,7 +46,7 @@ export const PostCard = (props) => {
         <Link
           color="text.primary"
           component={NextLink}
-          href={paths.dashboard.blog.postDetails}
+          href={href}
           variant="h5"
         >
           {title}
