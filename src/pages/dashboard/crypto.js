@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import { subDays, subHours, subMinutes } from 'date-fns';
-import PlusIcon from '@untitled-ui/icons-react/build/esm/Plus';
+import Head from "next/head";
+import { subDays, subHours, subMinutes } from "date-fns";
+import PlusIcon from "@untitled-ui/icons-react/build/esm/Plus";
 import {
   Box,
   Button,
@@ -8,18 +8,18 @@ import {
   Stack,
   SvgIcon,
   Typography,
-  Unstable_Grid2 as Grid
-} from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { usePageView } from '../../hooks/use-page-view';
-import { useSettings } from '../../hooks/use-settings';
-import { Layout as DashboardLayout } from '../../layouts/dashboard';
-import { CryptoCards } from '../../sections/dashboard/crypto/crypto-cards';
-import { CryptoOperation } from '../../sections/dashboard/crypto/crypto-operation';
-import { CryptoWallet } from '../../sections/dashboard/crypto/crypto-wallet';
-import { CryptoTransactions } from '../../sections/dashboard/crypto/crypto-transactions';
-import { CryptoUpgrade } from '../../sections/dashboard/crypto/crypto-upgrade';
-import { CryptoCurrentBalance } from '../../sections/dashboard/crypto/crypto-current-balance';
+  Unstable_Grid2 as Grid,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { usePageView } from "../../hooks/use-page-view";
+import { useSettings } from "../../hooks/use-settings";
+import { Layout as DashboardLayout } from "../../layouts/dashboard";
+import { CryptoCards } from "../../sections/dashboard/crypto/crypto-cards";
+import { CryptoOperation } from "../../sections/dashboard/crypto/crypto-operation";
+import { CryptoWallet } from "../../sections/dashboard/crypto/crypto-wallet";
+import { CryptoTransactions } from "../../sections/dashboard/crypto/crypto-transactions";
+import { CryptoUpgrade } from "../../sections/dashboard/crypto/crypto-upgrade";
+import { CryptoCurrentBalance } from "../../sections/dashboard/crypto/crypto-current-balance";
 
 const now = new Date();
 
@@ -138,14 +138,6 @@ const Page = () => {
                     expiryDate: '05/28',
                     holderName: 'John Carter'
                   }
-                  // ,
-                  // {
-                  //   id: '99f231b1c079b810ba66bef1',
-                  //   brand: 'VISA',
-                  //   cardNumber: '3455 4562 7710 3507',
-                  //   expiryDate: '02/30',
-                  //   holderName: 'John Carter'
-                  // }
                 ]}
                 chartSeries={[16213.20, 9626.80, 10076.81]}
                 labels={['Bitcoin', 'Ethereum', 'US Dollars']}
@@ -165,6 +157,31 @@ const Page = () => {
                   chartSeries={[16213.20, 9626.80, 10076.81]}
                   labels={['Bitcoin', 'Ethereum', 'US Dollars']}
                 />
+              </Stack>
+            </Grid>
+            <Grid
+              xs={12}
+              md={4}
+            >
+              <Stack
+                spacing={{
+                  xs: 3,
+                  lg: 4
+                }}
+              >
+                <CryptoOperation />
+               {/* <CryptoUpgrade />*/}
+              </Stack>
+            </Grid>
+            <Grid
+              xs={12}
+            >
+              <Stack
+                spacing={{
+                  xs: 3,
+                  lg: 4
+                }}
+              >
                 <CryptoTransactions
                   transactions={[
                     {
@@ -187,20 +204,6 @@ const Page = () => {
                     }
                   ]}
                 />
-              </Stack>
-            </Grid>
-            <Grid
-              xs={12}
-              md={4}
-            >
-              <Stack
-                spacing={{
-                  xs: 3,
-                  lg: 4
-                }}
-              >
-                <CryptoOperation />
-                <CryptoUpgrade />
               </Stack>
             </Grid>
           </Grid>

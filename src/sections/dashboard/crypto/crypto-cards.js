@@ -102,7 +102,10 @@ export const CryptoCards = (props) => {
           '&:before': {
             color: 'common.white'
           }
-        }
+        },
+         // Adjust the height of the CryptoCards component
+         maxHeight: 500, // Set your desired maximum height
+         overflow: 'hidden', // Hide overflow if maxHeight is exceeded
       }}
     >
       <Slider {...sliderSettings}>
