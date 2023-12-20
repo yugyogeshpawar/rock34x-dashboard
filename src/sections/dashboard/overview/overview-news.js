@@ -1,93 +1,79 @@
+// Import necessary modules
 import { formatDistanceToNowStrict, subHours } from 'date-fns';
-import { Avatar, Box, Card, CardHeader, Link, Rating, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardHeader, Link, Stack, Typography } from '@mui/material';
 
+// Get the current date
 const now = new Date();
 
-const reviews = [
+// Sample crypto news data
+const cryptoNews = [
   {
-    id: '5f0366cd843161f193ebadd4',
+    id: '1',
     author: {
-      avatar: '/assets/avatars/avatar-marcus-finn.png',
-      name: 'Marcus Finn'
+      avatar: '/assets/deal-icon/icon.png',
+      name: 'Jane Doe'
     },
-    comment: 'Great company, providing an awesome & easy to use product.',
-    createdAt: subHours(now, 2).getTime(),
-    value: 5
+    headline: 'Major Blockchain Conference Scheduled for Next Month',
+    createdAt: subHours(now, 1).getTime()
   },
+  {
+    id: '2',
+    author: {
+      avatar: '/assets/deal-icon/icon2.png',
+      name: 'John Smith'
+    },
+    headline: 'New Decentralized Finance (DeFi) Protocol Launches on Ethereum',
+    createdAt: subHours(now, 3).getTime()
+  },
+  // {
+  //   id: '3',
+  //   author: {
+  //     avatar: '/assets/deal-icon/icon3.png',
+  //     name: 'Alice Wonder'
+  //   },
+  //   headline: 'Bitcoin Adoption Continues to Grow as Major Retailer Accepts BTC Payments',
+  //   createdAt: subHours(now, 5).getTime()
+  // },
+  // Add more news items as needed
 ];
 
+// React component for displaying crypto news
 export const OverviewNews = () => (
-  <Card
+  <Card 
     sx={{
-      p: 3
+      p: 2
     }}
   >
-  <Typography variant='h6' sx={{mx:1,my:2}}>
-  Crypto News
-  </Typography>
-    <Stack spacing={3}>
-      {reviews.map((review) => {
-        const ago = formatDistanceToNowStrict(review.createdAt);
+  <Link color="text.primary" href='/dashboard/cryptonews'>
+    <CardHeader sx={{px:2, py:2}}
+      title="Crypto News"
+    />
+    </Link>
+    <Stack spacing={1}>
+      {cryptoNews.map((news) => {
+        const ago = formatDistanceToNowStrict(news.createdAt);
 
         return (
-          <Card key={review.id}>
+          <Card key={news.id}>
             <CardHeader
-              avatar={<Avatar src={review.author.avatar} />}
+              avatar={<Avatar src={news.author.avatar} />}
               disableTypography
               subheader={(
-                <Box
-                  sx={{
-                    alignItems: 'center',
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    mt: 1
-                  }}
+                <Typography
+                  color="text.secondary"
+                  variant="body2"
                 >
-                  <Box
-                    sx={{
-                      alignItems: 'center',
-                      display: 'flex',
-                      mr: 1
-                    }}
-                  >
-                    <Rating
-                      readOnly
-                      value={5}
-                    />
-                    <Typography
-                      sx={{ ml: 1 }}
-                      variant="subtitle2"
-                    >
-                      {review.value}
-                    </Typography>
-                  </Box>
-                  <Typography
-                    color="text.secondary"
-                    variant="body2"
-                  >
-                    | For
-                    {' '}
-                    <Link
-                      color="text.primary"
-                      variant="subtitle2"
-                    >
-                      Low Budget
-                    </Link>
-                    {' '}
-                    |
-                    {' '}
-                    {ago}
-                    {' '}
-                    ago
-                  </Typography>
-                </Box>
+                  {ago}
+                  {' '}
+                  ago
+                </Typography>
               )}
               title={(
                 <Link
                   color="text.primary"
                   variant="subtitle2"
                 >
-                  {review.author.name}
+                  {news.author.name}
                 </Link>
               )}
             />
@@ -101,7 +87,7 @@ export const OverviewNews = () => (
                 color="text.secondary"
                 variant="body1"
               >
-                {review.comment}
+                {news.headline}
               </Typography>
             </Box>
           </Card>

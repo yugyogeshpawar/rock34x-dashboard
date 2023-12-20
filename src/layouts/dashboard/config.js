@@ -57,6 +57,15 @@ export const getSections = (t) => [
           </SvgIcon>
         ),
       },
+      {
+        title: t(tokens.nav.cryptonews),
+        path: paths.dashboard.cryptonews,
+        icon: (
+          <SvgIcon fontSize="small">
+            <ReceiptCheckIcon />
+          </SvgIcon>
+        ),
+      },
     ],
   },
   // {

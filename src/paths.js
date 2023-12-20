@@ -57,6 +57,7 @@ export const paths = {
     },
     account: '/dashboard/account',
     portfolio: '/dashboard/portfolio',
+    cryptonews: '/dashboard/cryptonews',
     analytics: '/dashboard/analytics',
     deals: '/dashboard/deals',
     contribute: '/dashboard/contribute',

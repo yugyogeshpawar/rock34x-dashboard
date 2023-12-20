@@ -105,32 +105,8 @@ const Page = () => {
         <Container maxWidth="xl">
           <Stack spacing={1}>
             <Typography variant="h3">
-              Post
+              News
             </Typography>
-            <Breadcrumbs separator={<BreadcrumbsSeparator />}>
-              <Link
-                color="text.primary"
-                component={NextLink}
-                href={paths.dashboard.index}
-                variant="subtitle2"
-              >
-                Dashboard
-              </Link>
-              <Link
-                color="text.primary"
-                component={NextLink}
-                href={paths.dashboard.blog.index}
-                variant="subtitle2"
-              >
-                Blog
-              </Link>
-              <Typography
-                color="text.secondary"
-                variant="subtitle2"
-              >
-                Details
-              </Typography>
-            </Breadcrumbs>
           </Stack>
           <Card
             elevation={16}
