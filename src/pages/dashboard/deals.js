@@ -158,7 +158,7 @@ const Page = () => {
 
 
                       </ListItem>
-                      <Link href="/dashboard/kyc" passHref>
+                      <Link href="/dashboard/kyc">
                         <Button component="a" variant="contained" color="primary" sx={{ textWrap: 'nowrap', marginLeft: 4 }}>
                           {item.button}
                         </Button>
@@ -203,6 +203,7 @@ const Page = () => {
                         primary={(
                           <>
                             <Link
+                            href="/dashboard/deals2"
                               color="text.primary"
                               noWrap
                               sx={{ cursor: 'pointer' }}
@@ -257,6 +258,7 @@ const Page = () => {
                         primary={(
                           <>
                             <Link
+                            href="/dashboard/deals2"
                               color="text.primary"
                               noWrap
                               sx={{ cursor: 'pointer' }}

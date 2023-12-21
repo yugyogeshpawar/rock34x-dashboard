@@ -72,15 +72,21 @@ const Page = () => {
             </Grid>
             <Grid
               xs={12}
-              md={6}
+              md={4}
             >
               <OverviewDoneTasks amount={31} />
             </Grid>
             <Grid
               xs={12}
-              md={6}
+              md={4}
             >
               <OverviewPendingIssues amount={12} />
+            </Grid>
+            <Grid
+              xs={12}
+              md={4}
+            >
+              <OverviewOpenTickets amount={12} />
             </Grid>
 
            
