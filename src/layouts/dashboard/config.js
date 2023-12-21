@@ -24,6 +24,8 @@ import Truck01Icon from "../../icons/untitled-ui/duocolor/truck-01";
 import Upload04Icon from "../../icons/untitled-ui/duocolor/upload-04";
 import Users03Icon from "../../icons/untitled-ui/duocolor/users-03";
 import XSquareIcon from "../../icons/untitled-ui/duocolor/x-square";
+import { Newspaper } from "@mui/icons-material";
+import NewsIcon from "../../icons/untitled-ui/duocolor/newsicon";
 import { tokens } from "../../locales/tokens";
 import { paths } from "../../paths";
 
@@ -154,6 +156,26 @@ export const getSections = (t) => [
           },
         ],
       },
+      {
+        title: 'News',
+        path: paths.dashboard.news.index,
+        icon: (
+          <SvgIcon fontSize="small">
+            <NewsIcon />
+          </SvgIcon>
+        ),
+        items: [
+          {
+            title: t(tokens.nav.list),
+            path: paths.dashboard.news.index,
+          },
+          {
+            title: t(tokens.nav.create),
+            path: paths.dashboard.news.newsCreate,
+          },
+        ],
+      },
+
     ],
   },
   // {

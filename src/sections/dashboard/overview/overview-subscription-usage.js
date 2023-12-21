@@ -94,8 +94,8 @@ export const OverviewSubscriptionUsage = (props) => {
   return (
     <Card>
       <CardHeader
-        subheader="Based on the selected period"
-        title="Subscription Usage"
+        subheader="Monthly Trends"
+        title="Investments"
         action={<Tabs value="year">
           <Tab
             label="Year"

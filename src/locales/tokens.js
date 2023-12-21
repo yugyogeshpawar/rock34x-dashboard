@@ -24,6 +24,7 @@ export const tokens = {
     customers: 'nav.customers',
     startups: 'nav.startups',
     investors: 'nav.investors',
+    news: 'nav.news',
     dashboard: 'nav.dashboard',
     adminDashboard: 'nav.adminDashboard',
     details: 'nav.details',

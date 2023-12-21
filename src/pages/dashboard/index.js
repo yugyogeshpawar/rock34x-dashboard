@@ -14,7 +14,7 @@ import { usePageView } from '../../hooks/use-page-view';
 import { useSettings } from '../../hooks/use-settings';
 import { Layout as DashboardLayout } from '../../layouts/dashboard';
 import { OverviewBanner } from '../../sections/dashboard/overview/overview-banner';
-import { OverviewDoneTasks } from '../../sections/dashboard/overview/overview-done-tasks';
+import { OverviewDoneTasks, OverviewTotalInvestors } from '../../sections/dashboard/overview/overview-total-investors';
 import { OverviewEvents } from '../../sections/dashboard/overview/overview-events';
 import { OverviewInbox } from '../../sections/dashboard/overview/overview-inbox';
 import { OverviewTransactions } from '../../sections/dashboard/overview/overview-transactions';
@@ -22,8 +22,9 @@ import { OverviewPendingIssues } from '../../sections/dashboard/overview/overvie
 import { OverviewSubscriptionUsage } from '../../sections/dashboard/overview/overview-subscription-usage';
 import { OverviewHelp } from '../../sections/dashboard/overview/overview-help';
 import { OverviewJobs } from '../../sections/dashboard/overview/overview-jobs';
-import { OverviewOpenTickets } from '../../sections/dashboard/overview/overview-open-tickets';
+import { OverviewOpenTickets, OverviewTotalStartups } from '../../sections/dashboard/overview/overview-total-startups';
 import { OverviewTips } from '../../sections/dashboard/overview/overview-tips';
+import { OverviewCryptoNews } from '../../sections/dashboard/overview/overview-crypto-news';
 
 const now = new Date();
 
@@ -72,31 +73,76 @@ const Page = () => {
               xs={12}
               md={4}
             >
-              <OverviewDoneTasks amount={31} />
+              <OverviewTotalInvestors amount={31} />
             </Grid>
             <Grid
               xs={12}
               md={4}
             >
+            <OverviewTotalStartups amount={5} />
+            </Grid>
+            <Grid
+              xs={12}
+              md={4}
+              >
               <OverviewPendingIssues amount={12} />
-            </Grid>
-            <Grid
-              xs={12}
-              md={4}
-            >
-              <OverviewOpenTickets amount={5} />
             </Grid>
             <Grid
               xs={12}
               md={7}
             >
-              <OverviewBanner />
+             {/* <OverviewBanner />*/
+             <OverviewCryptoNews
+             articles={[
+               {
+                 id: 'b91cbe81ee3efefba6b915a7',
+                 content: 'Bitcoin Surges to New All-Time High Amid Growing Investor Confidence',
+                 createdAt: subMinutes(now, 2),
+                 authorAvatar: '/assets/avatars/news-avatar-2.png',
+                 authorName: 'CryptoInsider',
+                 senderOnline: true
+               },
+               {
+                 id: 'de0eb1ac517aae1aa57c0b7e',
+                 content: 'Ethereum 2.0 Upgrade Brings Enhanced Scalability and Sustainability',
+                 createdAt: subMinutes(now, 56),
+                 authorAvatar: '/assets/avatars/news-avatar-1.png',
+                 authorName: 'BlockchainBulletin',
+                 senderOnline: false
+               },
+               {
+                 id: '38e2b0942c90d0ad724e6f40',
+                 content: 'Rising Interest in NFTs: Digital Art Sales Reach Record Numbers',
+                 createdAt: subHours(subMinutes(now, 23), 3),
+                 authorAvatar: '/assets/avatars/news-avatar-2.png',
+                 authorName: 'DigitalCurrencyDaily',
+                 senderOnline: true
+               },
+               {
+                 id: '467505f3356f25a69f4c4890',
+                 content: 'Cardanos Smart Contracts Launch Marks a Milestone for the Blockchain',
+                 createdAt: subHours(subMinutes(now, 6), 8),
+                 authorAvatar: '/assets/avatars/news-avatar-1.png',
+                 authorName: 'CoinChronicle',
+                 senderOnline: true
+               },
+               {
+                 id: '7e6af808e801a8361ce4cf8b',
+                 content: 'Crypto Market Analysis: Bullish Trends Predicted for Altcoins',
+                 createdAt: subHours(subMinutes(now, 18), 10),
+                 authorAvatar: '/assets/avatars/news-avatar-2.png',
+                 authorName: 'CryptoWaveNews',
+                 senderOnline: false
+               }
+             ]}
+           />
+            }
             </Grid>
             <Grid
               xs={12}
               md={5}
             >
-              <OverviewTips
+           {/*   <OverviewTips
                 sx={{ height: '100%' }}
                 tips={[
                   {
@@ -112,7 +158,35 @@ const Page = () => {
                     content: 'Tip content'
                   }
                 ]}
-              />
+              />*/}
+              <OverviewEvents
+              events={[
+                {
+                  id: '3bfa0bc6cbc99bf747c94d51',
+                  createdAt: addDays(now, 1),
+                  description: '17:00 to 18:00',
+                  title: 'Meeting with Partners'
+                },
+                {
+                  id: 'dd6c8ce8655ac222b01f24f9',
+                  createdAt: addDays(now, 4),
+                  description: '17:00 to 18:00',
+                  title: 'Weekly Meeting'
+                },
+                {
+                  id: 'f274902e2bf226865b3cf947',
+                  createdAt: addDays(now, 4),
+                  description: '17:00 to 18:00',
+                  title: 'Weekly Meeting'
+                },
+                {
+                  id: 'd2a66e24110f52acb0cd0b9f',
+                  createdAt: addDays(now, 7),
+                  description: '17:00 to 18:00',
+                  title: 'Weekly Meeting'
+                }
+              ]}
+            />
             </Grid>
             <Grid
               xs={12}

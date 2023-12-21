@@ -1,6 +1,6 @@
-import NextLink from 'next/link';
-import PropTypes from 'prop-types';
-import { format } from 'date-fns';
+import NextLink from "next/link";
+import PropTypes from "prop-types";
+import { format } from "date-fns";
 import {
   Avatar,
   Box,
@@ -10,10 +10,10 @@ import {
   Chip,
   Link,
   Stack,
-  Typography
-} from '@mui/material';
-import { paths } from '../../../paths';
-import { getInitials } from '../../../utils/get-initials';
+  Typography,
+} from "@mui/material";
+import { paths } from "../../../paths";
+import { getInitials } from "../../../utils/get-initials";
 
 export const PostCard = (props) => {
   const {
@@ -25,16 +25,17 @@ export const PostCard = (props) => {
     readTime,
     shortDescription,
     title,
+    newsId, // Add newsId to the props
     ...other
   } = props;
 
-  const formattedPublishedAt = format(publishedAt, 'MMM d, yyyy');
+  const formattedPublishedAt = format(publishedAt, "MMM d, yyyy");
 
   return (
     <Card {...other}>
       <CardMedia
         component={NextLink}
-        href={paths.dashboard.blog.postDetails}
+        href={paths.dashboard.news.newsDetails}
         image={cover}
         sx={{ height: 280 }}
       />
@@ -45,7 +46,7 @@ export const PostCard = (props) => {
         <Link
           color="text.primary"
           component={NextLink}
-          href={paths.dashboard.blog.postDetails}
+          href={paths.dashboard.news.newsDetails}
           variant="h5"
         >
           {title}
@@ -55,10 +56,10 @@ export const PostCard = (props) => {
           sx={{
             height: 48,
             mt: 1,
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: 2
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 2,
           }}
           variant="body1"
         >
@@ -71,22 +72,10 @@ export const PostCard = (props) => {
           spacing={2}
           sx={{ mt: 2 }}
         >
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={2}
-          >
-            <Avatar src={authorAvatar}>
-              {getInitials(authorName)}
-            </Avatar>
+          <Stack alignItems="center" direction="row" spacing={2}>
+            <Avatar src={authorAvatar}>{getInitials(authorName)}</Avatar>
             <Typography variant="subtitle2">
-              By
-              {' '}
-              {authorName}
-              {' '}
-              •
-              {' '}
-              {formattedPublishedAt}
+              By {authorName} • {formattedPublishedAt}
             </Typography>
           </Stack>
           <Typography
@@ -111,5 +100,6 @@ PostCard.propTypes = {
   publishedAt: PropTypes.number.isRequired,
   readTime: PropTypes.string.isRequired,
   shortDescription: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  newsId: PropTypes.string.isRequired, // Add newsId prop type
 };
