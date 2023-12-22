@@ -20,8 +20,91 @@ import {
 import { MoreMenu } from '../../../components/more-menu';
 import { Scrollbar } from '../../../components/scrollbar';
 
+import { useTheme } from '@mui/material/styles';
+
+import { Chart } from '../../../components/chart';
+
 export const OverviewBest = () => {
   // const { products } = props;
+
+
+  const chartSeries = [
+    {
+      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+    }
+  ];
+
+  const useChartOptions = () => {
+    const theme = useTheme();
+  
+    return {
+      chart: {
+        background: 'transparent',
+        toolbar: {
+          show: false
+        },
+        zoom: {
+          enabled: false
+        }
+      },
+      colors: [theme.palette.primary.main],
+      dataLabels: {
+        enabled: false
+      },
+      fill: {
+        opacity: 1,
+        type: 'solid'
+      },
+      grid: {
+        show: false
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 3
+      },
+      theme: {
+        mode: theme.palette.mode
+      },
+      tooltip: {
+        enabled: false
+      },
+      xaxis: {
+        labels: {
+          show: false
+        },
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        }
+      },
+      yaxis: {
+        show: false
+      }
+    };
+  };
+
+  const Graphic = () => {
+    const chartOptions = useChartOptions();
+  
+    return (
+      <Box
+        sx={{
+          alignItems: 'center',
+          display: 'flex',
+          height: 54,
+          width: 177
+        }}
+      >
+        <Chart
+          options={chartOptions}
+          series={chartSeries}
+          type="line"
+        />
+      </Box>
+    );
+  };
 
   const products = [
     {
@@ -31,7 +114,8 @@ export const OverviewBest = () => {
       // desc: 'Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.',
       category: 'Accessories',
       image: '/assets/deal-icon/icon.png',
-      sales: 13153
+      sales: 13153,
+      graph: <Graphic/>
     },
     {
       id: '2',
@@ -40,7 +124,8 @@ export const OverviewBest = () => {
       // desc: 'Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether (ETH), the native cryptocurrency, is created and used to compensate participants who perform computations and validate transactions.',
       category: 'Accessories',
       image: '/assets/deal-icon/icon2.png',
-      sales: 10300
+      sales: 10300,
+      graph: <Graphic/>
     },
     {
       id: '3',
@@ -49,7 +134,8 @@ export const OverviewBest = () => {
       // desc: 'Binance Coin (BNB) is a cryptocurrency used to pay for transaction fees on the Binance exchange. It can also be used for various other purposes within the Binance ecosystem.',
       category: 'Accessories',
       image: '/assets/deal-icon/icon3.png',
-      sales: 5300
+      sales: 5300,
+      graph: <Graphic/>
     },
     {
       id: '4',
@@ -58,7 +144,8 @@ export const OverviewBest = () => {
       // desc: 'Cardano is a blockchain platform for the development of decentralized applications (DApps). It aims to provide a more secure and scalable infrastructure for the development of smart contracts and DApps.',
       category: 'Accessories',
       image: '/assets/deal-icon/icon4.png',
-      sales: 1203
+      sales: 1203,
+      graph: <Graphic/>
     },
     {
       id: '5',
@@ -67,7 +154,8 @@ export const OverviewBest = () => {
       // desc: 'Solana is a high-performance blockchain supporting decentralized applications and crypto projects. It aims to provide fast and low-cost transactions, making it suitable for a wide range of applications.',
       category: 'Accessories',
       image: '/assets/deal-icon/icon5.png',
-      sales: 254
+      sales: 254,
+      graph: <Graphic/>
     }
   ]
 
@@ -105,11 +193,12 @@ export const OverviewBest = () => {
                               backgroundSize: 'cover',
                               borderRadius: 1,
                               display: 'flex',
-                              height: 80,
+                              height: 50,
                               justifyContent: 'center',
                               overflow: 'hidden',
-                              width: 80,
-                              minWidth:80
+                              width: 50,
+                              minWidth:50,
+                              marginX:2
                             }}
                           />
                         )
@@ -122,10 +211,10 @@ export const OverviewBest = () => {
                                 : 'neutral.50',
                               borderRadius: 1,
                               display: 'flex',
-                              height: 80,
+                              height: 50,
                               justifyContent: 'center',
-                              width: 80,
-                              minWidth:80
+                              width: 50,
+                              minWidth:50
                             }}
                           >
                             <SvgIcon>
@@ -145,6 +234,9 @@ export const OverviewBest = () => {
                         </Typography>
                       </div>
                     </Stack>
+                  </TableCell>
+                  <TableCell align="right">
+                  <Graphic />
                   </TableCell>
                 </TableRow>
               );

@@ -99,7 +99,7 @@
 
 
 // import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useState} from 'react';
 import numeral from 'numeral';
 import ArrowRightIcon from '@untitled-ui/icons-react/build/esm/ArrowRight';
 import Image01Icon from '@untitled-ui/icons-react/build/esm/Image01';
@@ -121,7 +121,23 @@ import { MoreMenu } from '../../../components/more-menu';
 import { Scrollbar } from '../../../components/scrollbar';
 
 export const OverviewNews = () => {
-  // const { products } = props;
+
+ // const { products } = props;
+
+  const [expandedIds, setExpandedIds] = useState([]);
+
+  const handleToggleExpansion = (productId) => {
+    setExpandedIds((prevIds) => {
+      if (prevIds.includes(productId)) {
+        // If already expanded, remove from the list
+        return prevIds.filter((id) => id !== productId);
+      } else {
+        // If not expanded, add to the list
+        return [...prevIds, productId];
+      }
+    });
+  };
+ 
 
   const products = [
     {
@@ -182,6 +198,9 @@ export const OverviewNews = () => {
           <TableBody>
             {products.map((product, index) => {
               // const sales = numeral(product.sales).format('0,0');
+              const isExpanded = expandedIds.includes(product.id);
+              const truncatedDesc = isExpanded ? product.desc : product.desc.substr(0, 150);
+
 
               return (
                 <TableRow
@@ -205,11 +224,12 @@ export const OverviewNews = () => {
                               backgroundSize: 'cover',
                               borderRadius: 1,
                               display: 'flex',
-                              height: 120,
+                              height: isExpanded ? 140 : 120,
+                              // maxHeight: 200,
                               justifyContent: 'center',
                               overflow: 'hidden',
                               width: 200,
-                              minWidth:200
+                              minWidth:200,
                             }}
                           />
                         )
@@ -241,7 +261,17 @@ export const OverviewNews = () => {
                           color="text.secondary"
                           variant="body2"
                         >
-                          in {product.desc}
+                        {truncatedDesc}
+                          {product.desc.length > 150 && (
+                            <Button
+                              color="primary"
+                              size="small"
+                              onClick={() => handleToggleExpansion(product.id)}
+                              sx={{ m: 0, p: 0,px:1 }}
+                            >
+                              {isExpanded ? 'Read Less' : 'Read More'}
+                            </Button>
+                          )}
                         </Typography>
                       </div>
                     </Stack>
