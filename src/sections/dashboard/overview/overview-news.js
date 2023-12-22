@@ -175,7 +175,7 @@ export const OverviewNews = () => {
     <Card>
       <CardHeader
         action={<MoreMenu />}
-        title="Best Buy"
+        title="Crypto News"
       />
       <Scrollbar>
         <Table sx={{ minWidth: 300 }}>
