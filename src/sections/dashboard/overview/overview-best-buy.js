@@ -1,95 +1,173 @@
+// import PropTypes from 'prop-types';
+import React from 'react';
 import numeral from 'numeral';
-import DotsHorizontalIcon from '@untitled-ui/icons-react/build/esm/DotsHorizontal';
+import ArrowRightIcon from '@untitled-ui/icons-react/build/esm/ArrowRight';
+import Image01Icon from '@untitled-ui/icons-react/build/esm/Image01';
 import {
-  Avatar,
   Box,
+  Button,
   Card,
+  CardActions,
   CardHeader,
-  Container,
-  Divider,
-  IconButton,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
+  Stack,
   SvgIcon,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
   Typography
 } from '@mui/material';
+import { MoreMenu } from '../../../components/more-menu';
+import { Scrollbar } from '../../../components/scrollbar';
 
-const referrals = [
-  {
-    color: '#455A64',
-    initials: 'GT',
-    name: 'Bitcoin',
-    value: 53032
-  },
-  {
-    color: '#00BCD4',
-    initials: 'TW',
-    name: 'Piecoin',
-    value: 39551
-  },
-  {
-    color: '#00BCD4',
-    initials: 'TW',
-    name: 'BTC',
-    value: 39551
-  },
-];
+export const OverviewBest = () => {
+  // const { products } = props;
 
-export const OverviewBest = () => (
-      <Card
-        sx={{
-          display: 'flex',
-          flexDirection: 'column'
-        }}
-      >
-        <CardHeader 
-          action={(
-            <IconButton>
-              <SvgIcon>
-                <DotsHorizontalIcon />
-              </SvgIcon>
-            </IconButton>
-          )}
-          title="Best Buy"
-        />
-        <Divider />
-        <List disablePadding>
-          {referrals.map((referral, index) => {
-            const showDivider = index < referrals.length - 1;
-            const value = numeral(referral.value).format('0,0');
+  const products = [
+    {
+      id: '1',
+      name: 'Bitcoin',
+      description: 'Digital gold',
+      desc: 'Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.',
+      category: 'Accessories',
+      image: '/assets/products/product-1.png',
+      sales: 13153
+    },
+    {
+      id: '2',
+      name: 'Ethereum',
+      description: 'Smart contracts platform',
+      desc: 'Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether (ETH), the native cryptocurrency, is created and used to compensate participants who perform computations and validate transactions.',
+      category: 'Accessories',
+      image: '/assets/products/product-2.png',
+      sales: 10300
+    },
+    {
+      id: '3',
+      name: 'Binance Coin',
+      description: 'Cryptocurrency used to pay for transaction fees on the Binance exchange',
+      desc: 'Binance Coin (BNB) is a cryptocurrency used to pay for transaction fees on the Binance exchange. It can also be used for various other purposes within the Binance ecosystem.',
+      category: 'Accessories',
+      sales: 5300
+    },
+    {
+      id: '4',
+      name: 'Cardano',
+      description: 'Blockchain platform for the development of decentralized applications',
+      desc: 'Cardano is a blockchain platform for the development of decentralized applications (DApps). It aims to provide a more secure and scalable infrastructure for the development of smart contracts and DApps.',
+      category: 'Accessories',
+      image: '/assets/products/product-4.png',
+      sales: 1203
+    },
+    {
+      id: '5',
+      name: 'Solana',
+      description: 'High-performance blockchain supporting decentralized applications and crypto projects',
+      desc: 'Solana is a high-performance blockchain supporting decentralized applications and crypto projects. It aims to provide fast and low-cost transactions, making it suitable for a wide range of applications.',
+      category: 'Accessories',
+      image: '/assets/products/product-5.png',
+      sales: 254
+    }
+  ]
 
-            return (
-              <ListItem
-                divider={showDivider}
-                key={referral.name}
-              >
-                <ListItemAvatar>
-                  <Avatar
-                    sx={{
-                      backgroundColor: referral.color,
-                      color: 'common.white',
-                      fontSize: 14,
-                      fontWeight: 600
-                    }}
-                  >
-                    {referral.initials}
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText
-                  primary={referral.name}
-                  primaryTypographyProps={{ variant: 'subtitle2' }}
-                />
-                <Typography
-                  color="text.secondary"
-                  variant="body2"
+  return (
+    <Card>
+      <CardHeader
+        action={<MoreMenu />}
+        title="Best Buy"
+      />
+      <Scrollbar>
+        <Table sx={{ minWidth: 300 }}>
+          <TableBody>
+            {products.map((product, index) => {
+              // const sales = numeral(product.sales).format('0,0');
+
+              return (
+                <TableRow
+                  hover
+                  key={product.id}
                 >
-                  {value}
-                </Typography>
-              </ListItem>
-            );
-          })}
-        </List>
-      </Card>
-);
+                  <TableCell>
+                    <Stack
+                      alignItems="center"
+                      direction="row"
+                      spacing={2}
+                    >
+                      {product.image
+                        ? (
+                          <Box
+                            sx={{
+                              alignItems: 'center',
+                              backgroundColor: 'neutral.50',
+                              backgroundImage: `url(${product.image})`,
+                              backgroundPosition: 'center',
+                              backgroundSize: 'cover',
+                              borderRadius: 1,
+                              display: 'flex',
+                              height: 80,
+                              justifyContent: 'center',
+                              overflow: 'hidden',
+                              width: 80,
+                              minWidth:80
+                            }}
+                          />
+                        )
+                        : (
+                          <Box
+                            sx={{
+                              alignItems: 'center',
+                              backgroundColor: (theme) => theme.palette.mode === 'dark'
+                                ? 'neutral.700'
+                                : 'neutral.50',
+                              borderRadius: 1,
+                              display: 'flex',
+                              height: 80,
+                              justifyContent: 'center',
+                              width: 80,
+                              minWidth:80
+                            }}
+                          >
+                            <SvgIcon>
+                              <Image01Icon />
+                            </SvgIcon>
+                          </Box>
+                        )}
+                      <div>
+                        <Typography variant="subtitle2">
+                          {product.name}
+                        </Typography>
+                        <Typography
+                          color="text.secondary"
+                          variant="body2"
+                        >
+                          in {product.desc}
+                        </Typography>
+                      </div>
+                    </Stack>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Scrollbar>
+      <CardActions sx={{ justifyContent: 'flex-end' }}>
+        <Button
+          color="inherit"
+          endIcon={(
+            <SvgIcon>
+              <ArrowRightIcon />
+            </SvgIcon>
+          )}
+          size="small"
+        >
+          See All
+        </Button>
+      </CardActions>
+    </Card>
+  );
+};
+
+// EcommerceProducts.propTypes = {
+//   products: PropTypes.array.isRequired
+// };
