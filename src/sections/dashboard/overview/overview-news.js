@@ -205,11 +205,11 @@ export const OverviewNews = () => {
                               backgroundSize: 'cover',
                               borderRadius: 1,
                               display: 'flex',
-                              height: 80,
+                              height: 120,
                               justifyContent: 'center',
                               overflow: 'hidden',
-                              width: 80,
-                              minWidth:80
+                              width: 200,
+                              minWidth:200
                             }}
                           />
                         )
