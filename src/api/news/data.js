@@ -12,7 +12,7 @@ export const cryptoNews = [
     category: 'Market Analysis',
     cover: '/assets/covers/bitcoin-all-time-high.jpg',
     publishedAt: subMinutes(subSeconds(now, 16), 45).getTime(),
-    readTime: '4 min',
+    readTime: '4',
     shortDescription: 'Bitcoin reaches a new all-time high, driven by increased institutional adoption and market demand.',
     title: 'Bitcoin Surges to New All-Time High Amid Institutional Adoption'
   },
@@ -25,7 +25,7 @@ export const cryptoNews = [
     category: 'Regulation',
     cover: '/assets/covers/crypto-regulation.jpg',
     publishedAt: subMinutes(subSeconds(now, 16), 45).getTime(),
-    readTime: '5 min',
+    readTime: '5',
     shortDescription: 'Government X announces stricter regulations on cryptocurrency exchanges, impacting the market.',
     title: 'Government X Announces Stricter Regulations on Cryptocurrency Exchanges'
   },
@@ -38,7 +38,7 @@ export const cryptoNews = [
     category: 'Blockchain Technology',
     cover: '/assets/covers/ethereum-upgrade.jpg',
     publishedAt: subMinutes(subSeconds(now, 16), 45).getTime(),
-    readTime: '6 min',
+    readTime: '6',
     shortDescription: 'Ethereum 2.0 upgrade successfully implemented, promising enhanced scalability for the blockchain.',
     title: 'Ethereum 2.0 Upgrade Successfully Implemented, Promises Scalability'
   },
@@ -51,7 +51,7 @@ export const cryptoNews = [
     category: 'DeFi',
     cover: '/assets/covers/defi-disruption.png',
     publishedAt: subMinutes(subSeconds(now, 16), 45).getTime(),
-    readTime: '3 min',
+    readTime: '3',
     shortDescription: 'Decentralized Finance (DeFi) continues to disrupt traditional finance models, gaining momentum.',
     title: 'Decentralized Finance (DeFi) Continues to Disrupt Traditional Finance'
   },
@@ -96,7 +96,7 @@ export const cryptoNewsArticle = {
   `,
     cover: '/assets/covers/business-2-4x4-large.png',
     publishedAt: subMinutes(subSeconds(now, 16), 45).getTime(),
-    readTime: '5 min',
+    readTime: '5',
     shortDescription: 'Aliquam dapibus elementum nulla at malesuada. Ut mi nisl, aliquet non mollis vel, feugiat non nibh.',
     title: 'Why I Still Lisp, and You Should Too'
   };

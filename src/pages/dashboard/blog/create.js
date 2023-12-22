@@ -24,11 +24,14 @@ import { usePageView } from '../../../hooks/use-page-view';
 import { Layout as DashboardLayout } from '../../../layouts/dashboard';
 import { paths } from '../../../paths';
 import { fileToBase64 } from '../../../utils/file-to-base64';
+import { useRouter } from 'next/router';
 
 const initialCover = '/assets/covers/abstract-1-4x3-large.png';
 
 const Page = () => {
   const [cover, setCover] = useState(initialCover);
+  
+  const router = useRouter();
 
   usePageView();
 
@@ -40,6 +43,40 @@ const Page = () => {
   const handleCoverRemove = useCallback(() => {
     setCover(null);
   }, []);
+
+  const handlePublish = () => {
+    // Create a new article object with the entered data
+    const newArticle = {
+      id: '98290', // You may want to generate a unique ID
+      author: {
+        avatar: '/assets/avatars/your-avatar.png',
+        name: 'Your Name'
+      },
+      category: 'Your Category',
+      cover,
+      publishedAt: new Date().getTime(),
+      readTime: 'X min', // Set the read time
+      shortDescription,
+      title,
+      content,
+      seoTitle,
+      seoDescription
+    };
+
+    // Update the cryptoNews array with the new article
+    cryptoNews.push(newArticle);
+
+    // Now, you can save the updated cryptoNews array wherever you prefer.
+    // For example, you can use a server, a database, or local storage.
+
+    // For now, let's just log the updated cryptoNews array to the console.
+    console.log('Updated cryptoNews:', cryptoNews);
+
+
+    // Redirect to post details page after successful publish
+    router.push(paths.dashboard.blog.postDetails);
+  };
+
 
   return (
     <>
@@ -314,13 +351,16 @@ const Page = () => {
               mt: 2
             }}
           >
-            <Button
+           {/* <Button
               component={NextLink}
               href={paths.dashboard.blog.postDetails}
               variant="contained"
             >
               Publish changes
-            </Button>
+          </Button>*/}
+            <Button onClick={handlePublish} variant="contained">
+            Publish changes
+          </Button>
           </Box>
         </Container>
       </Box>
