@@ -95,45 +95,41 @@ const Page = () => {
              <OverviewCryptoNews
              articles={[
                {
-                 id: 'b91cbe81ee3efefba6b915a7',
-                 content: 'Bitcoin Surges to New All-Time High Amid Growing Investor Confidence',
-                 createdAt: subMinutes(now, 2),
-                 authorAvatar: '/assets/avatars/news-avatar-2.png',
-                 authorName: 'CryptoInsider',
-                 senderOnline: true
-               },
-               {
-                 id: 'de0eb1ac517aae1aa57c0b7e',
-                 content: 'Ethereum 2.0 Upgrade Brings Enhanced Scalability and Sustainability',
-                 createdAt: subMinutes(now, 56),
-                 authorAvatar: '/assets/avatars/news-avatar-1.png',
-                 authorName: 'BlockchainBulletin',
-                 senderOnline: false
-               },
-               {
-                 id: '38e2b0942c90d0ad724e6f40',
-                 content: 'Rising Interest in NFTs: Digital Art Sales Reach Record Numbers',
-                 createdAt: subHours(subMinutes(now, 23), 3),
-                 authorAvatar: '/assets/avatars/news-avatar-2.png',
-                 authorName: 'DigitalCurrencyDaily',
-                 senderOnline: true
-               },
-               {
-                 id: '467505f3356f25a69f4c4890',
-                 content: 'Cardanos Smart Contracts Launch Marks a Milestone for the Blockchain',
-                 createdAt: subHours(subMinutes(now, 6), 8),
-                 authorAvatar: '/assets/avatars/news-avatar-1.png',
-                 authorName: 'CoinChronicle',
-                 senderOnline: true
-               },
-               {
-                 id: '7e6af808e801a8361ce4cf8b',
-                 content: 'Crypto Market Analysis: Bullish Trends Predicted for Altcoins',
-                 createdAt: subHours(subMinutes(now, 18), 10),
-                 authorAvatar: '/assets/avatars/news-avatar-2.png',
-                 authorName: 'CryptoWaveNews',
-                 senderOnline: false
-               }
+                id: '1',
+                name: 'Bitcoin',
+                description: 'Digital gold',
+                desc: 'Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.',
+                category: 'Accessories',
+                image: '/assets/covers/crypto-news-1.jpg',
+                sales: 13153
+              },
+              {
+                id: '2',
+                name: 'Ethereum',
+                description: 'Smart contracts platform',
+                desc: 'Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether (ETH), the native cryptocurrency, is created and used to compensate participants who perform computations and validate transactions.',
+                category: 'Accessories',
+                image: '/assets/covers/crypto-news-2.png',
+                sales: 10300
+              },
+              {
+                id: '3',
+                name: 'Binance Coin',
+                description: 'Cryptocurrency used to pay for transaction fees on the Binance exchange',
+                desc: 'Binance Coin (BNB) is a cryptocurrency used to pay for transaction fees on the Binance exchange. It can also be used for various other purposes within the Binance ecosystem.',
+                category: 'Accessories',
+                image: '/assets/covers/crypto-news-3.jpg',
+                sales: 5300
+              },
+              {
+                id: '4',
+                name: 'Cardano',
+                description: 'Blockchain platform for the development of decentralized applications',
+                desc: 'Cardano is a blockchain platform for the development of decentralized applications (DApps). It aims to provide a more secure and scalable infrastructure for the development of smart contracts and DApps.',
+                category: 'Accessories',
+                image: '/assets/covers/crypto-news-4.png',
+                sales: 1203
+              },
              ]}
            />
             }

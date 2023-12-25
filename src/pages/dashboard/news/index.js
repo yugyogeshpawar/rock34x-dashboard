@@ -59,7 +59,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          News: News List | Rock34x 
+        Crypto News | Rock34x
         </title>
       </Head>
       <Box
@@ -72,7 +72,7 @@ const Page = () => {
         <Container maxWidth="xl">
           <Stack spacing={1}>
             <Typography variant="h3">
-              News
+              Crypto News
             </Typography>
             <Breadcrumbs separator={<BreadcrumbsSeparator />}>
               <Link
@@ -152,6 +152,7 @@ const Page = () => {
                 md={6}
               >
                 <PostCard
+                  href={`/dashboard/news/${newsArticle.id}`}
                   authorAvatar={newsArticle.author.avatar}
                   authorName={newsArticle.author.name}
                   category={newsArticle.category}
@@ -160,7 +161,6 @@ const Page = () => {
                   readTime={newsArticle.readTime}
                   shortDescription={newsArticle.shortDescription}
                   title={newsArticle.title}
-                  newsId={newsArticle.title}
                   sx={{ height: '100%' }}
                 />
               </Grid>

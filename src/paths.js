@@ -68,7 +68,7 @@ export const paths = {
     },
     news:{
       index: '/dashboard/news',
-      newsDetails :'/dashboard/news/newsDetails/:newsId',
+      newsDetails :'/dashboard/news/:newsId',
       newsCreate :'/dashboard/news/create'
     },
     calendar: '/dashboard/calendar',

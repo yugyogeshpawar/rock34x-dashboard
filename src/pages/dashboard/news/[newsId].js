@@ -15,16 +15,17 @@ import {
   Stack,
   Typography
 } from '@mui/material';
-import { newsApi } from '../../../../api/news';
-import { BreadcrumbsSeparator } from '../../../../components/breadcrumbs-separator';
-import { useMounted } from '../../../../hooks/use-mounted';
-import { usePageView } from '../../../../hooks/use-page-view';
-import { Layout as DashboardLayout } from '../../../../layouts/dashboard';
-import { paths } from '../../../../paths';
-import { PostComment } from '../../../../sections/dashboard/blog/post-comment';
-import { PostCommentAdd } from '../../../../sections/dashboard/blog/post-comment-add';
-import { PostNewsletter } from '../../../../sections/dashboard/blog/post-newsletter';
-import { PostContent } from '../../../../sections/dashboard/blog/post-content';
+import { newsApi } from '../../../api/news';
+import { BreadcrumbsSeparator } from '../../../components/breadcrumbs-separator';
+import { useMounted } from '../../../hooks/use-mounted';
+import { usePageView } from '../../../hooks/use-page-view';
+import { Layout as DashboardLayout } from '../../../layouts/dashboard';
+import { paths } from '../../../paths';
+import { PostComment } from '../../../sections/dashboard/blog/post-comment';
+import { PostCommentAdd } from '../../../sections/dashboard/blog/post-comment-add';
+import { PostNewsletter } from '../../../sections/dashboard/blog/post-newsletter';
+import { PostContent } from '../../../sections/dashboard/blog/post-content';
+import { useRouter } from 'next/router';
 
 const useComments = () => {
   return [
@@ -53,11 +54,18 @@ const useComments = () => {
 
 const useNews = () => {
   const isMounted = useMounted();
+  const router = useRouter();
+  const { newsId } = router.query; 
+  console.log(newsId)
+
   const [news, setNews] = useState(null);
 
   const getNews = useCallback(async () => {
     try {
-      const response = await newsApi.getNewsArticle();
+      if(newsId == undefined) {
+        throw new Error('No news ID provided');
+      }
+      const response = await newsApi.getNewsArticle(newsId);
 
       if (isMounted()) {
         setNews(response);
@@ -87,7 +95,7 @@ const Page = () => {
     return null;
   }
 
-//   const publishedAt = format(news.publishedAt, 'MMMM d, yyyy');
+  const publishedAt = format(news.publishedAt, 'MMMM d, yyyy');
 // const publishedAt = format(new Date(news.publishedAt), 'MMMM d, yyyy');
 
   return (
