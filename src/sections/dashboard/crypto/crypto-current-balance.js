@@ -95,7 +95,7 @@ export const CryptoCurrentBalance = (props) => {
   return (
     <Card>
       <CardHeader
-        title="Current Balance"
+        title="Investment Portfolio"
         subheader="Balance across all your accounts"
       />
       <CardContent>

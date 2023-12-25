@@ -187,7 +187,7 @@ export const OverviewBest = () => {
                           <Box
                             sx={{
                               alignItems: 'center',
-                              backgroundColor: 'neutral.50',
+                              // backgroundColor: 'neutral.50',
                               backgroundImage: `url(${product.image})`,
                               backgroundPosition: 'center',
                               backgroundSize: 'cover',

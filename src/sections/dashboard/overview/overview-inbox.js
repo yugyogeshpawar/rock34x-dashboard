@@ -26,7 +26,7 @@ export const OverviewInbox = (props) => {
   return (
     <Card>
       <CardHeader
-        title="Inbox"
+        title="Notifications"
         action={(
           <IconButton color="inherit">
             <SvgIcon fontSize="small">
