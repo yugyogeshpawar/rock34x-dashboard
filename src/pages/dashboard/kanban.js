@@ -149,7 +149,6 @@ const Page = () => {
           flexDirection: 'column',
           flexGrow: 1,
           overflow: 'hidden',
-          pt: 8
         }}
       >
         <DragDropContext onDragEnd={handleDragEnd}>
@@ -161,7 +160,6 @@ const Page = () => {
               overflowX: 'auto',
               overflowY: 'hidden',
               px: 3,
-              py: 3
             }}
           >
             <Stack
