@@ -133,7 +133,7 @@ export const getSections = (t) => [
           {
             title: t(tokens.nav.all),
             path: paths.deals.index,
-          }
+          },
         ],
       },
 
@@ -156,8 +156,9 @@ export const getSections = (t) => [
           },
         ],
       },
+      ,
       {
-        title: 'News',
+        title: "News",
         path: paths.dashboard.news.index,
         icon: (
           <SvgIcon fontSize="small">
@@ -175,7 +176,25 @@ export const getSections = (t) => [
           },
         ],
       },
-
+      {
+        title: "Events",
+        path: paths.dashboard.events.index,
+        icon: (
+          <SvgIcon fontSize="small">
+            <HomeSmileIcon />
+          </SvgIcon>
+        ),
+        items: [
+          {
+            title: t(tokens.nav.list),
+            path: paths.dashboard.events.index,
+          },
+          {
+            title: t(tokens.nav.create),
+            path: paths.dashboard.events.eventCreate,
+          },
+        ],
+      },
     ],
   },
   // {

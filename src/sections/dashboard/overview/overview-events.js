@@ -19,9 +19,12 @@ import {
   Typography
 } from '@mui/material';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import { paths } from '../../../paths';
 
 export const OverviewEvents = (props) => {
   const { events } = props;
+  const router = useRouter();
 
   return (
     <Card>
@@ -34,6 +37,7 @@ export const OverviewEvents = (props) => {
           {events.map((event) => {
             const createdAtMonth = format(event.createdAt, 'LLL').toUpperCase();
             const createdAtDay = format(event.createdAt, 'd');
+
 
             return (
               <ListItem
@@ -101,6 +105,7 @@ export const OverviewEvents = (props) => {
             </SvgIcon>
           )}
           size="small"
+          onClick={() => router.push(paths.dashboard.events.index)}
         >
           See all
         </Button>

@@ -71,6 +71,10 @@ export const paths = {
       newsDetails :'/dashboard/news/:newsId',
       newsCreate :'/dashboard/news/create'
     },
+    events:{
+      index: '/dashboard/events',
+      eventCreate: '/dashboard/events/create'
+    },
     calendar: '/dashboard/calendar',
     chat: '/dashboard/chat',
     crypto: '/dashboard/crypto',
