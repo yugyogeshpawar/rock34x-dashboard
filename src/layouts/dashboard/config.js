@@ -66,6 +66,15 @@ export const getSections = (t) => [
           </SvgIcon>
         ),
       },
+      {
+        title: t(tokens.nav.kanban),
+        path: paths.dashboard.kanban,
+        icon: (
+          <SvgIcon fontSize="small">
+            <ReceiptCheckIcon />
+          </SvgIcon>
+        ),
+      },
     ],
   },
   // {

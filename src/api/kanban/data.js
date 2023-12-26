@@ -35,9 +35,6 @@ const board = {
       id: '5e849c39325dc5ef58e5a5db',
       taskIds: [
         '5e849c8708bd72683b454747',
-        '5e849c90fabe1f1f4b3557f6',
-        '5e849c977ef6265938bfd90b',
-        '5e849c9e34ee93bc7255c599'
       ],
       name: 'Todo'
     },
@@ -45,20 +42,24 @@ const board = {
       id: '5e849c2b38d238c33e516755',
       taskIds: [
         '5e849ca7d063dc3830d4b49c',
-        '5e849cb5d0c6e8894451fdfa'
       ],
       name: 'Progress'
     },
     {
       id: '5e849c2b38d238c33e5146755',
-      taskIds: [],
+      taskIds: [
+        '5e849cb5d0c6e8894451fdfa'
+      ],
       name: 'Done'
     }
   ],
   tasks: [
     {
       id: '5e849c8708bd72683b454747',
+      name: 'Done Tasks',
+      amount: 31,
       assigneesIds: ['5e887a62195cc5aef7e8ca5d'],
+      image:'assets/iconly/iconly-glass-tick.svg',
       attachments: [
         {
           id: '7191325744eca06bc6ad2219',
@@ -93,7 +94,7 @@ const board = {
       due: addDays(now, 7).getTime(),
       isSubscribed: false,
       labels: ['Business', 'Design'],
-      name: 'Call with sales of HubSpot'
+      // name: 'Call with sales of HubSpot'
     },
     {
       id: '5e849c90fabe1f1f4b3557f6',
@@ -139,6 +140,9 @@ const board = {
     },
     {
       id: '5e849ca7d063dc3830d4b49c',
+      name: 'Pending Issues',
+      amount: 12,
+      image:'assets/iconly/iconly-glass-info.svg',
       assigneesIds: ['5e887a62195cc5aef7e8ca5d'],
       attachments: [],
       authorId: '5e887ac47eed253091be10cb',
@@ -149,10 +153,13 @@ const board = {
       due: null,
       isSubscribed: true,
       labels: [],
-      name: 'Update the customer API for payments'
+      // name: 'Update the customer API for payments'
     },
     {
       id: '5e849cb5d0c6e8894451fdfa',
+      name: 'Open tickets',
+      amount: 12,
+      image:'assets/iconly/iconly-glass-paper.svg',
       assigneesIds: [],
       attachments: [],
       authorId: '5e887ac47eed253091be10cb',
@@ -163,7 +170,7 @@ const board = {
       due: null,
       isSubscribed: true,
       labels: [],
-      name: 'Redesign the landing page'
+      // name: 'Redesign the landing page'
     }
   ]
 };

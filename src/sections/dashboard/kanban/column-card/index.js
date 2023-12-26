@@ -9,14 +9,16 @@ import { ColumnHeader } from './column-header';
 const useColumn = (columnId) => {
   return useSelector((state) => {
     const { columns } = state.kanban;
-
+    console.log(columns)
     return columns.byId[columnId];
+
   });
 };
 
 export const ColumnCard = (props) => {
   const { columnId, onTaskAdd, onTaskOpen, onClear, onDelete, onRename, ...other } = props;
   const column = useColumn(columnId);
+  console.log(column?.taskIds)
 
   if (!column) {
     return null;
@@ -86,6 +88,8 @@ export const ColumnCard = (props) => {
                       {...draggableProvided.dragHandleProps}>
                       <TaskCard
                         key={taskId}
+                        amount={32}
+                        image={"/assets/iconly/iconly-glass-tick.svg"}
                         dragging={snapshot.isDragging}
                         onOpen={() => onTaskOpen?.(taskId)}
                         taskId={taskId}
@@ -98,15 +102,6 @@ export const ColumnCard = (props) => {
             </Box>
           )}
         </Droppable>
-        <Box
-          sx={{
-            pt: 1.5,
-            pb: 3,
-            px: 3
-          }}
-        >
-          <TaskAdd onAdd={onTaskAdd} />
-        </Box>
       </Box>
     </Box>
   );

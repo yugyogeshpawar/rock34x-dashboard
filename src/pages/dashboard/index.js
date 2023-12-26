@@ -27,6 +27,8 @@ import { OverviewTips } from '../../sections/dashboard/overview/overview-tips';
 import { OverviewNews } from '../../sections/dashboard/overview/overview-news';
 import { OverviewBest } from '../../sections/dashboard/overview/overview-best-buy';
 
+import Kanban from './kanban'
+
 const now = new Date();
 
 const Page = () => {
@@ -72,6 +74,14 @@ const Page = () => {
             </Grid>
             <Grid
               xs={12}
+              md={12}
+            >
+              <Kanban/>
+            </Grid>
+
+            {/* Add grids in last 
+           <Grid
+              xs={12}
               md={4}
             >
               <OverviewDoneTasks amount={31} />
@@ -87,11 +97,11 @@ const Page = () => {
               md={4}
             >
               <OverviewOpenTickets amount={12} />
-            </Grid>
-
+            </Grid>   
+     
            
 
-
+*/}
 
 
 

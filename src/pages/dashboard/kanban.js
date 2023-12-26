@@ -142,11 +142,6 @@ const Page = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          Dashboard: Kanban | Rock34x 
-        </title>
-      </Head>
       <Box
         component="main"
         sx={{
@@ -157,11 +152,6 @@ const Page = () => {
           pt: 8
         }}
       >
-        <Box sx={{ px: 3 }}>
-          <Typography variant="h4">
-            Kanban
-          </Typography>
-        </Box>
         <DragDropContext onDragEnd={handleDragEnd}>
           <Box
             sx={{
