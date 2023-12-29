@@ -18,16 +18,16 @@ import {
   Typography,
   Unstable_Grid2 as Grid,
 } from "@mui/material";
-import { jobsApi } from "../../api/deals";
-import { useMounted } from "../../hooks/use-mounted";
-import { usePageView } from "../../hooks/use-page-view";
-import { Layout as DashboardLayout } from "../../layouts/dashboard";
-import { paths } from "../../paths";
-import { CompanyActivity } from "../../sections/dashboard/deals/company-activity";
-import { CompanyAssets } from "../../sections/dashboard/deals/company-assets";
-import { ProjectInfo } from "../../sections/dashboard/deals/project-info";
-import { CompanySummary } from "../../sections/dashboard/deals/deals-info";
-import { getInitials } from "../../utils/get-initials";
+import { jobsApi } from "../../../api/deals";
+import { useMounted } from "../../../hooks/use-mounted";
+import { usePageView } from "../../../hooks/use-page-view";
+import { Layout as DashboardLayout } from "../../../layouts/dashboard";
+import { paths } from "../../../paths";
+import { CompanyActivity } from "../../../sections/dashboard/deals/company-activity";
+import { CompanyAssets } from "../../../sections/dashboard/deals/company-assets";
+import { ProjectInfo } from "../../../sections/dashboard/deals/project-info";
+import { CompanySummary } from "../../../sections/dashboard/deals/deals-info";
+import { getInitials } from "../../../utils/get-initials";
 
 const tabs = [
   { label: "Project info", value: "overview" },

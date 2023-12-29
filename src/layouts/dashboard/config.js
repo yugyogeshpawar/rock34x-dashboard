@@ -43,7 +43,7 @@ export const getSections = (t) => [
       },
       {
         title: t(tokens.nav.deals),
-        path: paths.dashboard.deals,
+        path: paths.dashboard.deals.index,
         icon: (
           <SvgIcon fontSize="small">
             <BarChartSquare02Icon />

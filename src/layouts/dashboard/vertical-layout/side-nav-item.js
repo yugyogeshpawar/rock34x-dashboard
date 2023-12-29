@@ -140,7 +140,7 @@ export const SideNavItem = (props) => {
 
   let linkProps = undefined;
 
-  if (path) {
+  if (path && typeof path === 'string') {
     const isExternal = path.startsWith('http');
 
     linkProps = isExternal

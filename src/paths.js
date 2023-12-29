@@ -58,13 +58,17 @@ export const paths = {
     account: '/dashboard/account',
     portfolio: '/dashboard/portfolio',
     analytics: '/dashboard/analytics',
-    deals: '/dashboard/deals',
     contribute: '/dashboard/contribute',
     blank: '/dashboard/blank',
     blog: {
       index: '/dashboard/blog',
       postDetails: '/dashboard/blog/:postId',
       postCreate: '/dashboard/blog/create'
+    },
+    deals:{
+      index: '/dashboard/deals',
+      dealsCreate : '/dashboard/deals/create',
+      dealsDetails : '/dashboard/deals/detail'
     },
     news:{
       index: '/dashboard/news',
