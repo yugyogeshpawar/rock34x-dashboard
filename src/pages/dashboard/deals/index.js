@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useCallback, useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -27,7 +28,9 @@ import { Layout as DashboardLayout } from "../../../layouts/dashboard";
 import DotsHorizontalIcon from "@untitled-ui/icons-react/build/esm/DotsHorizontal";
 import { Scrollbar } from "../../../components/scrollbar";
 import { paths } from "../../../paths";
+import { useMounted } from "../../../hooks/use-mounted";
 import { useDeals } from "../../../api/deals";
+import { dealsApi } from "../../../api/deals";
 import { styled } from "@mui/system";
 
 const GradientButton = styled(Button)(({ theme }) => ({
@@ -51,81 +54,73 @@ const data = [
   },
 ];
 
-{
-  /*const tasks = [
-  {
-    id: "5eff24b501ba5281ddb5378c",
-    members: [
-      {
-        avatar: "/assets/deal-icon/icon.png",
-        name: "Marcus Finn",
-      },
-    ],
-    title: "bitsCrunch Community Sale - Sold Out!",
-    desc: "The final community sale of the year is here,and the waiting room is open!Sale starts December 14,2023 at 17:00 UTC and has one public option.",
-    button: "Sold Out",
-  },
-];
 
-const tasks2 = [
-  {
-    id: "5eff24c52ce9fdadffa11959",
+const useEvents = () => {
+  const isMounted = useMounted();
+  const [activeDeals, setActiveDeals] = useState([]);
+  const [pastDeals, setPastDeals] = useState([]);
+  // const [selectedEvent, setSelectedEvent] = useState(null);
 
-    members: [
-      {
-        avatar: "/assets/deal-icon/icon2.png",
-        name: "Marcus Finn",
-      },
-    ],
-    title: "Chainflip Community Sale Has Ended",
-    desc: "The efficient cross-chain swapping protocol. Not available in US,CN,CA, and other jurisdictions.Sale has ended.",
-    button: "Sold Out",
-  },
-  {
-    id: "5eff24ca3ffab939b667258b",
+  const getActiveDeals = useCallback(async () => {
+    try {
+      const response = await dealsApi.getActiveDeals();
+      if (isMounted()) {
+        setActiveDeals(response);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, [isMounted]);
+  
+  const getPastDeals = useCallback(async () => {
+    try {
+      const response = await dealsApi.getPastDeals();
+      if (isMounted()) {
+        setPastDeals(response);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, [isMounted]);
 
-    members: [
-      {
-        avatar: "/assets/deal-icon/icon3.png",
-        name: "Jie Yan Song",
-      },
-    ],
-    title: "The Archway Community Sale is Sold Out",
-    desc: "The Value Capture Chain for the Cosmos.US,CA,CN,KR, and other jurisdictions excluded",
-    button: "Sold Out",
-  },
-  {
-    id: "5eff24cf8740fc9faca4e463",
+  // const handleUpdateEvent = (updatedEvent) => {
+  //   // Call the updateEvent function here with the updated event
+  //   // You can use the eventId from selectedEvent to identify the event to update
+  //   // Update logic should go here...
+  //   calendarApi
+  //     .updateEvent({ eventId: selectedEvent.id, update: updatedEvent })
+  //     .then((updatedEvent) => {
+  //       // Handle successful update
+  //       console.log("Event updated:", updatedEvent);
+  //       // Clear the selected event
+  //       setSelectedEvent(null);
+  //     })
+  //     .catch((error) => {
+  //       // Handle error
+  //       console.error("Error updating event:", error);
+  //     });
+  // };
 
-    members: [
-      {
-        avatar: "/assets/deal-icon/icon4.png",
-        name: "Penjani Inyene",
-      },
-    ],
-    title: "The Neon Community Sale is Sold Out",
-    desc: "An Ethereum Virtual Machine on Solana. US,CA,CN,KR, and other jurisdictions excluded",
-    button: "Sold Out",
-  },
-  {
-    id: "5eff24cf8740fc9faca4e463",
+  useEffect(() => {
+    // Call both functions here
+    getActiveDeals();
+    getPastDeals();
+  }, [getActiveDeals, getPastDeals]);
 
-    members: [
-      {
-        avatar: "/assets/deal-icon/icon5.png",
-        name: "Penjani Inyene",
-      },
-    ],
-    title: "The CyberConnect Community Sale is Sold Out",
-    desc: "Web3s Earliest and Biggest Decentralized Social Network.US,CA,CN,KR, and other jurisdictions excluded",
-    button: "Sold Out",
-  },
-];*/
-}
+  // Use useEffect to log events whenever it changes
+  useEffect(() => {
+    console.log("Updated activeDeals:", activeDeals);
+    console.log("Updated pastDeals:", pastDeals);
+  }, [activeDeals, pastDeals]);
+
+  return { activeDeals, pastDeals };
+};
+
 
 const Page = () => {
-  const { activeDeals, pastDeals } = useDeals(); // Use the useDeals hook to fetch tasks data
-  // console.log(tasks);
+  
+  const { activeDeals, pastDeals } =
+    useEvents();
 
   return (
     <>

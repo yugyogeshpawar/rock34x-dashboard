@@ -28,7 +28,7 @@ export const activeDeals = [
     button: "Explore",
   },
   {
-    id: "5eff24cf8740fc9faca4e463",
+    id: "5eff24cf8740sc9faca4e463",
 
     members: [
       {
@@ -84,7 +84,7 @@ export const pastDeals = [
     button: "Sold Out",
   },
   {
-    id: "5eff24cf8740fc9faca4e463",
+    id: "5eff24cf9740fc9faca4e463",
 
     members: [
       {
@@ -97,7 +97,7 @@ export const pastDeals = [
     button: "Sold Out",
   },
   {
-    id: "5eff24cf8740fc9faca4e463",
+    id: "5eff24df8740fc9faca4e463",
 
     members: [
       {
@@ -111,4 +111,6 @@ export const pastDeals = [
   },
 ];
 
-
+export function addActiveDeal(deal) {
+  activeDeals.push(deal);
+}
