@@ -276,36 +276,7 @@ const Page = () => {
                 ]}
               />
             </Grid>
-            <Grid xs={12} md={5}>
-              <OverviewEvents
-                events={[
-                  {
-                    id: "3bfa0bc6cbc99bf747c94d51",
-                    createdAt: addDays(now, 1),
-                    description: "17:00 to 18:00",
-                    title: "Meeting with Partners",
-                  },
-                  {
-                    id: "dd6c8ce8655ac222b01f24f9",
-                    createdAt: addDays(now, 4),
-                    description: "17:00 to 18:00",
-                    title: "Weekly Meeting",
-                  },
-                  {
-                    id: "f274902e2bf226865b3cf947",
-                    createdAt: addDays(now, 4),
-                    description: "17:00 to 18:00",
-                    title: "Weekly Meeting",
-                  },
-                  {
-                    id: "d2a66e24110f52acb0cd0b9f",
-                    createdAt: addDays(now, 7),
-                    description: "17:00 to 18:00",
-                    title: "Weekly Meeting",
-                  },
-                ]}
-              />
-            </Grid>
+            
             <Grid xs={6}>
               <OverviewJobs />
             </Grid>

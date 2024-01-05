@@ -114,3 +114,11 @@ export const pastDeals = [
 export function addActiveDeal(deal) {
   activeDeals.push(deal);
 }
+
+export function updateActiveDeal(updatedDeal) {
+  const index = activeDeals.findIndex((deal) => deal.id === updatedDeal.id);
+
+  if (index !== -1) {
+    activeDeals[index] = updatedDeal;
+  }
+}

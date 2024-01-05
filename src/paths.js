@@ -68,7 +68,9 @@ export const paths = {
     deals:{
       index: '/dashboard/deals',
       dealsCreate : '/dashboard/deals/create',
-      dealsDetails : '/dashboard/deals/detail'
+      dealsDetails : '/dashboard/deals/detail',
+      dealsUpdate : '/dashboard/deals/:dealId/update',
+      dealsEdit: '/dashboard/deals/:dealId/edit'
     },
     news:{
       index: '/dashboard/news',

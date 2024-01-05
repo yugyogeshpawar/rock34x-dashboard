@@ -1,6 +1,6 @@
 import { deepCopy } from "../../utils/deep-copy";
-import { activeDeals, pastDeals, addActiveDeal } from "./data";
-import { useState, useEffect } from "react";
+import { activeDeals, pastDeals, addActiveDeal, updateActiveDeal } from "./data";
+import { useState, useEffect, useCallback } from "react";
 import { createResourceId } from "../../utils/create-resource-id";
 
 class DealsApi {
@@ -74,26 +74,29 @@ class DealsApi {
   }
   
 
-  updateTask(request) {
-    const { taskId, update } = request;
+  updateDeal(request) {
+    const { dealId, update } = request;
 
     return new Promise((resolve, reject) => {
       try {
         // Make a deep copy
-        const clonedTasks = deepCopy(tasks);
+        const clonedTasks = deepCopy(activeDeals);
 
         // Find the task that will be updated
-        const task = clonedTasks.find((task) => task.id === taskId);
+        const deal = clonedTasks.find((deal) => deal.id === dealId);
 
-        if (!task) {
-          reject(new Error("Task not found"));
+        if (!deal) {
+          reject(new Error("deal not found"));
           return;
         }
 
         // Update the task
-        Object.assign(task, update);
+        Object.assign(deal, update);
 
-        resolve(deepCopy(task));
+         // Update the deal in data.js
+      updateActiveDeal(deal);
+
+        resolve(deepCopy(deal));
       } catch (err) {
         console.error("[Deals Api]: ", err);
         reject(new Error("Internal server error"));
@@ -126,9 +129,40 @@ class DealsApi {
       }
     });
   }
+
+  getDealById(dealId) {
+    return new Promise((resolve, reject) => {
+      try {
+        const deal = [...activeDeals, ...pastDeals].find((deal) => deal.id === dealId);
+
+        if (!deal) {
+          reject(new Error("Deal not found"));
+          return;
+        }
+
+        resolve(deepCopy(deal));
+      } catch (err) {
+        console.error("[Deals Api]: ", err);
+        reject(new Error("Internal server error"));
+      }
+    });
+  }
 }
 
 export const dealsApi = new DealsApi();
+
+// export const useDeals = () => {
+//   const [activeDeals, setActiveDeals] = useState([]);
+//   const [pastDeals, setPastDeals] = useState([]);
+
+//   useEffect(() => {
+//     dealsApi.getActiveDeals().then((response) => setActiveDeals(response));
+//     dealsApi.getPastDeals().then((response) => setPastDeals(response));
+//   }, []);
+
+//   return { activeDeals, pastDeals };
+// };
+
 
 export const useDeals = () => {
   const [activeDeals, setActiveDeals] = useState([]);
@@ -139,5 +173,16 @@ export const useDeals = () => {
     dealsApi.getPastDeals().then((response) => setPastDeals(response));
   }, []);
 
-  return { activeDeals, pastDeals };
+  const getDealById = useCallback(async (dealId) => {
+    try {
+      const dealDetails = await dealsApi.getDealById(dealId);
+      return dealDetails;
+    } catch (error) {
+      console.error("Error fetching deal details:", error);
+      throw error; // rethrow the error to handle it elsewhere if needed
+    }
+  }, []);
+
+  return { activeDeals, pastDeals, getDealById };
 };
+
