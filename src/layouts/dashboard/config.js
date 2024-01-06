@@ -120,42 +120,6 @@ export const getSections = (t) => [
           },
         ],
       },
-
-      {
-        title: t(tokens.nav.deals),
-        path: paths.deals.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <Users03Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.all),
-            path: paths.deals.index,
-          },
-        ],
-      },
-
-      {
-        title: t(tokens.nav.productList),
-        path: paths.dashboard.products.index,
-        icon: (
-          <SvgIcon fontSize="small">
-            <ShoppingBag03Icon />
-          </SvgIcon>
-        ),
-        items: [
-          {
-            title: t(tokens.nav.list),
-            path: paths.dashboard.products.index,
-          },
-          {
-            title: t(tokens.nav.create),
-            path: paths.dashboard.products.create,
-          },
-        ],
-      },
       ,
       {
         title: "News",

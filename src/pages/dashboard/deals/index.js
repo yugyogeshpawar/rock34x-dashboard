@@ -484,7 +484,7 @@ const Page = () => {
                           variant="contained"
                           color="primary"
                           sx={{ textWrap: "nowrap", marginRight: 1 }}
-                          href={paths.dashboard.deals.dealsDetails}
+                          href={`/dashboard/deals/detail/${task.id}`}
                         >
                           {task.button}
                         </Button>

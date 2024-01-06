@@ -70,7 +70,7 @@ export const paths = {
       dealsCreate : '/dashboard/deals/create',
       dealsDetails : '/dashboard/deals/detail',
       dealsUpdate : '/dashboard/deals/:dealId/update',
-      dealsEdit: '/dashboard/deals/:dealId/edit'
+      
     },
     news:{
       index: '/dashboard/news',
